@@ -33,6 +33,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Documentação revisada para refletir a pasta raiz real do projeto (`FlixHub/`) e manter alinhamento entre estrutura e guias.
 - Guia de estilos atualizado com recomendações de foco (`:focus-visible`) alinhadas ao estado atual da implementação.
 - Inclusão de `./teste` no `.gitignore` para manter o laboratório fora do versionamento padrão.
+- Correção do `.gitignore` para usar padrões efetivos (`teste/` e `.teste/`) e garantir que pastas locais de laboratório não subam ao remoto.
 
 ## Commits publicados
 
