@@ -98,6 +98,13 @@ Isso melhora escaneabilidade em telas pequenas e evita compressão excessiva de 
 - título com identidade visual forte (vermelho de marca);
 - botão de alternância de tema no canto direito.
 - ponto inicial preferencial da navegação por teclado no DOM.
+- botão de acessibilidade para leitura em modo dislexia.
+
+### Modo Dislexia (`data-reading='dyslexia'`)
+
+- aplica fonte **Lexend** como principal de leitura;
+- aumenta `line-height`, espaçamento entre letras e entre palavras;
+- estado persistido via `localStorage` com chave `flixhub-reading-mode`.
 
 ### Skip links (`.skip-link`)
 
@@ -203,6 +210,7 @@ Fórmula: `rem = px / 16`
 - Ícones: gerados pela biblioteca Lucide (`window.lucide.createIcons()`)
 - Microanimação: classe `.is-switching` aplicada por ~420ms no toggle
 - Footer: preenchimento automático do ano atual em `#year-footer`
+- Leitura: estado `default`/`dyslexia` aplicado em `html[data-reading]`
 
 ## ✅ Checklist para futuras alterações de estilo
 

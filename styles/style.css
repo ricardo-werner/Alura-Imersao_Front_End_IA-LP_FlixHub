@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap');
+
 :root {
+  --font-base:
+    'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-dyslexia:
+    'Lexend', 'Inter', 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   --bg: #050608;
   --bg-elev: #1a1d24;
   --bg-card: #232730;
@@ -48,9 +56,7 @@ html {
 
 body {
   min-height: 100vh;
-  font-family:
-    'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  font-family: var(--font-base);
   color: var(--text);
   line-height: 1.5;
   background:
@@ -74,6 +80,13 @@ body {
   transition:
     background 0.35s ease,
     color 0.25s ease;
+}
+
+html[data-reading='dyslexia'] body {
+  font-family: var(--font-dyslexia);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
 }
 
 .skip-link {
@@ -193,6 +206,53 @@ header h1 {
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.a11y-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.88rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  border: 0.0625rem solid var(--line);
+  cursor: pointer;
+  font: inherit;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.a11y-toggle:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.a11y-toggle:focus-visible {
+  outline: 0.125rem solid var(--metal-blue);
+  outline-offset: 0.125rem;
+}
+
+.a11y-toggle svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.dyslexia-toggle-text {
+  min-width: 6.2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+html[data-reading='dyslexia'] .a11y-toggle {
+  color: var(--text);
+  border-color: var(--metal-blue);
+  background: rgba(127, 168, 209, 0.18);
 }
 
 .theme-toggle {
