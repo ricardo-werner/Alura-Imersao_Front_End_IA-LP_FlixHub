@@ -19,6 +19,11 @@ Toda a implementação é feita em arquivos estáticos, sem build e sem framewor
 FlixHub/
 ├── index.html
 ├── README.md
+├── .gitignore
+├── teste/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 ├── src/
 │   ├── assets/
 │   │   └── images/
@@ -77,6 +82,8 @@ Como é um projeto estático, há duas formas simples:
 - consolidação das melhorias de acessibilidade por teclado (menu, cards e botão de retorno);
 - documentação revisada para manter consistência com a estrutura real do projeto (`FlixHub/`);
 - histórico técnico centralizado em `CHANGELOG.md` para rastreabilidade de evolução.
+- laboratório local de acessibilidade em `./teste` (HTML/CSS/JS) para experimentar navegação por teclado e toggles sem impactar a base principal.
+- pasta `./teste` configurada no `.gitignore` para uso de prototipação local.
 
 ## 📝 Histórico de mudanças
 

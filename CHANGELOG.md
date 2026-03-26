@@ -12,6 +12,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Documentação inicial do projeto e do guia de estilos.
 - Seções `Bombando` e `Minha Lista` no conteúdo principal para corresponder ao menu lateral.
 - Botão **Voltar ao menu** em cada seção de mídia para retorno rápido ao item correspondente da sidebar.
+- Laboratório local de acessibilidade em `./teste` com três arquivos (`index.html`, `style.css`, `script.js`) espelhando navegação por teclado e toggles.
 
 ### Changed
 
@@ -31,6 +32,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Ajuste adicional da navegação por setas para alcançar o botão **Voltar ao menu** com `ArrowDown` na última linha e retornar aos cards com `ArrowUp`.
 - Documentação revisada para refletir a pasta raiz real do projeto (`FlixHub/`) e manter alinhamento entre estrutura e guias.
 - Guia de estilos atualizado com recomendações de foco (`:focus-visible`) alinhadas ao estado atual da implementação.
+- Inclusão de `./teste` no `.gitignore` para manter o laboratório fora do versionamento padrão.
 
 ## Commits publicados
 
