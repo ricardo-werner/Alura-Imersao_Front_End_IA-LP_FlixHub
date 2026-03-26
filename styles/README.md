@@ -1,4 +1,4 @@
-# Guia de Estilos — Projeto 1-Netflix
+# Guia de Estilos — Projeto FlixHub
 
 Este documento é a referência técnica da camada de estilos do projeto. A ideia é centralizar decisões visuais, tokens, regras de responsividade e boas práticas para facilitar manutenção futura.
 
@@ -190,7 +190,7 @@ Fórmula: `rem = px / 16`
 
 - Script: `src/scripts/script.js`
 - Atributo controlado: `html[data-theme='light' | 'dark']`
-- Persistência: `localStorage` com chave `netflix-theme`
+- Persistência: `localStorage` com chave `flixhub-theme`
 - Ícones: gerados pela biblioteca Lucide (`window.lucide.createIcons()`)
 - Microanimação: classe `.is-switching` aplicada por ~420ms no toggle
 

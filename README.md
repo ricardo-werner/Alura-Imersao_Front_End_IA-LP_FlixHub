@@ -1,13 +1,13 @@
-# 1-Netflix
+# FlixHub
 
-Projeto front-end estático inspirado na interface da Netflix, desenvolvido com HTML5 e CSS3 como prática de estrutura semântica, layout moderno e responsividade.
+Projeto front-end estático inspirado em plataformas de streaming, desenvolvido com HTML5 e CSS3 como prática de estrutura semântica, layout moderno e responsividade.
 
 ## 📌 Visão geral
 
 O projeto simula uma home de streaming com:
 
 - menu lateral fixo;
-- cabeçalho com marca da Netflix e controle de tema;
+- cabeçalho com marca FlixHub e controle de tema;
 - área principal com perfis, destaque, séries e filmes;
 - rodapé com links institucionais.
 
@@ -16,7 +16,7 @@ Toda a implementação é feita em arquivos estáticos, sem build e sem framewor
 ## 🧱 Estrutura do projeto
 
 ```
-1-Netflix/
+1-FlixHub/
 ├── index.html
 ├── README.md
 ├── src/

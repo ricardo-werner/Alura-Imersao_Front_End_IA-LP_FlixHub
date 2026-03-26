@@ -1,5 +1,5 @@
 (() => {
-  const STORAGE_KEY = 'netflix-theme';
+  const STORAGE_KEY = 'flixhub-theme';
   const THEME_DARK = 'dark';
   const THEME_LIGHT = 'light';
 
