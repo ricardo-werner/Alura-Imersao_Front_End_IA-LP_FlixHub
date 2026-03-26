@@ -28,6 +28,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Ajustes visuais de foco (`:focus-visible`) em links do menu lateral, cards focáveis e botão de retorno.
 - Navegação por teclado entre cards com setas direcionais (`↑`, `↓`, `←`, `→`) e suporte para `Home`/`End`.
 - Ajuste da navegação por setas para comportamento cíclico por bloco inteiro (último card → primeiro card, e vice-versa).
+- Ajuste adicional da navegação por setas para alcançar o botão **Voltar ao menu** com `ArrowDown` na última linha e retornar aos cards com `ArrowUp`.
 
 ## Commits publicados
 

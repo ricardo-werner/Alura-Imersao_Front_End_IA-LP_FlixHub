@@ -274,12 +274,22 @@
   }) => {
     const getWrappedIndex = (step) =>
       (currentIndex + step + total) % total;
+    const rowOffset = currentIndex % columns;
+    const downCandidate = currentIndex + columns;
+    const upCandidate = currentIndex - columns;
+    const lastRowStart =
+      Math.floor((total - 1) / columns) * columns;
+    const upWrapped = lastRowStart + rowOffset;
 
     const keyMap = {
       ArrowRight: getWrappedIndex(1),
       ArrowLeft: getWrappedIndex(-1),
-      ArrowDown: getWrappedIndex(columns),
-      ArrowUp: getWrappedIndex(-columns),
+      ArrowDown:
+        downCandidate < total ? downCandidate : null,
+      ArrowUp:
+        upCandidate >= 0
+          ? upCandidate
+          : Math.min(upWrapped, total - 1),
       Home: 0,
       End: total - 1,
     };
@@ -309,6 +319,8 @@
 
       if (!section) return;
 
+      const backButton =
+        section.querySelector('.back-to-menu');
       const cardsInSection = Array.from(
         section.querySelectorAll('.media-card')
       );
@@ -324,10 +336,37 @@
         total: cardsInSection.length,
       });
 
+      if (event.key === 'ArrowDown' && nextIndex === null) {
+        if (!backButton) return;
+
+        event.preventDefault();
+        backButton.focus();
+        return;
+      }
+
       if (nextIndex === currentIndex) return;
 
       event.preventDefault();
       cardsInSection[nextIndex]?.focus();
+    });
+  });
+
+  backToMenuButtons.forEach((button) => {
+    button.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowUp') return;
+
+      const section = button.closest('.media-section');
+
+      if (!section) return;
+
+      const cardsInSection = Array.from(
+        section.querySelectorAll('.media-card')
+      );
+
+      if (!cardsInSection.length) return;
+
+      event.preventDefault();
+      cardsInSection[cardsInSection.length - 1].focus();
     });
   });
 })();
