@@ -62,6 +62,10 @@ Como é um projeto estático, há duas formas simples:
 - Foco atual em **layout e estilização**, com interação básica de tema.
 - Alternância entre tema escuro e claro com persistência local e ícones coerentes por tema (lua no escuro, sol no claro).
 
+## 📝 Histórico de mudanças
+
+Para consulta futura das evoluções do projeto, veja `CHANGELOG.md`.
+
 ## 🚀 Próximos passos sugeridos
 
 - expandir interações JavaScript (ex.: estado ativo de menu e seleção de perfil);
