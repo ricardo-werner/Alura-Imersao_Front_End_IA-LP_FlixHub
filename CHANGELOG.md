@@ -19,9 +19,15 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Ano no footer passou a ser preenchido dinamicamente via JavaScript (`#year-footer`).
 - Remoção de script inline do HTML, centralizando comportamentos em `src/scripts/script.js`.
 - Inclusão de seção de histórico no `README.md` apontando para este changelog.
+- Navegação por teclado otimizada com foco inicial no `header` e skip links para conteúdo e controles de acessibilidade.
+- Inclusão de modo de leitura para dislexia com fonte **Lexend** e persistência local.
+- Inclusão de modo de baixa visão com escala tipográfica em ciclo (`100%` → `110%` → `125%`) e persistência local.
 
 ## Commits publicados
 
+- `83ea66e` — `feat(a11y): adicionar baixa visao com escala 100 110 125 e persistencia`
+- `b4e37d9` — `feat(a11y): adicionar modo dislexia com fonte Lexend e persistencia`
+- `69b3815` — `feat(a11y): priorizar header no foco e adicionar skip links`
 - `66a6a35` — `feat(footer): adicionar autoria e ano dinamico no rodape com docs atualizadas`
 - `85d2397` — `docs(changelog): adicionar histórico inicial do FlixHub e link no README`
 - `c2fb879` — `refactor(brand): renomear projeto para FlixHub e atualizar docs/persistencia`
