@@ -27,6 +27,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Navegação via teclado no menu lateral com `Enter`/`Espaço` para focar o primeiro card da seção (`Séries`, `Filmes`, `Bombando`, `Minha Lista`).
 - Ajustes visuais de foco (`:focus-visible`) em links do menu lateral, cards focáveis e botão de retorno.
 - Navegação por teclado entre cards com setas direcionais (`↑`, `↓`, `←`, `→`) e suporte para `Home`/`End`.
+- Ajuste da navegação por setas para comportamento cíclico por bloco inteiro (último card → primeiro card, e vice-versa).
 
 ## Commits publicados
 

@@ -272,23 +272,21 @@
     columns,
     total,
   }) => {
+    const getWrappedIndex = (step) =>
+      (currentIndex + step + total) % total;
+
     const keyMap = {
-      ArrowRight: currentIndex + 1,
-      ArrowLeft: currentIndex - 1,
-      ArrowDown: currentIndex + columns,
-      ArrowUp: currentIndex - columns,
+      ArrowRight: getWrappedIndex(1),
+      ArrowLeft: getWrappedIndex(-1),
+      ArrowDown: getWrappedIndex(columns),
+      ArrowUp: getWrappedIndex(-columns),
       Home: 0,
       End: total - 1,
     };
 
     if (!(key in keyMap)) return currentIndex;
 
-    const targetIndex = keyMap[key];
-
-    if (targetIndex < 0) return 0;
-    if (targetIndex >= total) return total - 1;
-
-    return targetIndex;
+    return keyMap[key];
   };
 
   const mediaCards =
