@@ -47,7 +47,9 @@
   }
 
   #series ul,
-  #filmes ul {
+  #filmes ul,
+  #bombando ul,
+  #minha-lista ul {
     grid-template-columns: 1fr;
   }
 }
@@ -93,7 +95,9 @@
   }
 
   #series ul,
-  #filmes ul {
+  #filmes ul,
+  #bombando ul,
+  #minha-lista ul {
     grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
   }
 }

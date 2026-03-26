@@ -181,4 +181,74 @@
     applyFontScale(nextScale);
     localStorage.setItem(SCALE_KEY, nextScale);
   });
+
+  const sidebarMenuLinks = Array.from(
+    document.querySelectorAll('aside nav a[href^="#"]')
+  );
+
+  const getTargetSection = (menuLink) => {
+    const targetId = menuLink
+      .getAttribute('href')
+      ?.replace('#', '');
+
+    if (!targetId) return null;
+
+    return document.getElementById(targetId);
+  };
+
+  const focusFirstCardInSection = (section) => {
+    const firstCard = section.querySelector('.media-card');
+
+    if (!firstCard) return;
+
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+    firstCard.focus();
+  };
+
+  const isSectionShortcutKey = (event) =>
+    event.key === ' ' ||
+    event.key === 'Spacebar' ||
+    event.key === 'Enter';
+
+  sidebarMenuLinks.forEach((menuLink) => {
+    menuLink.addEventListener('keydown', (event) => {
+      if (!isSectionShortcutKey(event)) return;
+
+      const section = getTargetSection(menuLink);
+
+      if (!section?.classList.contains('media-section')) {
+        return;
+      }
+
+      event.preventDefault();
+      focusFirstCardInSection(section);
+    });
+  });
+
+  const backToMenuButtons = document.querySelectorAll(
+    '.back-to-menu[data-return-link]'
+  );
+
+  backToMenuButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const menuLinkId = button.getAttribute(
+        'data-return-link'
+      );
+
+      if (!menuLinkId) return;
+
+      const menuLink = document.getElementById(menuLinkId);
+
+      if (!menuLink) return;
+
+      menuLink.focus();
+      menuLink.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+    });
+  });
 })();

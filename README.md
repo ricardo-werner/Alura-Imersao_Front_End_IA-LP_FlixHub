@@ -8,7 +8,7 @@ O projeto simula uma home de streaming com:
 
 - menu lateral fixo;
 - cabeçalho com marca FlixHub e controle de tema;
-- área principal com perfis, destaque, séries e filmes;
+- área principal com perfis, destaque, séries, filmes, bombando e minha lista;
 - rodapé com autoria, foco em inclusão digital, ano dinâmico e links institucionais.
 
 Toda a implementação é feita em arquivos estáticos, sem build e sem framework.
@@ -52,6 +52,9 @@ Toda a implementação é feita em arquivos estáticos, sem build e sem framewor
 - Footer com ano automático via JavaScript (`#year-footer`).
 - Navegação lateral com ícones semânticos via Lucide.
 - Navegação com rótulos de acessibilidade (`aria-label`, `aria-labelledby`).
+- Navegação por teclado no menu lateral com atalho por `Enter`/`Espaço` para entrar diretamente no bloco de cards da seção.
+- Fluxo de retorno com botão **Voltar ao menu** ao final de cada bloco, facilitando seguir para o próximo item do menu com `Tab`.
+- Estados de foco visíveis para links de navegação, cards e botões de ação.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -64,7 +67,7 @@ Como é um projeto estático, há duas formas simples:
 ## ✅ Status atual
 
 - Projeto funcional para exibição da interface.
-- Foco atual em **layout e estilização**, com interação básica de tema.
+- Foco atual em **layout, estilização e acessibilidade por teclado**, com interação progressiva.
 - Alternância entre tema escuro e claro com persistência local e ícones coerentes por tema (lua no escuro, sol no claro).
 
 ## 📝 Histórico de mudanças

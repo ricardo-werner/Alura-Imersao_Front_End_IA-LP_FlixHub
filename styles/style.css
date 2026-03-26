@@ -183,6 +183,13 @@ aside a:hover {
   color: var(--text);
 }
 
+aside a:focus-visible {
+  outline: 0.125rem solid var(--metal-blue);
+  outline-offset: 0.125rem;
+  background: rgba(127, 168, 209, 0.14);
+  color: var(--text);
+}
+
 header {
   grid-area: header;
   padding: 1.6rem 2.2rem 1rem;
@@ -447,14 +454,18 @@ article p {
 }
 
 #series ul,
-#filmes ul {
+#filmes ul,
+#bombando ul,
+#minha-lista ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
   gap: 0.65rem;
 }
 
 #series li,
-#filmes li {
+#filmes li,
+#bombando li,
+#minha-lista li {
   background: var(--bg-elev);
   border: 0.0625rem solid var(--line);
   border-radius: 0.75rem;
@@ -464,6 +475,49 @@ article p {
     background-color 0.25s ease,
     border-color 0.25s ease,
     color 0.25s ease;
+}
+
+.media-card:focus-visible {
+  outline: 0.125rem solid var(--metal-blue);
+  outline-offset: 0.15rem;
+  border-color: var(--metal-blue);
+  color: var(--text);
+}
+
+.back-to-menu {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0.0625rem solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font: inherit;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.back-to-menu:hover {
+  color: var(--text);
+  border-color: var(--metal-blue);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.back-to-menu:focus-visible {
+  outline: 0.125rem solid var(--metal-blue);
+  outline-offset: 0.125rem;
+  color: var(--text);
+}
+
+.back-to-menu svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 footer {

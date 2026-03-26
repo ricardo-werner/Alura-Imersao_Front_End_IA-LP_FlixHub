@@ -79,31 +79,31 @@
       <nav aria-label="Navegação lateral">
         <ul>
           <li>
-            <a href="#inicio"
+            <a id="menu-inicio" href="#inicio"
               ><i data-lucide="house" aria-hidden="true"></i
               ><span>Início</span></a
             >
           </li>
           <li>
-            <a href="#series"
+            <a id="menu-series" href="#series"
               ><i data-lucide="tv" aria-hidden="true"></i
               ><span>Séries</span></a
             >
           </li>
           <li>
-            <a href="#filmes"
+            <a id="menu-filmes" href="#filmes"
               ><i data-lucide="film" aria-hidden="true"></i
               ><span>Filmes</span></a
             >
           </li>
           <li>
-            <a href="#bombando"
+            <a id="menu-bombando" href="#bombando"
               ><i data-lucide="flame" aria-hidden="true"></i
               ><span>Bombando</span></a
             >
           </li>
           <li>
-            <a href="#minha-lista"
+            <a id="menu-minha-lista" href="#minha-lista"
               ><i data-lucide="list" aria-hidden="true"></i
               ><span>Minha Lista</span></a
             >
@@ -150,24 +150,124 @@
         </article>
       </section>
 
-      <section id="series" aria-labelledby="series-titulo">
+      <section
+        id="series"
+        class="media-section"
+        aria-labelledby="series-titulo"
+      >
         <h2 id="series-titulo">Séries populares</h2>
         <ul>
-          <li>Dark</li>
-          <li>Wandinha</li>
-          <li>The Witcher</li>
-          <li>La Casa de Papel</li>
+          <li class="media-card" tabindex="0">Dark</li>
+          <li class="media-card" tabindex="0">Wandinha</li>
+          <li class="media-card" tabindex="0">
+            The Witcher
+          </li>
+          <li class="media-card" tabindex="0">
+            La Casa de Papel
+          </li>
         </ul>
+        <button
+          type="button"
+          class="back-to-menu"
+          data-return-link="menu-series"
+        >
+          <i
+            data-lucide="corner-up-left"
+            aria-hidden="true"
+          ></i>
+          <span>Voltar ao menu</span>
+        </button>
       </section>
 
-      <section id="filmes" aria-labelledby="filmes-titulo">
+      <section
+        id="filmes"
+        class="media-section"
+        aria-labelledby="filmes-titulo"
+      >
         <h2 id="filmes-titulo">Filmes em alta</h2>
         <ul>
-          <li>Resgate 2</li>
-          <li>Alerta Vermelho</li>
-          <li>Projeto Extração</li>
-          <li>Agente Oculto</li>
+          <li class="media-card" tabindex="0">Resgate 2</li>
+          <li class="media-card" tabindex="0">
+            Alerta Vermelho
+          </li>
+          <li class="media-card" tabindex="0">
+            Projeto Extração
+          </li>
+          <li class="media-card" tabindex="0">
+            Agente Oculto
+          </li>
         </ul>
+        <button
+          type="button"
+          class="back-to-menu"
+          data-return-link="menu-filmes"
+        >
+          <i
+            data-lucide="corner-up-left"
+            aria-hidden="true"
+          ></i>
+          <span>Voltar ao menu</span>
+        </button>
+      </section>
+
+      <section
+        id="bombando"
+        class="media-section"
+        aria-labelledby="bombando-titulo"
+      >
+        <h2 id="bombando-titulo">Bombando agora</h2>
+        <ul>
+          <li class="media-card" tabindex="0">Round 6</li>
+          <li class="media-card" tabindex="0">
+            The Night Agent
+          </li>
+          <li class="media-card" tabindex="0">
+            Avatar: O Último Mestre do Ar
+          </li>
+          <li class="media-card" tabindex="0">One Piece</li>
+        </ul>
+        <button
+          type="button"
+          class="back-to-menu"
+          data-return-link="menu-bombando"
+        >
+          <i
+            data-lucide="corner-up-left"
+            aria-hidden="true"
+          ></i>
+          <span>Voltar ao menu</span>
+        </button>
+      </section>
+
+      <section
+        id="minha-lista"
+        class="media-section"
+        aria-labelledby="minha-lista-titulo"
+      >
+        <h2 id="minha-lista-titulo">Minha lista</h2>
+        <ul>
+          <li class="media-card" tabindex="0">Arcane</li>
+          <li class="media-card" tabindex="0">
+            O Problema dos 3 Corpos
+          </li>
+          <li class="media-card" tabindex="0">
+            Interestelar
+          </li>
+          <li class="media-card" tabindex="0">
+            Blade Runner 2049
+          </li>
+        </ul>
+        <button
+          type="button"
+          class="back-to-menu"
+          data-return-link="menu-minha-lista"
+        >
+          <i
+            data-lucide="corner-up-left"
+            aria-hidden="true"
+          ></i>
+          <span>Voltar ao menu</span>
+        </button>
       </section>
     </main>
 

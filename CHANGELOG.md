@@ -10,6 +10,8 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Sidebar de navegação e seções principais (perfis, destaque, séries e filmes).
 - Toggle de tema claro/escuro com persistência em `localStorage`.
 - Documentação inicial do projeto e do guia de estilos.
+- Seções `Bombando` e `Minha Lista` no conteúdo principal para corresponder ao menu lateral.
+- Botão **Voltar ao menu** em cada seção de mídia para retorno rápido ao item correspondente da sidebar.
 
 ### Changed
 
@@ -22,6 +24,8 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Navegação por teclado otimizada com foco inicial no `header` e skip links para conteúdo e controles de acessibilidade.
 - Inclusão de modo de leitura para dislexia com fonte **Lexend** e persistência local.
 - Inclusão de modo de baixa visão com escala tipográfica em ciclo (`100%` → `110%` → `125%`) e persistência local.
+- Navegação via teclado no menu lateral com `Enter`/`Espaço` para focar o primeiro card da seção (`Séries`, `Filmes`, `Bombando`, `Minha Lista`).
+- Ajustes visuais de foco (`:focus-visible`) em links do menu lateral, cards focáveis e botão de retorno.
 
 ## Commits publicados
 
