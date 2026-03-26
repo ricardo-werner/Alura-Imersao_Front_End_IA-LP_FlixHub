@@ -9,6 +9,13 @@
   const toggleText = toggleButton?.querySelector(
     '.theme-toggle-text'
   );
+  const yearFooter = document.getElementById('year-footer');
+
+  if (yearFooter) {
+    yearFooter.textContent = String(
+      new Date().getFullYear()
+    );
+  }
 
   const getPreferredTheme = () => {
     const prefersLight = window.matchMedia(

@@ -123,7 +123,9 @@ Isso melhora escaneabilidade em telas pequenas e evita compressão excessiva de 
 ### Footer (`footer`)
 
 - distribuição flexível entre texto e links;
-- wrap habilitado para evitar quebra ruim em telas menores.
+- wrap habilitado para evitar quebra ruim em telas menores;
+- área institucional com autoria e descrição de foco em acessibilidade;
+- ano exibido dinamicamente por JavaScript no elemento `#year-footer`.
 
 ## 📱 Responsividade (breakpoints oficiais)
 
@@ -193,6 +195,7 @@ Fórmula: `rem = px / 16`
 - Persistência: `localStorage` com chave `flixhub-theme`
 - Ícones: gerados pela biblioteca Lucide (`window.lucide.createIcons()`)
 - Microanimação: classe `.is-switching` aplicada por ~420ms no toggle
+- Footer: preenchimento automático do ano atual em `#year-footer`
 
 ## ✅ Checklist para futuras alterações de estilo
 
