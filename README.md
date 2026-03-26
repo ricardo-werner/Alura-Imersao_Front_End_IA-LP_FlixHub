@@ -43,6 +43,8 @@ Toda a implementação é feita em arquivos estáticos, sem build e sem framewor
 - Layout principal com **CSS Grid**, incluindo área de sidebar e conteúdo central.
 - Seções organizadas por `header`, `main`, `section`, `article` e `footer`.
 - Header simplificado: título à esquerda e botão de toggle de tema à direita.
+- Ordem de foco otimizada para teclado: `header` antes do `aside` no DOM.
+- Skip links no topo para pular para conteúdo principal e controles de acessibilidade.
 - Toggle de tema com microinterações visuais (hover, active e transição suave de ícones).
 - Rótulo dinâmico no toggle: `Tema: Escuro` / `Tema: Claro`.
 - Footer com ano automático via JavaScript (`#year-footer`).

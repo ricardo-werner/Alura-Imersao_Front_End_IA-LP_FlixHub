@@ -97,6 +97,13 @@ Isso melhora escaneabilidade em telas pequenas e evita compressão excessiva de 
 - fundo translúcido + blur para sensação de profundidade;
 - título com identidade visual forte (vermelho de marca);
 - botão de alternância de tema no canto direito.
+- ponto inicial preferencial da navegação por teclado no DOM.
+
+### Skip links (`.skip-link`)
+
+- atalhos exibidos no foco para acelerar navegação por teclado;
+- links para conteúdo principal (`#main-content`) e controles de acessibilidade (`#accessibility-controls`);
+- ficam visualmente ocultos até receber foco.
 
 ### Toggle de tema (`.theme-toggle`)
 

@@ -10,6 +10,44 @@
     <title>FlixHub</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content"
+      >Pular para o conteúdo principal</a
+    >
+    <a class="skip-link" href="#accessibility-controls"
+      >Ir para controles de acessibilidade</a
+    >
+
+    <header id="inicio">
+      <h1>FLIXHUB</h1>
+      <div
+        class="header-actions"
+        id="accessibility-controls"
+      >
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Alternar entre tema claro e escuro"
+          aria-pressed="false"
+          title="Alternar tema"
+        >
+          <i
+            data-lucide="sun"
+            class="theme-icon theme-icon-sun"
+            aria-hidden="true"
+          ></i>
+          <i
+            data-lucide="moon"
+            class="theme-icon theme-icon-moon"
+            aria-hidden="true"
+          ></i>
+          <span class="theme-toggle-text"
+            >Tema: Escuro</span
+          >
+        </button>
+      </div>
+    </header>
+
     <aside>
       <h2>Menu</h2>
       <nav aria-label="Navegação lateral">
@@ -48,35 +86,7 @@
       </nav>
     </aside>
 
-    <header id="inicio">
-      <h1>FLIXHUB</h1>
-      <div class="header-actions">
-        <button
-          id="theme-toggle"
-          class="theme-toggle"
-          type="button"
-          aria-label="Alternar entre tema claro e escuro"
-          aria-pressed="false"
-          title="Alternar tema"
-        >
-          <i
-            data-lucide="sun"
-            class="theme-icon theme-icon-sun"
-            aria-hidden="true"
-          ></i>
-          <i
-            data-lucide="moon"
-            class="theme-icon theme-icon-moon"
-            aria-hidden="true"
-          ></i>
-          <span class="theme-toggle-text"
-            >Tema: Escuro</span
-          >
-        </button>
-      </div>
-    </header>
-
-    <main>
+    <main id="main-content">
       <section aria-labelledby="perfis-titulo">
         <h2 id="perfis-titulo">Quem está assistindo?</h2>
         <div class="profile">
