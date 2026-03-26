@@ -54,6 +54,7 @@ Toda a implementação é feita em arquivos estáticos, sem build e sem framewor
 - Navegação com rótulos de acessibilidade (`aria-label`, `aria-labelledby`).
 - Navegação por teclado no menu lateral com atalho por `Enter`/`Espaço` para entrar diretamente no bloco de cards da seção.
 - Fluxo de retorno com botão **Voltar ao menu** ao final de cada bloco, facilitando seguir para o próximo item do menu com `Tab`.
+- Navegação por setas (`↑`, `↓`, `←`, `→`) entre os cards dentro de cada seção, além de suporte às teclas `Home` e `End`.
 - Estados de foco visíveis para links de navegação, cards e botões de ação.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 

@@ -251,4 +251,85 @@
       });
     });
   });
+
+  const getGridColumnCount = (section) => {
+    const mediaList = section.querySelector('ul');
+
+    if (!mediaList) return 1;
+
+    const gridTemplateColumns = window
+      .getComputedStyle(mediaList)
+      .gridTemplateColumns.trim();
+
+    if (!gridTemplateColumns) return 1;
+
+    return gridTemplateColumns.split(' ').length;
+  };
+
+  const getNextCardIndex = ({
+    currentIndex,
+    key,
+    columns,
+    total,
+  }) => {
+    const keyMap = {
+      ArrowRight: currentIndex + 1,
+      ArrowLeft: currentIndex - 1,
+      ArrowDown: currentIndex + columns,
+      ArrowUp: currentIndex - columns,
+      Home: 0,
+      End: total - 1,
+    };
+
+    if (!(key in keyMap)) return currentIndex;
+
+    const targetIndex = keyMap[key];
+
+    if (targetIndex < 0) return 0;
+    if (targetIndex >= total) return total - 1;
+
+    return targetIndex;
+  };
+
+  const mediaCards =
+    document.querySelectorAll('.media-card');
+
+  mediaCards.forEach((card) => {
+    card.addEventListener('keydown', (event) => {
+      const supportedKeys = [
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowDown',
+        'ArrowUp',
+        'Home',
+        'End',
+      ];
+
+      if (!supportedKeys.includes(event.key)) return;
+
+      const section = card.closest('.media-section');
+
+      if (!section) return;
+
+      const cardsInSection = Array.from(
+        section.querySelectorAll('.media-card')
+      );
+      const currentIndex = cardsInSection.indexOf(card);
+
+      if (currentIndex < 0) return;
+
+      const columnCount = getGridColumnCount(section);
+      const nextIndex = getNextCardIndex({
+        currentIndex,
+        key: event.key,
+        columns: columnCount,
+        total: cardsInSection.length,
+      });
+
+      if (nextIndex === currentIndex) return;
+
+      event.preventDefault();
+      cardsInSection[nextIndex]?.focus();
+    });
+  });
 })();

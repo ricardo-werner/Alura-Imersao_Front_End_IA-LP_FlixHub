@@ -26,8 +26,11 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Inclusão de modo de baixa visão com escala tipográfica em ciclo (`100%` → `110%` → `125%`) e persistência local.
 - Navegação via teclado no menu lateral com `Enter`/`Espaço` para focar o primeiro card da seção (`Séries`, `Filmes`, `Bombando`, `Minha Lista`).
 - Ajustes visuais de foco (`:focus-visible`) em links do menu lateral, cards focáveis e botão de retorno.
+- Navegação por teclado entre cards com setas direcionais (`↑`, `↓`, `←`, `→`) e suporte para `Home`/`End`.
 
 ## Commits publicados
+
+- `2c77219` — `feat(a11y): melhorar fluxo de teclado entre menu e seções de mídia`
 
 - `83ea66e` — `feat(a11y): adicionar baixa visao com escala 100 110 125 e persistencia`
 - `b4e37d9` — `feat(a11y): adicionar modo dislexia com fonte Lexend e persistencia`
