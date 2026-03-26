@@ -1,0 +1,162 @@
+/* Breakpoints mobile-first
+  sm: 40rem
+  md: 48rem
+  lg: 64rem
+  xl: 80rem
+  2xl: 96rem
+*/
+
+/* Base (sem prefixo): smartphones pequenos */
+@media (max-width: 39.99rem) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'header'
+      'aside'
+      'main'
+      'footer';
+  }
+
+  aside {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 0.0625rem solid var(--line);
+    padding: 1rem 1.2rem;
+  }
+
+  aside ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  aside li + li {
+    margin-top: 0;
+  }
+
+  header,
+  main,
+  footer {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  main > section:first-of-type {
+    grid-template-columns: 1fr;
+  }
+
+  #series ul,
+  #filmes ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* sm: >= 40rem */
+@media (min-width: 40rem) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'header'
+      'aside'
+      'main'
+      'footer';
+  }
+
+  aside {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 0.0625rem solid var(--line);
+    padding: 1rem 1.2rem;
+  }
+
+  aside ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  aside li + li {
+    margin-top: 0;
+  }
+
+  main,
+  header,
+  footer {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  main > section:first-of-type {
+    grid-template-columns: repeat(2, minmax(8.75rem, 1fr));
+  }
+
+  #series ul,
+  #filmes ul {
+    grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
+  }
+}
+
+/* md: >= 48rem */
+@media (min-width: 48rem) {
+  main > section:first-of-type {
+    grid-template-columns: repeat(3, minmax(8.75rem, 1fr));
+  }
+}
+
+/* lg: >= 64rem */
+@media (min-width: 64rem) {
+  body {
+    grid-template-columns: 15.625rem minmax(0, 1fr);
+    grid-template-areas:
+      'aside header'
+      'aside main'
+      'aside footer';
+  }
+
+  aside {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 0.0625rem solid var(--line);
+    border-bottom: 0;
+    padding: 2rem 1.4rem;
+  }
+
+  aside ul {
+    display: block;
+  }
+
+  aside li + li {
+    margin-top: 0.65rem;
+  }
+
+  header,
+  main,
+  footer {
+    padding-left: 2.2rem;
+    padding-right: 2.2rem;
+  }
+}
+
+/* xl: >= 80rem */
+@media (min-width: 80rem) {
+  main > section:first-of-type {
+    grid-template-columns: repeat(
+      3,
+      minmax(9.0625rem, 1fr)
+    );
+  }
+}
+
+/* 2xl: >= 96rem */
+@media (min-width: 96rem) {
+  body {
+    grid-template-columns: 17rem minmax(0, 1fr);
+  }
+
+  main {
+    gap: 1.6rem;
+  }
+}
