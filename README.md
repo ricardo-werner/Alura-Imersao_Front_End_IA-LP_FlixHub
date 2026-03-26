@@ -16,7 +16,7 @@ Toda a implementação é feita em arquivos estáticos, sem build e sem framewor
 ## 🧱 Estrutura do projeto
 
 ```
-1-FlixHub/
+FlixHub/
 ├── index.html
 ├── README.md
 ├── src/
@@ -71,6 +71,12 @@ Como é um projeto estático, há duas formas simples:
 - Projeto funcional para exibição da interface.
 - Foco atual em **layout, estilização e acessibilidade por teclado**, com interação progressiva.
 - Alternância entre tema escuro e claro com persistência local e ícones coerentes por tema (lua no escuro, sol no claro).
+
+## 📦 Última entrega (2026-03-26)
+
+- consolidação das melhorias de acessibilidade por teclado (menu, cards e botão de retorno);
+- documentação revisada para manter consistência com a estrutura real do projeto (`FlixHub/`);
+- histórico técnico centralizado em `CHANGELOG.md` para rastreabilidade de evolução.
 
 ## 📝 Histórico de mudanças
 

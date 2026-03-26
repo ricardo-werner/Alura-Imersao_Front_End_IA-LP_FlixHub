@@ -15,8 +15,8 @@ Este arquivo registra a evolução do projeto para consulta futura.
 
 ### Changed
 
-- Renomeação da marca de Netflix para **FlixHub** para evitar conflitos de marca.
-- Atualizações de documentação e chave de persistência (`netflix-theme` → `flixhub-theme`).
+- Renomeação da marca anterior para **FlixHub** para manter coerência de identidade.
+- Atualizações de documentação e chave de persistência (chave anterior → `flixhub-theme`).
 - Rodapé atualizado com autoria e descrição de foco em acessibilidade/inclusão digital.
 - Ano no footer passou a ser preenchido dinamicamente via JavaScript (`#year-footer`).
 - Remoção de script inline do HTML, centralizando comportamentos em `src/scripts/script.js`.
@@ -29,18 +29,24 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Navegação por teclado entre cards com setas direcionais (`↑`, `↓`, `←`, `→`) e suporte para `Home`/`End`.
 - Ajuste da navegação por setas para comportamento cíclico por bloco inteiro (último card → primeiro card, e vice-versa).
 - Ajuste adicional da navegação por setas para alcançar o botão **Voltar ao menu** com `ArrowDown` na última linha e retornar aos cards com `ArrowUp`.
+- Documentação revisada para refletir a pasta raiz real do projeto (`FlixHub/`) e manter alinhamento entre estrutura e guias.
+- Guia de estilos atualizado com recomendações de foco (`:focus-visible`) alinhadas ao estado atual da implementação.
 
 ## Commits publicados
 
-- `2c77219` — `feat(a11y): melhorar fluxo de teclado entre menu e seções de mídia`
-
-- `83ea66e` — `feat(a11y): adicionar baixa visao com escala 100 110 125 e persistencia`
-- `b4e37d9` — `feat(a11y): adicionar modo dislexia com fonte Lexend e persistencia`
-- `69b3815` — `feat(a11y): priorizar header no foco e adicionar skip links`
-- `66a6a35` — `feat(footer): adicionar autoria e ano dinamico no rodape com docs atualizadas`
-- `85d2397` — `docs(changelog): adicionar histórico inicial do FlixHub e link no README`
-- `c2fb879` — `refactor(brand): renomear projeto para FlixHub e atualizar docs/persistencia`
-- `66e7668` — `feat: estrutura inicial da landing page Netflix com tema claro/escuro e documentação`
+- `21e8255` — `feat(a11y): permitir seta alcançar botão voltar ao menu`
+- `908280e` — `feat(a11y): tornar navegação por setas cíclica por bloco`
+- `305067c` — `feat(a11y): adicionar navegação por setas entre cards`
+- `70dc312` — `feat(a11y): melhorar fluxo de teclado entre menu e seções de mídia`
+- `8d1c3af` — `docs(changelog): registrar melhorias de acessibilidade e commits A11Y`
+- `26c6653` — `feat(a11y): adicionar baixa visao com escala 100 110 125 e persistencia`
+- `8beb74a` — `feat(a11y): adicionar modo dislexia com fonte Lexend e persistencia`
+- `76ec126` — `feat(a11y): priorizar header no foco e adicionar skip links`
+- `a9756b2` — `docs(changelog): registrar update do footer e commits recentes`
+- `d818fff` — `feat(footer): adicionar autoria e ano dinamico no rodape com docs atualizadas`
+- `4bdc49a` — `docs(changelog): adicionar histórico inicial do FlixHub e link no README`
+- `1843d29` — `refactor(brand): renomear projeto para FlixHub e atualizar docs/persistencia`
+- `e2ea45d` — `feat: estrutura inicial da landing page FlixHub com tema claro/escuro e documentação`
 
 ## Como manter este changelog
 

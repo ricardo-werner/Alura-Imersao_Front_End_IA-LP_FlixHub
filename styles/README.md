@@ -175,7 +175,7 @@ Diretrizes aplicadas no CSS atual:
 
 Melhorias recomendadas para próximas versões:
 
-- incluir estados `:focus-visible` explícitos;
+- expandir a padronização de `:focus-visible` para todos os controles restantes e estados combinados (hover + foco);
 - validar contraste com ferramentas automáticas (WCAG);
 - garantir consistência de foco entre links do `aside`, `header` e `footer`.
 
