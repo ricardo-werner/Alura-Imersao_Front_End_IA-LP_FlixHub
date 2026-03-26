@@ -106,6 +106,12 @@ Isso melhora escaneabilidade em telas pequenas e evita compressão excessiva de 
 - aumenta `line-height`, espaçamento entre letras e entre palavras;
 - estado persistido via `localStorage` com chave `flixhub-reading-mode`.
 
+### Baixa visão (`data-scale`)
+
+- escala global aplicada no elemento `html`;
+- ciclo de níveis: `100%`, `110%`, `125%`;
+- estado persistido via `localStorage` com chave `flixhub-font-scale`.
+
 ### Skip links (`.skip-link`)
 
 - atalhos exibidos no foco para acelerar navegação por teclado;
@@ -211,6 +217,7 @@ Fórmula: `rem = px / 16`
 - Microanimação: classe `.is-switching` aplicada por ~420ms no toggle
 - Footer: preenchimento automático do ano atual em `#year-footer`
 - Leitura: estado `default`/`dyslexia` aplicado em `html[data-reading]`
+- Baixa visão: estado de escala aplicado em `html[data-scale]`
 
 ## ✅ Checklist para futuras alterações de estilo
 

@@ -1,10 +1,12 @@
 (() => {
   const STORAGE_KEY = 'flixhub-theme';
   const READING_KEY = 'flixhub-reading-mode';
+  const SCALE_KEY = 'flixhub-font-scale';
   const THEME_DARK = 'dark';
   const THEME_LIGHT = 'light';
   const READING_DEFAULT = 'default';
   const READING_DYSLEXIA = 'dyslexia';
+  const SCALE_OPTIONS = ['100', '110', '125'];
 
   const root = document.documentElement;
   const toggleButton =
@@ -15,8 +17,14 @@
   const dyslexiaButton = document.getElementById(
     'dyslexia-toggle'
   );
-  const dyslexiaText =
-    dyslexiaButton?.querySelector('.dyslexia-toggle-text');
+  const dyslexiaText = dyslexiaButton?.querySelector(
+    '.dyslexia-toggle-text'
+  );
+  const visionButton =
+    document.getElementById('vision-toggle');
+  const visionText = visionButton?.querySelector(
+    '.vision-toggle-text'
+  );
   const yearFooter = document.getElementById('year-footer');
 
   if (yearFooter) {
@@ -82,6 +90,30 @@
     }
   };
 
+  const applyFontScale = (scale) => {
+    const validScale = SCALE_OPTIONS.includes(scale)
+      ? scale
+      : '100';
+
+    root.setAttribute('data-scale', validScale);
+
+    if (!visionButton) return;
+
+    const isScaled = validScale !== '100';
+    visionButton.setAttribute(
+      'aria-pressed',
+      String(isScaled)
+    );
+    visionButton.setAttribute(
+      'title',
+      `Escala de fonte atual: ${validScale}%`
+    );
+
+    if (visionText) {
+      visionText.textContent = `Escala: ${validScale}%`;
+    }
+  };
+
   const savedTheme = localStorage.getItem(STORAGE_KEY);
   const initialTheme =
     savedTheme === THEME_DARK || savedTheme === THEME_LIGHT
@@ -93,9 +125,14 @@
     savedReadingMode === READING_DYSLEXIA
       ? READING_DYSLEXIA
       : READING_DEFAULT;
+  const savedScale = localStorage.getItem(SCALE_KEY);
+  const initialScale = SCALE_OPTIONS.includes(savedScale)
+    ? savedScale
+    : '100';
 
   applyTheme(initialTheme);
   applyReadingMode(initialReadingMode);
+  applyFontScale(initialScale);
 
   if (window.lucide?.createIcons) {
     window.lucide.createIcons();
@@ -129,5 +166,19 @@
 
     applyReadingMode(nextMode);
     localStorage.setItem(READING_KEY, nextMode);
+  });
+
+  visionButton?.addEventListener('click', () => {
+    const currentScale =
+      root.getAttribute('data-scale') || '100';
+    const currentIndex =
+      SCALE_OPTIONS.indexOf(currentScale);
+    const nextScale =
+      SCALE_OPTIONS[
+        (currentIndex + 1) % SCALE_OPTIONS.length
+      ];
+
+    applyFontScale(nextScale);
+    localStorage.setItem(SCALE_KEY, nextScale);
   });
 })();

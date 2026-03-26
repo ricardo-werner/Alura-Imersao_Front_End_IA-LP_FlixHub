@@ -47,6 +47,7 @@ Toda a implementação é feita em arquivos estáticos, sem build e sem framewor
 - Skip links no topo para pular para conteúdo principal e controles de acessibilidade.
 - Toggle de tema com microinterações visuais (hover, active e transição suave de ícones).
 - Toggle de leitura para dislexia com fonte **Lexend** e persistência local.
+- Toggle de baixa visão com ciclo de escala tipográfica (`100%` → `110%` → `125%`).
 - Rótulo dinâmico no toggle: `Tema: Escuro` / `Tema: Claro`.
 - Footer com ano automático via JavaScript (`#year-footer`).
 - Navegação lateral com ícones semânticos via Lucide.

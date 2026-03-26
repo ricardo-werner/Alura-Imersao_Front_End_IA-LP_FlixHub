@@ -5,8 +5,8 @@
     'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     sans-serif;
   --font-dyslexia:
-    'Lexend', 'Inter', 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+    'Lexend', 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
   --bg: #050608;
   --bg-elev: #1a1d24;
   --bg-card: #232730;
@@ -52,6 +52,14 @@ body {
 
 html {
   font-size: 100%;
+}
+
+html[data-scale='110'] {
+  font-size: 110%;
+}
+
+html[data-scale='125'] {
+  font-size: 125%;
 }
 
 body {
@@ -244,6 +252,13 @@ header h1 {
 
 .dyslexia-toggle-text {
   min-width: 6.2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.vision-toggle-text {
+  min-width: 6.3rem;
   text-align: left;
   font-size: 0.9rem;
   font-weight: 600;
