@@ -40,7 +40,7 @@
     'a11y-menu-close'
   );
   const a11yDesktopMediaQuery = window.matchMedia(
-    '(min-width: 48rem)'
+    '(min-width: 768px)'
   );
   const yearFooter = document.getElementById('year-footer');
   const profilesHeading =

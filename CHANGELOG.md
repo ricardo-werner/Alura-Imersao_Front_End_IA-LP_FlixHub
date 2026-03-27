@@ -30,6 +30,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Ajustado alinhamento da navegação lateral no mobile para distribuição mais equilibrada, preservando comportamento esperado a partir de `sm`.
 - Ajustado breakpoint da área de acessibilidade para layout em linha (`flex-direction: row`) somente a partir de `md` (`768px`).
 - Alinhado o breakpoint do JavaScript do menu de acessibilidade para `md` (`768px`), evitando divergência entre comportamento visual e interação.
+- Fixado o breakpoint da acessibilidade em `768px` explícitos (CSS e JS) e removido `wrap` dos controles em `md+` para garantir layout em linha no limite do breakpoint.
 
 ### Added
 

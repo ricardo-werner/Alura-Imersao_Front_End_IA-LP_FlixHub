@@ -197,7 +197,7 @@ main > section:first-of-type {
 }
 
 /* md: >= 768px */
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   header {
     flex-direction: row;
     align-items: center;
@@ -233,8 +233,9 @@ main > section:first-of-type {
     width: auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
+    justify-content: flex-end;
   }
 
   .a11y-toggle,
