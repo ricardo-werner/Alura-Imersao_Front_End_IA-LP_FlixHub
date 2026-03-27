@@ -74,6 +74,8 @@ FlixHub/
 - Breakpoints refatorados em estratégia mobile-first no padrão atual de mercado (`sm 640`, `md 768`, `lg 1024`, `xl 1280`, `2xl 1536`).
 - Em telas pequenas, os controles de acessibilidade do header agora usam menu hambúrguer com abertura/fechamento explícito para reduzir ocupação fixa na viewport.
 - Em telas pequenas, o botão e o painel do menu de acessibilidade agora permanecem centralizados para evitar desalinhamento visual.
+- Em telas pequenas, o header prioriza UX em coluna: título no topo e menu de acessibilidade abaixo, preservando hierarquia visual e leitura.
+- Painel mobile de acessibilidade refinado para proporção mais compacta, evitando botões exagerados em largura.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -100,6 +102,7 @@ Como é um projeto estático, há duas formas simples:
 - correção da inclusão do CSS responsivo para efetivar os breakpoints em tempo de execução.
 - padronização mobile-first dos breakpoints e criação de `teste/responsive.css` como referência reutilizável para próximos projetos.
 - ajuste fino no mobile para centralizar o menu de acessibilidade (botão + painel expandido) em viewports reduzidas.
+- refinamento de UX mobile no header com layout em coluna (FLIXHUB no topo + acessibilidade abaixo) e menu mais compacto em telas pequenas.
 
 ## 📦 Entrega anterior (2026-03-26)
 
