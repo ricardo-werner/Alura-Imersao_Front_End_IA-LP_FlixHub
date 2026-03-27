@@ -24,6 +24,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Corrigido desalinhamento do menu de acessibilidade em telas pequenas, com centralização do botão e do painel expandido no header.
 - Refinado o header mobile para manter o título `FLIXHUB` no topo e os controles de acessibilidade abaixo (layout em coluna), evitando sobreposição visual.
 - Reduzida a largura do painel de acessibilidade no mobile para uma apresentação mais compacta e proporcional em dispositivos pequenos.
+- Centralizados no mobile o título `FLIXHUB` e o botão `Acessibilidade`, com alinhamento visual mais estável em telas pequenas.
 
 ### Added
 
