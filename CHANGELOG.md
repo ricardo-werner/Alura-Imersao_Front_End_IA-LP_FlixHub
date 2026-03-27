@@ -15,6 +15,8 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Inicialização dos ícones Lucide reforçada com tentativa de re-renderização para mitigar atraso de carregamento da biblioteca.
 - Corrigido `ReferenceError` de inicialização (`bindMediaCardKeyboardNavigation`) que interrompia a execução do script e bloqueava a renderização dos ícones no aside e nos toggles.
 - Corrigida a aplicação da responsividade ao mover o carregamento de `styles/responsive.css` para o `index.html` e remover `@import` inválido no fim de `styles/style.css`.
+- Refatorados breakpoints para estratégia **mobile-first** alinhada ao padrão de mercado (`sm 640`, `md 768`, `lg 1024`, `xl 1280`, `2xl 1536`).
+- Melhorada a experiência em telas pequenas (header/toggles em coluna, ajustes de grid e cards) com progressão responsiva por `min-width`.
 
 ### Added
 
@@ -22,6 +24,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Botão de ação **Adicionar/Remover da minha lista** em cada card de catálogo (`Séries`, `Filmes`, `Bombando`).
 - `dialog` de orientação com ações de fechar e de navegação para a seção `Quem está assistindo?`.
 - Estados vazios orientativos para `Minha lista` (sem perfil ativo e perfil sem itens).
+- Novo arquivo `teste/responsive.css` com regras de responsividade desacopladas para reutilização em futuros projetos/labs.
 
 ## [2026-03-26]
 

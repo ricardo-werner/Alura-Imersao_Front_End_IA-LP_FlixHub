@@ -71,6 +71,7 @@ FlixHub/
 - Integração com **Lucide Icons** estabilizada com versão CDN fixada e inicialização resiliente para evitar desaparecimento de ícones.
 - Correção de ordem de inicialização no JavaScript para evitar erro em runtime que interrompia carregamento da UI.
 - Correção de carregamento da folha responsiva (`styles/responsive.css`) para garantir aplicação dos breakpoints em dispositivos móveis.
+- Breakpoints refatorados em estratégia mobile-first no padrão atual de mercado (`sm 640`, `md 768`, `lg 1024`, `xl 1280`, `2xl 1536`).
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -95,6 +96,7 @@ Como é um projeto estático, há duas formas simples:
 - atualização de estilos e responsividade para acomodar novos botões de ação e estados visuais.
 - estabilização da renderização de ícones via Lucide (versão fixada + rotina de fallback de inicialização).
 - correção da inclusão do CSS responsivo para efetivar os breakpoints em tempo de execução.
+- padronização mobile-first dos breakpoints e criação de `teste/responsive.css` como referência reutilizável para próximos projetos.
 
 ## 📦 Entrega anterior (2026-03-26)
 
