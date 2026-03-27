@@ -676,5 +676,3 @@ footer ul {
 footer a:hover {
   color: var(--text);
 }
-
-@import url('./responsive.css');
