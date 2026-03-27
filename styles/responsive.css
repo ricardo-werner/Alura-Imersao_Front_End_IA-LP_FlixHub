@@ -1,106 +1,136 @@
-/* Breakpoints mobile-first
-  sm: 40rem
-  md: 48rem
-  lg: 64rem
-  xl: 80rem
-  2xl: 96rem
+/*
+  Responsive system (mobile-first)
+  Breakpoints alinhados ao padrão de mercado (Tailwind CSS):
+  sm: 40rem   (640px)
+  md: 48rem   (768px)
+  lg: 64rem   (1024px)
+  xl: 80rem   (1280px)
+  2xl: 96rem  (1536px)
 */
 
-/* Base (sem prefixo): smartphones pequenos */
-@media (max-width: 39.99rem) {
-  body {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'header'
-      'aside'
-      'main'
-      'footer';
-  }
-
-  aside {
-    position: static;
-    height: auto;
-    border-right: 0;
-    border-bottom: 0.0625rem solid var(--line);
-    padding: 1rem 1.2rem;
-  }
-
-  aside ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-
-  aside li + li {
-    margin-top: 0;
-  }
-
-  header,
-  main,
-  footer {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-  }
-
-  main > section:first-of-type {
-    grid-template-columns: 1fr;
-  }
-
-  #series ul,
-  #filmes ul,
-  #bombando ul,
-  #minha-lista ul {
-    grid-template-columns: 1fr;
-  }
-
-  #series li,
-  #filmes li,
-  #bombando li,
-  #minha-lista li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .media-card-action {
-    width: 100%;
-    text-align: center;
-  }
+/* Base (mobile, sem prefixo) */
+body {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'aside'
+    'main'
+    'footer';
 }
 
-/* sm: >= 40rem */
+aside {
+  position: static;
+  height: auto;
+  border-right: 0;
+  border-bottom: 0.0625rem solid var(--line);
+  padding: 1rem 1.2rem;
+}
+
+aside ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+aside li + li {
+  margin-top: 0;
+}
+
+header,
+main,
+footer {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+  padding-bottom: 0.9rem;
+}
+
+header h1 {
+  font-size: clamp(1.4rem, 7vw, 1.9rem);
+}
+
+.header-actions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.a11y-toggle,
+.theme-toggle {
+  width: 100%;
+  justify-content: center;
+}
+
+.dyslexia-toggle-text,
+.vision-toggle-text,
+.theme-toggle-text {
+  min-width: auto;
+  text-align: center;
+}
+
+main {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+main > section:first-of-type {
+  grid-template-columns: 1fr;
+}
+
+#series ul,
+#filmes ul,
+#bombando ul,
+#minha-lista ul {
+  grid-template-columns: 1fr;
+}
+
+#series li,
+#filmes li,
+#bombando li,
+#minha-lista li {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.media-card-action {
+  width: 100%;
+  text-align: center;
+}
+
+.profile-dialog {
+  width: min(28rem, calc(100% - 1.25rem));
+}
+
+/* sm: >= 640px */
 @media (min-width: 40rem) {
-  body {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'header'
-      'aside'
-      'main'
-      'footer';
+  header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  aside {
-    position: static;
-    height: auto;
-    border-right: 0;
-    border-bottom: 0.0625rem solid var(--line);
-    padding: 1rem 1.2rem;
-  }
-
-  aside ul {
+  .header-actions {
+    width: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
   }
 
-  aside li + li {
-    margin-top: 0;
+  .a11y-toggle,
+  .theme-toggle {
+    width: auto;
+    justify-content: flex-start;
   }
 
-  main,
-  header,
-  footer {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
+  .dyslexia-toggle-text,
+  .vision-toggle-text,
+  .theme-toggle-text {
+    text-align: left;
   }
 
   main > section:first-of-type {
@@ -113,29 +143,29 @@
   #minha-lista ul {
     grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
   }
+}
+
+/* md: >= 768px */
+@media (min-width: 48rem) {
+  main > section:first-of-type {
+    grid-template-columns: repeat(3, minmax(8.75rem, 1fr));
+  }
 
   #series li,
   #filmes li,
   #bombando li,
   #minha-lista li {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
   }
 
   .media-card-action {
-    width: 100%;
-    text-align: center;
+    width: auto;
+    text-align: left;
   }
 }
 
-/* md: >= 48rem */
-@media (min-width: 48rem) {
-  main > section:first-of-type {
-    grid-template-columns: repeat(3, minmax(8.75rem, 1fr));
-  }
-}
-
-/* lg: >= 64rem */
+/* lg: >= 1024px */
 @media (min-width: 64rem) {
   body {
     grid-template-columns: 15.625rem minmax(0, 1fr);
@@ -168,22 +198,9 @@
     padding-left: 2.2rem;
     padding-right: 2.2rem;
   }
-
-  #series li,
-  #filmes li,
-  #bombando li,
-  #minha-lista li {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .media-card-action {
-    width: auto;
-    text-align: left;
-  }
 }
 
-/* xl: >= 80rem */
+/* xl: >= 1280px */
 @media (min-width: 80rem) {
   main > section:first-of-type {
     grid-template-columns: repeat(
@@ -193,7 +210,7 @@
   }
 }
 
-/* 2xl: >= 96rem */
+/* 2xl: >= 1536px */
 @media (min-width: 96rem) {
   body {
     grid-template-columns: 17rem minmax(0, 1fr);
