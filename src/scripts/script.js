@@ -469,9 +469,31 @@
   renderMinhaLista();
   renderCatalogActions();
 
-  if (window.lucide?.createIcons) {
+  const renderLucideIcons = () => {
+    if (!window.lucide?.createIcons) return false;
+
     window.lucide.createIcons();
-  }
+    return true;
+  };
+
+  const ensureLucideIcons = () => {
+    if (renderLucideIcons()) return;
+
+    let attempts = 0;
+    const maxAttempts = 20;
+    const retryDelayMs = 120;
+
+    const interval = window.setInterval(() => {
+      attempts += 1;
+
+      const rendered = renderLucideIcons();
+      if (rendered || attempts >= maxAttempts) {
+        window.clearInterval(interval);
+      }
+    }, retryDelayMs);
+  };
+
+  ensureLucideIcons();
 
   toggleButton?.addEventListener('click', () => {
     toggleButton.classList.add('is-switching');
