@@ -1,4 +1,6 @@
 (() => {
+  document.documentElement.classList.add('js-enabled');
+
   const STORAGE_KEY = 'flixhub-theme';
   const READING_KEY = 'flixhub-reading-mode';
   const SCALE_KEY = 'flixhub-font-scale';
@@ -27,6 +29,18 @@
     document.getElementById('vision-toggle');
   const visionText = visionButton?.querySelector(
     '.vision-toggle-text'
+  );
+  const a11yMenuContainer = document.querySelector(
+    '.header-accessibility'
+  );
+  const a11yMenuToggle = document.getElementById(
+    'a11y-menu-toggle'
+  );
+  const a11yMenuClose = document.getElementById(
+    'a11y-menu-close'
+  );
+  const a11yDesktopMediaQuery = window.matchMedia(
+    '(min-width: 40rem)'
   );
   const yearFooter = document.getElementById('year-footer');
   const profilesHeading =
@@ -444,6 +458,27 @@
     }
   };
 
+  const isA11yMenuOpen = () =>
+    Boolean(
+      a11yMenuContainer?.classList.contains('is-open')
+    );
+
+  const setA11yMenuState = (openMenu) => {
+    if (!a11yMenuContainer || !a11yMenuToggle) return;
+
+    a11yMenuContainer.classList.toggle('is-open', openMenu);
+    a11yMenuToggle.setAttribute(
+      'aria-expanded',
+      String(openMenu)
+    );
+  };
+
+  const syncA11yMenuByViewport = () => {
+    if (a11yDesktopMediaQuery.matches) {
+      setA11yMenuState(false);
+    }
+  };
+
   const savedTheme = localStorage.getItem(STORAGE_KEY);
   const initialTheme =
     savedTheme === THEME_DARK || savedTheme === THEME_LIGHT
@@ -463,6 +498,7 @@
   applyTheme(initialTheme);
   applyReadingMode(initialReadingMode);
   applyFontScale(initialScale);
+  syncA11yMenuByViewport();
   saveProfileLists(profileLists);
   updateProfileButtonsState();
   updateActiveProfileStatus();
@@ -494,6 +530,53 @@
   };
 
   ensureLucideIcons();
+
+  a11yMenuToggle?.addEventListener('click', () => {
+    if (a11yDesktopMediaQuery.matches) return;
+
+    const nextOpenState = !isA11yMenuOpen();
+    setA11yMenuState(nextOpenState);
+
+    if (nextOpenState) {
+      a11yMenuClose?.focus();
+    } else {
+      a11yMenuToggle.focus();
+    }
+  });
+
+  a11yMenuClose?.addEventListener('click', () => {
+    setA11yMenuState(false);
+    a11yMenuToggle?.focus();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (
+      event.key !== 'Escape' ||
+      !isA11yMenuOpen() ||
+      a11yDesktopMediaQuery.matches
+    ) {
+      return;
+    }
+
+    setA11yMenuState(false);
+    a11yMenuToggle?.focus();
+  });
+
+  if (
+    typeof a11yDesktopMediaQuery.addEventListener ===
+    'function'
+  ) {
+    a11yDesktopMediaQuery.addEventListener(
+      'change',
+      syncA11yMenuByViewport
+    );
+  } else if (
+    typeof a11yDesktopMediaQuery.addListener === 'function'
+  ) {
+    a11yDesktopMediaQuery.addListener(
+      syncA11yMenuByViewport
+    );
+  }
 
   toggleButton?.addEventListener('click', () => {
     toggleButton.classList.add('is-switching');
