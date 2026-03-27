@@ -9,6 +9,8 @@ O projeto simula uma home de streaming com:
 - menu lateral fixo;
 - cabeçalho com marca FlixHub e controle de tema;
 - área principal com perfis, destaque, séries, filmes, bombando e minha lista;
+- seleção de perfil ativo com persistência local;
+- seção **Minha Lista** personalizada por perfil, com adição/remoção de títulos;
 - rodapé com autoria, foco em inclusão digital, ano dinâmico e links institucionais.
 
 Toda a implementação é feita em arquivos estáticos, sem build e sem framework.
@@ -62,6 +64,10 @@ FlixHub/
 - Navegação por setas (`↑`, `↓`, `←`, `→`) entre os cards com ciclo por bloco inteiro (último volta ao primeiro e vice-versa), além de suporte às teclas `Home` e `End`.
 - `ArrowDown` na última linha de cards move foco para o botão **Voltar ao menu**; `ArrowUp` no botão retorna ao último card da seção.
 - Estados de foco visíveis para links de navegação, cards e botões de ação.
+- Seleção de perfil com indicação de contexto ativo (`Perfil ativo: ...`) e persistência em `localStorage`.
+- Fluxo guiado com `dialog` acessível quando o usuário tenta abrir **Minha Lista** sem perfil selecionado.
+- Ações explícitas de **Adicionar/Remover da minha lista** nos cards de `Séries`, `Filmes` e `Bombando`.
+- Renderização dinâmica da seção **Minha Lista** por perfil ativo, incluindo estados vazios informativos.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -74,10 +80,18 @@ Como é um projeto estático, há duas formas simples:
 ## ✅ Status atual
 
 - Projeto funcional para exibição da interface.
-- Foco atual em **layout, estilização e acessibilidade por teclado**, com interação progressiva.
+- Foco atual em **layout, estilização, acessibilidade por teclado e personalização por perfil**, com interação progressiva.
 - Alternância entre tema escuro e claro com persistência local e ícones coerentes por tema (lua no escuro, sol no claro).
 
-## 📦 Última entrega (2026-03-26)
+## 📦 Última entrega (2026-03-27)
+
+- implementação de **perfil ativo** com persistência local (`perfilAtivo`);
+- implementação de **Minha Lista por perfil** com persistência em `localStorage` (`minhaListaPorPerfil`);
+- inclusão de ações explícitas de adicionar/remover nos cards de catálogo (`Séries`, `Filmes`, `Bombando`);
+- substituição da abordagem com `alert` por **`dialog` acessível** para orientar seleção de perfil;
+- atualização de estilos e responsividade para acomodar novos botões de ação e estados visuais.
+
+## 📦 Entrega anterior (2026-03-26)
 
 - consolidação das melhorias de acessibilidade por teclado (menu, cards e botão de retorno);
 - documentação revisada para manter consistência com a estrutura real do projeto (`FlixHub/`);
@@ -91,7 +105,7 @@ Para consulta futura das evoluções do projeto, veja `CHANGELOG.md`.
 
 ## 🚀 Próximos passos sugeridos
 
-- expandir interações JavaScript (ex.: estado ativo de menu e seleção de perfil);
+- expandir interações JavaScript (ex.: estado ativo de item no menu lateral e filtros por categoria);
 - melhorar breakpoints de responsividade para dispositivos menores;
 - incluir mais estados visuais de foco/hover para acessibilidade;
 - organizar componentes visuais por blocos reutilizáveis.
