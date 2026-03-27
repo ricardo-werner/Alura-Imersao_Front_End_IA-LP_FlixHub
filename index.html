@@ -115,27 +115,52 @@
     <main id="main-content">
       <section aria-labelledby="perfis-titulo">
         <h2 id="perfis-titulo">Quem está assistindo?</h2>
-        <div class="profile">
+        <p
+          id="perfil-ativo-status"
+          class="profile-active-status"
+          aria-live="polite"
+        >
+          Perfil ativo: nenhum selecionado
+        </p>
+        <button
+          type="button"
+          class="profile profile-selector"
+          data-profile-id="perfil-1"
+          data-profile-name="Perfil 1"
+          aria-pressed="false"
+        >
           <img
             src="./src/assets/images/perfil-1.jpg"
             alt="Perfil 1"
           />
           <p>Perfil 1</p>
-        </div>
-        <div class="profile">
+        </button>
+        <button
+          type="button"
+          class="profile profile-selector"
+          data-profile-id="perfil-2"
+          data-profile-name="Perfil 2"
+          aria-pressed="false"
+        >
           <img
             src="./src/assets/images/Image_oldWom_on.png"
             alt="Perfil 2"
           />
           <p>Perfil 2</p>
-        </div>
-        <div class="profile">
+        </button>
+        <button
+          type="button"
+          class="profile profile-selector"
+          data-profile-id="perfil-3"
+          data-profile-name="Perfil 3"
+          aria-pressed="false"
+        >
           <img
             src="./src/assets/images/Image_h.png"
             alt="Perfil 3"
           />
           <p>Perfil 3</p>
-        </div>
+        </button>
       </section>
 
       <section aria-labelledby="destaque-titulo">
@@ -157,13 +182,69 @@
       >
         <h2 id="series-titulo">Séries populares</h2>
         <ul>
-          <li class="media-card" tabindex="0">Dark</li>
-          <li class="media-card" tabindex="0">Wandinha</li>
-          <li class="media-card" tabindex="0">
-            The Witcher
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Dark"
+          >
+            <span class="media-card-title">Dark</span>
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
           </li>
-          <li class="media-card" tabindex="0">
-            La Casa de Papel
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Wandinha"
+          >
+            <span class="media-card-title">Wandinha</span>
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
+          </li>
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="The Witcher"
+          >
+            <span class="media-card-title"
+              >The Witcher</span
+            >
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
+          </li>
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="La Casa de Papel"
+          >
+            <span class="media-card-title"
+              >La Casa de Papel</span
+            >
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
           </li>
         </ul>
         <button
@@ -186,15 +267,71 @@
       >
         <h2 id="filmes-titulo">Filmes em alta</h2>
         <ul>
-          <li class="media-card" tabindex="0">Resgate 2</li>
-          <li class="media-card" tabindex="0">
-            Alerta Vermelho
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Resgate 2"
+          >
+            <span class="media-card-title">Resgate 2</span>
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
           </li>
-          <li class="media-card" tabindex="0">
-            Projeto Extração
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Alerta Vermelho"
+          >
+            <span class="media-card-title"
+              >Alerta Vermelho</span
+            >
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
           </li>
-          <li class="media-card" tabindex="0">
-            Agente Oculto
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Projeto Extração"
+          >
+            <span class="media-card-title"
+              >Projeto Extração</span
+            >
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
+          </li>
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Agente Oculto"
+          >
+            <span class="media-card-title"
+              >Agente Oculto</span
+            >
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
           </li>
         </ul>
         <button
@@ -217,14 +354,70 @@
       >
         <h2 id="bombando-titulo">Bombando agora</h2>
         <ul>
-          <li class="media-card" tabindex="0">Round 6</li>
-          <li class="media-card" tabindex="0">
-            The Night Agent
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Round 6"
+          >
+            <span class="media-card-title">Round 6</span>
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
           </li>
-          <li class="media-card" tabindex="0">
-            Avatar: O Último Mestre do Ar
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="The Night Agent"
+          >
+            <span class="media-card-title"
+              >The Night Agent</span
+            >
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
           </li>
-          <li class="media-card" tabindex="0">One Piece</li>
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="Avatar: O Último Mestre do Ar"
+          >
+            <span class="media-card-title"
+              >Avatar: O Último Mestre do Ar</span
+            >
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
+          </li>
+          <li
+            class="media-card"
+            tabindex="0"
+            data-title="One Piece"
+          >
+            <span class="media-card-title">One Piece</span>
+            <button
+              type="button"
+              class="media-card-action"
+              data-list-action
+              aria-pressed="false"
+            >
+              Adicionar à minha lista
+            </button>
+          </li>
         </ul>
         <button
           type="button"
@@ -246,15 +439,9 @@
       >
         <h2 id="minha-lista-titulo">Minha lista</h2>
         <ul>
-          <li class="media-card" tabindex="0">Arcane</li>
-          <li class="media-card" tabindex="0">
-            O Problema dos 3 Corpos
-          </li>
-          <li class="media-card" tabindex="0">
-            Interestelar
-          </li>
-          <li class="media-card" tabindex="0">
-            Blade Runner 2049
+          <li class="empty-list-state">
+            Selecione um perfil para começar a montar sua
+            lista.
           </li>
         </ul>
         <button
@@ -290,6 +477,38 @@
         </ul>
       </nav>
     </footer>
+
+    <dialog
+      id="profile-dialog"
+      class="profile-dialog"
+      aria-labelledby="profile-dialog-title"
+    >
+      <h2 id="profile-dialog-title">
+        Selecione um perfil para continuar
+      </h2>
+      <p>
+        Para abrir e editar a seção
+        <strong>Minha lista</strong>, escolha primeiro quem
+        está assistindo.
+      </p>
+      <div class="profile-dialog-actions">
+        <button
+          type="button"
+          id="profile-dialog-choose"
+          class="dialog-primary-action"
+        >
+          Escolher perfil
+        </button>
+        <button
+          type="button"
+          id="profile-dialog-close"
+          class="dialog-secondary-action"
+        >
+          Fechar
+        </button>
+      </div>
+    </dialog>
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./src/scripts/script.js"></script>
   </body>

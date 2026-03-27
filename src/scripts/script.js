@@ -2,11 +2,14 @@
   const STORAGE_KEY = 'flixhub-theme';
   const READING_KEY = 'flixhub-reading-mode';
   const SCALE_KEY = 'flixhub-font-scale';
+  const ACTIVE_PROFILE_KEY = 'perfilAtivo';
+  const PROFILE_LISTS_KEY = 'minhaListaPorPerfil';
   const THEME_DARK = 'dark';
   const THEME_LIGHT = 'light';
   const READING_DEFAULT = 'default';
   const READING_DYSLEXIA = 'dyslexia';
   const SCALE_OPTIONS = ['100', '110', '125'];
+  const PROFILE_IDS = ['perfil-1', 'perfil-2', 'perfil-3'];
 
   const root = document.documentElement;
   const toggleButton =
@@ -26,6 +29,48 @@
     '.vision-toggle-text'
   );
   const yearFooter = document.getElementById('year-footer');
+  const profilesHeading =
+    document.getElementById('perfis-titulo');
+  const profileStatus = document.getElementById(
+    'perfil-ativo-status'
+  );
+  const profileButtons = Array.from(
+    document.querySelectorAll('.profile-selector')
+  );
+  const menuMinhaListaLink = document.getElementById(
+    'menu-minha-lista'
+  );
+  const minhaListaTitle = document.getElementById(
+    'minha-lista-titulo'
+  );
+  const minhaListaList = document.querySelector(
+    '#minha-lista ul'
+  );
+  const profileDialog = document.getElementById(
+    'profile-dialog'
+  );
+  const profileDialogChooseButton = document.getElementById(
+    'profile-dialog-choose'
+  );
+  const profileDialogCloseButton = document.getElementById(
+    'profile-dialog-close'
+  );
+
+  const profileLabels = profileButtons.reduce(
+    (labels, button) => {
+      const profileId = button.dataset.profileId;
+      const profileName = button.dataset.profileName;
+
+      if (profileId && profileName) {
+        labels[profileId] = profileName;
+      }
+
+      return labels;
+    },
+    {}
+  );
+
+  let focusBeforeDialog = null;
 
   if (yearFooter) {
     yearFooter.textContent = String(
@@ -38,6 +83,291 @@
       '(prefers-color-scheme: light)'
     ).matches;
     return prefersLight ? THEME_LIGHT : THEME_DARK;
+  };
+
+  const parseJSON = (value, fallback) => {
+    if (!value) return fallback;
+
+    try {
+      return JSON.parse(value);
+    } catch {
+      return fallback;
+    }
+  };
+
+  const createEmptyProfileLists = () =>
+    PROFILE_IDS.reduce((lists, profileId) => {
+      lists[profileId] = [];
+      return lists;
+    }, {});
+
+  const getStoredActiveProfile = () => {
+    const storedValue = localStorage.getItem(
+      ACTIVE_PROFILE_KEY
+    );
+
+    return PROFILE_IDS.includes(storedValue)
+      ? storedValue
+      : null;
+  };
+
+  const getStoredProfileLists = () => {
+    const storedLists = parseJSON(
+      localStorage.getItem(PROFILE_LISTS_KEY),
+      {}
+    );
+
+    return PROFILE_IDS.reduce((lists, profileId) => {
+      const rawItems = Array.isArray(storedLists[profileId])
+        ? storedLists[profileId]
+        : [];
+      const uniqueItems = Array.from(
+        new Set(
+          rawItems.filter(
+            (item) =>
+              typeof item === 'string' && item.trim()
+          )
+        )
+      );
+
+      lists[profileId] = uniqueItems;
+
+      return lists;
+    }, createEmptyProfileLists());
+  };
+
+  const saveProfileLists = (lists) => {
+    localStorage.setItem(
+      PROFILE_LISTS_KEY,
+      JSON.stringify(lists)
+    );
+  };
+
+  let activeProfileId = getStoredActiveProfile();
+  let profileLists = getStoredProfileLists();
+
+  const getProfileName = (profileId) =>
+    profileLabels[profileId] || profileId;
+
+  const updateActiveProfileStatus = () => {
+    if (!profileStatus) return;
+
+    profileStatus.textContent = activeProfileId
+      ? `Perfil ativo: ${getProfileName(activeProfileId)}`
+      : 'Perfil ativo: nenhum selecionado';
+  };
+
+  const updateProfileButtonsState = () => {
+    profileButtons.forEach((button) => {
+      const profileId = button.dataset.profileId;
+      const isActive = profileId === activeProfileId;
+
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
+  const setActiveProfile = (profileId) => {
+    if (!PROFILE_IDS.includes(profileId)) return;
+
+    activeProfileId = profileId;
+    localStorage.setItem(ACTIVE_PROFILE_KEY, profileId);
+    updateProfileButtonsState();
+    updateActiveProfileStatus();
+    renderCatalogActions();
+    renderMinhaLista();
+  };
+
+  const openProfileDialog = (invoker) => {
+    if (!profileDialog) return;
+
+    focusBeforeDialog =
+      invoker instanceof HTMLElement ? invoker : null;
+
+    if (typeof profileDialog.showModal === 'function') {
+      if (!profileDialog.open) {
+        profileDialog.showModal();
+      }
+
+      profileDialogChooseButton?.focus();
+      return;
+    }
+
+    jumpToProfilesSection();
+  };
+
+  const closeProfileDialog = ({
+    restoreFocus = true,
+  } = {}) => {
+    if (
+      profileDialog &&
+      profileDialog.open &&
+      typeof profileDialog.close === 'function'
+    ) {
+      profileDialog.close();
+    }
+
+    if (restoreFocus) {
+      focusBeforeDialog?.focus();
+    }
+
+    focusBeforeDialog = null;
+  };
+
+  const jumpToProfilesSection = () => {
+    if (!profilesHeading) return;
+
+    profilesHeading.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+
+    if (!profilesHeading.hasAttribute('tabindex')) {
+      profilesHeading.setAttribute('tabindex', '-1');
+    }
+
+    profilesHeading.focus({ preventScroll: true });
+  };
+
+  const getCardTitle = (card) =>
+    card?.dataset.title ||
+    card
+      ?.querySelector('.media-card-title')
+      ?.textContent?.trim() ||
+    '';
+
+  const isInActiveProfileList = (title) => {
+    if (!activeProfileId) return false;
+
+    return profileLists[activeProfileId]?.includes(title);
+  };
+
+  const updateCatalogActionButton = ({ button, title }) => {
+    if (!button) return;
+
+    if (!activeProfileId) {
+      button.textContent = 'Adicionar à minha lista';
+      button.setAttribute('aria-pressed', 'false');
+      return;
+    }
+
+    const isAdded = isInActiveProfileList(title);
+
+    button.textContent = isAdded
+      ? 'Remover da minha lista'
+      : 'Adicionar à minha lista';
+    button.setAttribute('aria-pressed', String(isAdded));
+  };
+
+  function renderCatalogActions() {
+    const catalogButtons = document.querySelectorAll(
+      '#series [data-list-action], #filmes [data-list-action], #bombando [data-list-action]'
+    );
+
+    catalogButtons.forEach((button) => {
+      const card = button.closest('.media-card');
+      const title = getCardTitle(card);
+
+      updateCatalogActionButton({
+        button,
+        title,
+      });
+    });
+  }
+
+  const createMinhaListaItem = (title) => {
+    const listItem = document.createElement('li');
+    listItem.className = 'media-card';
+    listItem.tabIndex = 0;
+    listItem.dataset.title = title;
+
+    const titleElement = document.createElement('span');
+    titleElement.className = 'media-card-title';
+    titleElement.textContent = title;
+
+    const removeButton = document.createElement('button');
+    removeButton.type = 'button';
+    removeButton.className =
+      'media-card-action is-remove-action';
+    removeButton.setAttribute('data-remove-from-list', '');
+    removeButton.setAttribute('aria-pressed', 'true');
+    removeButton.textContent = 'Remover da minha lista';
+
+    listItem.append(titleElement, removeButton);
+
+    return listItem;
+  };
+
+  function renderMinhaLista() {
+    if (!minhaListaTitle || !minhaListaList) return;
+
+    minhaListaList.innerHTML = '';
+
+    if (!activeProfileId) {
+      minhaListaTitle.textContent = 'Minha lista';
+
+      const emptyState = document.createElement('li');
+      emptyState.className = 'empty-list-state';
+      emptyState.textContent =
+        'Selecione um perfil para começar a montar sua lista.';
+      minhaListaList.append(emptyState);
+      bindMediaCardKeyboardNavigation();
+      return;
+    }
+
+    const activeProfileName =
+      getProfileName(activeProfileId);
+    const items = profileLists[activeProfileId] || [];
+
+    minhaListaTitle.textContent = `Minha lista — ${activeProfileName}`;
+
+    if (!items.length) {
+      const emptyState = document.createElement('li');
+      emptyState.className = 'empty-list-state';
+      emptyState.textContent = `${activeProfileName} ainda não adicionou títulos.`;
+      minhaListaList.append(emptyState);
+      bindMediaCardKeyboardNavigation();
+      return;
+    }
+
+    items.forEach((title) => {
+      minhaListaList.append(createMinhaListaItem(title));
+    });
+
+    bindMediaCardKeyboardNavigation();
+  }
+
+  const toggleTitleInActiveProfile = (
+    title,
+    dialogInvoker
+  ) => {
+    if (!activeProfileId) {
+      openProfileDialog(dialogInvoker);
+      return;
+    }
+
+    const currentList = profileLists[activeProfileId] || [];
+    const alreadyAdded = currentList.includes(title);
+
+    profileLists[activeProfileId] = alreadyAdded
+      ? currentList.filter((item) => item !== title)
+      : [...currentList, title];
+
+    saveProfileLists(profileLists);
+    renderCatalogActions();
+    renderMinhaLista();
+  };
+
+  const removeTitleFromActiveProfile = (title) => {
+    if (!activeProfileId) return;
+
+    const currentList = profileLists[activeProfileId] || [];
+    profileLists[activeProfileId] = currentList.filter(
+      (item) => item !== title
+    );
+
+    saveProfileLists(profileLists);
+    renderCatalogActions();
+    renderMinhaLista();
   };
 
   const applyTheme = (theme) => {
@@ -133,6 +463,11 @@
   applyTheme(initialTheme);
   applyReadingMode(initialReadingMode);
   applyFontScale(initialScale);
+  saveProfileLists(profileLists);
+  updateProfileButtonsState();
+  updateActiveProfileStatus();
+  renderMinhaLista();
+  renderCatalogActions();
 
   if (window.lucide?.createIcons) {
     window.lucide.createIcons();
@@ -180,6 +515,77 @@
 
     applyFontScale(nextScale);
     localStorage.setItem(SCALE_KEY, nextScale);
+  });
+
+  profileButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const profileId = button.dataset.profileId;
+
+      if (!profileId) return;
+
+      setActiveProfile(profileId);
+    });
+  });
+
+  document
+    .querySelectorAll(
+      '#series [data-list-action], #filmes [data-list-action], #bombando [data-list-action]'
+    )
+    .forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const card =
+          event.currentTarget.closest('.media-card');
+        const title = getCardTitle(card);
+
+        if (!title) return;
+
+        toggleTitleInActiveProfile(
+          title,
+          event.currentTarget
+        );
+      });
+    });
+
+  minhaListaList?.addEventListener('click', (event) => {
+    const removeButton = event.target.closest(
+      '[data-remove-from-list]'
+    );
+
+    if (!removeButton) return;
+
+    const card = removeButton.closest('.media-card');
+    const title = getCardTitle(card);
+
+    if (!title) return;
+
+    removeTitleFromActiveProfile(title);
+  });
+
+  menuMinhaListaLink?.addEventListener('click', (event) => {
+    if (activeProfileId) return;
+
+    event.preventDefault();
+    openProfileDialog(menuMinhaListaLink);
+  });
+
+  profileDialogChooseButton?.addEventListener(
+    'click',
+    () => {
+      closeProfileDialog({ restoreFocus: false });
+      jumpToProfilesSection();
+    }
+  );
+
+  profileDialogCloseButton?.addEventListener(
+    'click',
+    () => {
+      closeProfileDialog();
+    }
+  );
+
+  profileDialog?.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeProfileDialog();
   });
 
   const sidebarMenuLinks = Array.from(
@@ -299,57 +705,69 @@
     return keyMap[key];
   };
 
-  const mediaCards =
-    document.querySelectorAll('.media-card');
+  const bindMediaCardKeyboardNavigation = () => {
+    const mediaCards =
+      document.querySelectorAll('.media-card');
 
-  mediaCards.forEach((card) => {
-    card.addEventListener('keydown', (event) => {
-      const supportedKeys = [
-        'ArrowRight',
-        'ArrowLeft',
-        'ArrowDown',
-        'ArrowUp',
-        'Home',
-        'End',
-      ];
+    mediaCards.forEach((card) => {
+      if (card.dataset.keyboardBound === 'true') return;
 
-      if (!supportedKeys.includes(event.key)) return;
+      card.dataset.keyboardBound = 'true';
+      card.addEventListener('keydown', (event) => {
+        if (event.target !== card) return;
 
-      const section = card.closest('.media-section');
+        const supportedKeys = [
+          'ArrowRight',
+          'ArrowLeft',
+          'ArrowDown',
+          'ArrowUp',
+          'Home',
+          'End',
+        ];
 
-      if (!section) return;
+        if (!supportedKeys.includes(event.key)) return;
 
-      const backButton =
-        section.querySelector('.back-to-menu');
-      const cardsInSection = Array.from(
-        section.querySelectorAll('.media-card')
-      );
-      const currentIndex = cardsInSection.indexOf(card);
+        const section = card.closest('.media-section');
 
-      if (currentIndex < 0) return;
+        if (!section) return;
 
-      const columnCount = getGridColumnCount(section);
-      const nextIndex = getNextCardIndex({
-        currentIndex,
-        key: event.key,
-        columns: columnCount,
-        total: cardsInSection.length,
-      });
+        const backButton =
+          section.querySelector('.back-to-menu');
+        const cardsInSection = Array.from(
+          section.querySelectorAll('.media-card')
+        );
+        const currentIndex = cardsInSection.indexOf(card);
 
-      if (event.key === 'ArrowDown' && nextIndex === null) {
-        if (!backButton) return;
+        if (currentIndex < 0) return;
+
+        const columnCount = getGridColumnCount(section);
+        const nextIndex = getNextCardIndex({
+          currentIndex,
+          key: event.key,
+          columns: columnCount,
+          total: cardsInSection.length,
+        });
+
+        if (
+          event.key === 'ArrowDown' &&
+          nextIndex === null
+        ) {
+          if (!backButton) return;
+
+          event.preventDefault();
+          backButton.focus();
+          return;
+        }
+
+        if (nextIndex === currentIndex) return;
 
         event.preventDefault();
-        backButton.focus();
-        return;
-      }
-
-      if (nextIndex === currentIndex) return;
-
-      event.preventDefault();
-      cardsInSection[nextIndex]?.focus();
+        cardsInSection[nextIndex]?.focus();
+      });
     });
-  });
+  };
+
+  bindMediaCardKeyboardNavigation();
 
   backToMenuButtons.forEach((button) => {
     button.addEventListener('keydown', (event) => {

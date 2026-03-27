@@ -52,6 +52,19 @@
   #minha-lista ul {
     grid-template-columns: 1fr;
   }
+
+  #series li,
+  #filmes li,
+  #bombando li,
+  #minha-lista li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .media-card-action {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* sm: >= 40rem */
@@ -100,6 +113,19 @@
   #minha-lista ul {
     grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
   }
+
+  #series li,
+  #filmes li,
+  #bombando li,
+  #minha-lista li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .media-card-action {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* md: >= 48rem */
@@ -141,6 +167,19 @@
   footer {
     padding-left: 2.2rem;
     padding-right: 2.2rem;
+  }
+
+  #series li,
+  #filmes li,
+  #bombando li,
+  #minha-lista li {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .media-card-action {
+    width: auto;
+    text-align: left;
   }
 }
 
