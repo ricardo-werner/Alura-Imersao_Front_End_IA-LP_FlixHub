@@ -70,6 +70,7 @@ FlixHub/
 - Renderização dinâmica da seção **Minha Lista** por perfil ativo, incluindo estados vazios informativos.
 - Integração com **Lucide Icons** estabilizada com versão CDN fixada e inicialização resiliente para evitar desaparecimento de ícones.
 - Correção de ordem de inicialização no JavaScript para evitar erro em runtime que interrompia carregamento da UI.
+- Correção de carregamento da folha responsiva (`styles/responsive.css`) para garantir aplicação dos breakpoints em dispositivos móveis.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -93,6 +94,7 @@ Como é um projeto estático, há duas formas simples:
 - substituição da abordagem com `alert` por **`dialog` acessível** para orientar seleção de perfil;
 - atualização de estilos e responsividade para acomodar novos botões de ação e estados visuais.
 - estabilização da renderização de ícones via Lucide (versão fixada + rotina de fallback de inicialização).
+- correção da inclusão do CSS responsivo para efetivar os breakpoints em tempo de execução.
 
 ## 📦 Entrega anterior (2026-03-26)
 

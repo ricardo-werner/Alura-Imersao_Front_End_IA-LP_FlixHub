@@ -14,6 +14,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Script do Lucide fixado em versão estável (`0.468.0`) para evitar regressões por uso de `@latest`.
 - Inicialização dos ícones Lucide reforçada com tentativa de re-renderização para mitigar atraso de carregamento da biblioteca.
 - Corrigido `ReferenceError` de inicialização (`bindMediaCardKeyboardNavigation`) que interrompia a execução do script e bloqueava a renderização dos ícones no aside e nos toggles.
+- Corrigida a aplicação da responsividade ao mover o carregamento de `styles/responsive.css` para o `index.html` e remover `@import` inválido no fim de `styles/style.css`.
 
 ### Added
 
