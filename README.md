@@ -69,6 +69,7 @@ FlixHub/
 - Ações explícitas de **Adicionar/Remover da minha lista** nos cards de `Séries`, `Filmes` e `Bombando`.
 - Renderização dinâmica da seção **Minha Lista** por perfil ativo, incluindo estados vazios informativos.
 - Integração com **Lucide Icons** estabilizada com versão CDN fixada e inicialização resiliente para evitar desaparecimento de ícones.
+- Correção de ordem de inicialização no JavaScript para evitar erro em runtime que interrompia carregamento da UI.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
