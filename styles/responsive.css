@@ -232,7 +232,9 @@ main > section:first-of-type {
   .header-actions {
     width: auto;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .a11y-toggle,

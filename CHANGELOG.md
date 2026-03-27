@@ -29,6 +29,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Consolidado ajuste responsivo para telas muito pequenas (até ~352px), com redução adicional de largura dos controles e refinamento de espaçamentos no header/conteúdo.
 - Ajustado alinhamento da navegação lateral no mobile para distribuição mais equilibrada, preservando comportamento esperado a partir de `sm`.
 - Ajustado breakpoint da área de acessibilidade para layout em linha (`flex-direction: row`) somente a partir de `md` (`768px`).
+- Alinhado o breakpoint do JavaScript do menu de acessibilidade para `md` (`768px`), evitando divergência entre comportamento visual e interação.
 
 ### Added
 
