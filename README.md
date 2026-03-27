@@ -72,6 +72,7 @@ FlixHub/
 - Correção de ordem de inicialização no JavaScript para evitar erro em runtime que interrompia carregamento da UI.
 - Correção de carregamento da folha responsiva (`styles/responsive.css`) para garantir aplicação dos breakpoints em dispositivos móveis.
 - Breakpoints refatorados em estratégia mobile-first no padrão atual de mercado (`sm 640`, `md 768`, `lg 1024`, `xl 1280`, `2xl 1536`).
+- Em telas pequenas, os controles de acessibilidade do header agora usam menu hambúrguer com abertura/fechamento explícito para reduzir ocupação fixa na viewport.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar

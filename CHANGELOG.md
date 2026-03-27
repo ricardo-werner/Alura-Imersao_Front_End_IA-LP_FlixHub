@@ -17,6 +17,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Corrigida a aplicação da responsividade ao mover o carregamento de `styles/responsive.css` para o `index.html` e remover `@import` inválido no fim de `styles/style.css`.
 - Refatorados breakpoints para estratégia **mobile-first** alinhada ao padrão de mercado (`sm 640`, `md 768`, `lg 1024`, `xl 1280`, `2xl 1536`).
 - Melhorada a experiência em telas pequenas (header/toggles em coluna, ajustes de grid e cards) com progressão responsiva por `min-width`.
+- Melhorada UX mobile de acessibilidade no header com menu hambúrguer (`Acessibilidade`), painel expansível e botão `X` para fechamento após configuração.
 
 ### Added
 
