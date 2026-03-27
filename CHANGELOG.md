@@ -2,6 +2,23 @@
 
 Este arquivo registra a evolução do projeto para consulta futura.
 
+## [2026-03-27]
+
+### Changed
+
+- Seção de perfis tornou-se interativa com seleção de **perfil ativo** e indicação textual em tempo real (`Perfil ativo: ...`).
+- Seção **Minha lista** passou de conteúdo estático para renderização dinâmica por perfil, com título contextual (`Minha lista — Perfil X`).
+- Fluxo de bloqueio ao acessar **Minha Lista** sem perfil selecionado foi migrado para `dialog` nativo acessível (substituindo abordagem com `alert`).
+- Cards das seções `Séries`, `Filmes` e `Bombando` foram adaptados para suportar ações explícitas de lista com feedback visual por estado (`aria-pressed`).
+- Ajustes de CSS/Responsividade para suportar os novos botões de ação nos cards sem quebrar layout em mobile.
+
+### Added
+
+- Persistência de estado de perfil ativo (`perfilAtivo`) e de listas por perfil (`minhaListaPorPerfil`) em `localStorage`.
+- Botão de ação **Adicionar/Remover da minha lista** em cada card de catálogo (`Séries`, `Filmes`, `Bombando`).
+- `dialog` de orientação com ações de fechar e de navegação para a seção `Quem está assistindo?`.
+- Estados vazios orientativos para `Minha lista` (sem perfil ativo e perfil sem itens).
+
 ## [2026-03-26]
 
 ### Added
