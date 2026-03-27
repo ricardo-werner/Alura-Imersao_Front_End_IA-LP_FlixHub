@@ -80,6 +80,7 @@ FlixHub/
 - Em telas pequenas, os botões do painel de acessibilidade foram compactados e padronizados para acompanhar a largura do botão `Acessibilidade`.
 - Refinamentos extras de responsividade aplicados para telas muito pequenas (ex.: 320px), com espaçamentos, tipografia e largura dos controles ajustados para evitar quebra visual.
 - Navegação lateral no mobile recebeu ajuste de alinhamento para melhor distribuição dos itens sem perder consistência nos breakpoints maiores.
+- A área de acessibilidade no header passa para `flex-direction: row` somente a partir do breakpoint `md` (`768px`), preservando o fluxo empilhado abaixo disso.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -110,6 +111,7 @@ Como é um projeto estático, há duas formas simples:
 - centralização fina no mobile do título e botão de acessibilidade para alinhamento visual consistente.
 - compactação dos botões no menu de acessibilidade mobile com largura padronizada ao botão principal para maior consistência visual.
 - revisão completa da responsividade no projeto principal, alinhando padrão de largura e centralização dos controles em mobile e estabilidade entre breakpoints.
+- ajuste de breakpoint da acessibilidade para transição horizontal apenas em `md (768px)`.
 
 ## 📦 Entrega anterior (2026-03-26)
 

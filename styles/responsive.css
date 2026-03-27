@@ -180,6 +180,24 @@ main > section:first-of-type {
 
 /* sm: >= 640px */
 @media (min-width: 40rem) {
+  aside ul {
+    justify-content: flex-start;
+  }
+
+  main > section:first-of-type {
+    grid-template-columns: repeat(2, minmax(8.75rem, 1fr));
+  }
+
+  #series ul,
+  #filmes ul,
+  #bombando ul,
+  #minha-lista ul {
+    grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
+  }
+}
+
+/* md: >= 768px */
+@media (min-width: 48rem) {
   header {
     flex-direction: row;
     align-items: center;
@@ -191,10 +209,6 @@ main > section:first-of-type {
     flex-direction: row;
     align-items: center;
     width: auto;
-  }
-
-  aside ul {
-    justify-content: flex-start;
   }
 
   .a11y-menu-toggle,
@@ -233,20 +247,6 @@ main > section:first-of-type {
     text-align: left;
   }
 
-  main > section:first-of-type {
-    grid-template-columns: repeat(2, minmax(8.75rem, 1fr));
-  }
-
-  #series ul,
-  #filmes ul,
-  #bombando ul,
-  #minha-lista ul {
-    grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
-  }
-}
-
-/* md: >= 768px */
-@media (min-width: 48rem) {
   main > section:first-of-type {
     grid-template-columns: repeat(3, minmax(8.75rem, 1fr));
   }

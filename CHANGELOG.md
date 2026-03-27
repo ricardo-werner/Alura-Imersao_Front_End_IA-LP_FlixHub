@@ -28,6 +28,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Centralizados e reduzidos os botões do painel de acessibilidade no mobile, com largura padronizada ao botão `Acessibilidade` para melhor consistência.
 - Consolidado ajuste responsivo para telas muito pequenas (até ~352px), com redução adicional de largura dos controles e refinamento de espaçamentos no header/conteúdo.
 - Ajustado alinhamento da navegação lateral no mobile para distribuição mais equilibrada, preservando comportamento esperado a partir de `sm`.
+- Ajustado breakpoint da área de acessibilidade para layout em linha (`flex-direction: row`) somente a partir de `md` (`768px`).
 
 ### Added
 
