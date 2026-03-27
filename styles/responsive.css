@@ -201,14 +201,22 @@ main > section:first-of-type {
   header {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
+  }
+
+  header h1 {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+    text-align: center;
   }
 
   .header-accessibility {
     flex-direction: row;
     align-items: center;
     width: auto;
+    flex: 0 0 auto;
   }
 
   .a11y-menu-toggle,
@@ -236,18 +244,24 @@ main > section:first-of-type {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
+    gap: 0.5rem;
   }
 
   .a11y-toggle,
   .theme-toggle {
     width: auto;
     justify-content: flex-start;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.48rem 0.88rem;
   }
 
   .dyslexia-toggle-text,
   .vision-toggle-text,
   .theme-toggle-text {
     text-align: left;
+    min-width: auto;
+    white-space: nowrap;
   }
 
   main > section:first-of-type {

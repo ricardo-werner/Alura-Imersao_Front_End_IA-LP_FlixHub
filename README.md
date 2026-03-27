@@ -83,6 +83,7 @@ FlixHub/
 - A área de acessibilidade no header passa para `flex-direction: row` somente a partir do breakpoint `md` (`768px`), preservando o fluxo empilhado abaixo disso.
 - A lógica JavaScript do menu de acessibilidade também foi alinhada para considerar comportamento desktop somente em `md` (`768px`), mantendo consistência entre CSS e interação.
 - O breakpoint de `md` da acessibilidade foi fixado com valor explícito em `768px` (CSS e JS), evitando variações de limiar por unidade relativa.
+- Na faixa `md → 2xl`, os botões de acessibilidade foram refinados para manter aparência horizontal estável, sem compressão excessiva e sem quebra de texto.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -116,6 +117,7 @@ Como é um projeto estático, há duas formas simples:
 - ajuste de breakpoint da acessibilidade para transição horizontal apenas em `md (768px)`.
 - sincronização do breakpoint `md (768px)` entre CSS e JavaScript no menu de acessibilidade.
 - reforço do `md` com media query em `768px` e controles em linha sem wrap para assegurar layout horizontal no limite do breakpoint.
+- ajuste visual adicional de `md` a `2xl` para recuperar proporção dos botões e legibilidade em uma linha.
 
 ## 📦 Entrega anterior (2026-03-26)
 

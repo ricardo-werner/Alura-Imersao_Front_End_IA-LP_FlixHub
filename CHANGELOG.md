@@ -31,6 +31,7 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Ajustado breakpoint da área de acessibilidade para layout em linha (`flex-direction: row`) somente a partir de `md` (`768px`).
 - Alinhado o breakpoint do JavaScript do menu de acessibilidade para `md` (`768px`), evitando divergência entre comportamento visual e interação.
 - Fixado o breakpoint da acessibilidade em `768px` explícitos (CSS e JS) e removido `wrap` dos controles em `md+` para garantir layout em linha no limite do breakpoint.
+- Refinada a apresentação dos botões da acessibilidade na faixa `md` até `2xl`, eliminando compressão visual e quebra de texto nos rótulos.
 
 ### Added
 
