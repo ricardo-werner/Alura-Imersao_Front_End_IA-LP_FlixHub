@@ -57,12 +57,13 @@ header h1 {
 
 .header-accessibility {
   flex-direction: column;
-  align-items: flex-end;
-  width: auto;
+  align-items: center;
+  width: 100%;
 }
 
 .a11y-menu-toggle {
-  width: auto;
+  width: min(19rem, calc(100vw - 2.2rem));
+  justify-content: center;
 }
 
 html.js-enabled .header-actions {
@@ -81,6 +82,7 @@ html.js-enabled
   border-radius: 0.9rem;
   background: rgba(9, 11, 18, 0.92);
   box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.45);
+  margin-inline: auto;
 }
 
 html.js-enabled
@@ -92,6 +94,7 @@ html.js-enabled
 
 .header-actions {
   width: min(19rem, calc(100vw - 2.2rem));
+  margin-inline: auto;
 }
 
 .a11y-toggle,
@@ -149,6 +152,7 @@ main > section:first-of-type {
   .header-accessibility {
     flex-direction: row;
     align-items: center;
+    width: auto;
   }
 
   .a11y-menu-toggle,

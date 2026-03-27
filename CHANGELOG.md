@@ -19,6 +19,10 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Melhorada a experiência em telas pequenas (header/toggles em coluna, ajustes de grid e cards) com progressão responsiva por `min-width`.
 - Melhorada UX mobile de acessibilidade no header com menu hambúrguer (`Acessibilidade`), painel expansível e botão `X` para fechamento após configuração.
 
+### Fixed
+
+- Corrigido desalinhamento do menu de acessibilidade em telas pequenas, com centralização do botão e do painel expandido no header.
+
 ### Added
 
 - Persistência de estado de perfil ativo (`perfilAtivo`) e de listas por perfil (`minhaListaPorPerfil`) em `localStorage`.
