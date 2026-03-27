@@ -727,7 +727,7 @@
     return keyMap[key];
   };
 
-  const bindMediaCardKeyboardNavigation = () => {
+  function bindMediaCardKeyboardNavigation() {
     const mediaCards =
       document.querySelectorAll('.media-card');
 
@@ -787,7 +787,7 @@
         cardsInSection[nextIndex]?.focus();
       });
     });
-  };
+  }
 
   bindMediaCardKeyboardNavigation();
 
