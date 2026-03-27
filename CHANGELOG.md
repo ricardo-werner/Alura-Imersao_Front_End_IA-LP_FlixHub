@@ -11,6 +11,8 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Fluxo de bloqueio ao acessar **Minha Lista** sem perfil selecionado foi migrado para `dialog` nativo acessível (substituindo abordagem com `alert`).
 - Cards das seções `Séries`, `Filmes` e `Bombando` foram adaptados para suportar ações explícitas de lista com feedback visual por estado (`aria-pressed`).
 - Ajustes de CSS/Responsividade para suportar os novos botões de ação nos cards sem quebrar layout em mobile.
+- Script do Lucide fixado em versão estável (`0.468.0`) para evitar regressões por uso de `@latest`.
+- Inicialização dos ícones Lucide reforçada com tentativa de re-renderização para mitigar atraso de carregamento da biblioteca.
 
 ### Added
 

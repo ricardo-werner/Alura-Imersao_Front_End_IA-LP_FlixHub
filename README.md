@@ -68,6 +68,7 @@ FlixHub/
 - Fluxo guiado com `dialog` acessível quando o usuário tenta abrir **Minha Lista** sem perfil selecionado.
 - Ações explícitas de **Adicionar/Remover da minha lista** nos cards de `Séries`, `Filmes` e `Bombando`.
 - Renderização dinâmica da seção **Minha Lista** por perfil ativo, incluindo estados vazios informativos.
+- Integração com **Lucide Icons** estabilizada com versão CDN fixada e inicialização resiliente para evitar desaparecimento de ícones.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -90,6 +91,7 @@ Como é um projeto estático, há duas formas simples:
 - inclusão de ações explícitas de adicionar/remover nos cards de catálogo (`Séries`, `Filmes`, `Bombando`);
 - substituição da abordagem com `alert` por **`dialog` acessível** para orientar seleção de perfil;
 - atualização de estilos e responsividade para acomodar novos botões de ação e estados visuais.
+- estabilização da renderização de ícones via Lucide (versão fixada + rotina de fallback de inicialização).
 
 ## 📦 Entrega anterior (2026-03-26)
 
