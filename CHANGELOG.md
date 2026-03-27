@@ -26,6 +26,8 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Reduzida a largura do painel de acessibilidade no mobile para uma apresentação mais compacta e proporcional em dispositivos pequenos.
 - Centralizados no mobile o título `FLIXHUB` e o botão `Acessibilidade`, com alinhamento visual mais estável em telas pequenas.
 - Centralizados e reduzidos os botões do painel de acessibilidade no mobile, com largura padronizada ao botão `Acessibilidade` para melhor consistência.
+- Consolidado ajuste responsivo para telas muito pequenas (até ~352px), com redução adicional de largura dos controles e refinamento de espaçamentos no header/conteúdo.
+- Ajustado alinhamento da navegação lateral no mobile para distribuição mais equilibrada, preservando comportamento esperado a partir de `sm`.
 
 ### Added
 

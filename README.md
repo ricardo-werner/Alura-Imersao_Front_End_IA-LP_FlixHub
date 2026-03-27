@@ -78,6 +78,8 @@ FlixHub/
 - Painel mobile de acessibilidade refinado para proporção mais compacta, evitando botões exagerados em largura.
 - Em telas pequenas, o título `FLIXHUB` e o botão `Acessibilidade` permanecem centralizados para melhor equilíbrio visual.
 - Em telas pequenas, os botões do painel de acessibilidade foram compactados e padronizados para acompanhar a largura do botão `Acessibilidade`.
+- Refinamentos extras de responsividade aplicados para telas muito pequenas (ex.: 320px), com espaçamentos, tipografia e largura dos controles ajustados para evitar quebra visual.
+- Navegação lateral no mobile recebeu ajuste de alinhamento para melhor distribuição dos itens sem perder consistência nos breakpoints maiores.
 - Estrutura preparada para ajustes de responsividade em `styles/responsive.css`.
 
 ## ▶️ Como executar
@@ -107,6 +109,7 @@ Como é um projeto estático, há duas formas simples:
 - refinamento de UX mobile no header com layout em coluna (FLIXHUB no topo + acessibilidade abaixo) e menu mais compacto em telas pequenas.
 - centralização fina no mobile do título e botão de acessibilidade para alinhamento visual consistente.
 - compactação dos botões no menu de acessibilidade mobile com largura padronizada ao botão principal para maior consistência visual.
+- revisão completa da responsividade no projeto principal, alinhando padrão de largura e centralização dos controles em mobile e estabilidade entre breakpoints.
 
 ## 📦 Entrega anterior (2026-03-26)
 

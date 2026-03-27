@@ -9,6 +9,10 @@
 */
 
 /* Base (mobile, sem prefixo) */
+:root {
+  --a11y-mobile-width: min(12.5rem, calc(100vw - 3rem));
+}
+
 body {
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -29,6 +33,7 @@ aside {
 aside ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.45rem;
 }
 
@@ -65,7 +70,7 @@ header h1 {
 }
 
 .a11y-menu-toggle {
-  width: min(12.5rem, calc(100vw - 3rem));
+  width: var(--a11y-mobile-width);
   max-width: 100%;
   justify-content: center;
 }
@@ -77,7 +82,7 @@ html.js-enabled .header-actions {
 html.js-enabled
   .header-accessibility.is-open
   .header-actions {
-  width: min(12.5rem, calc(100vw - 3rem));
+  width: var(--a11y-mobile-width);
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.32rem;
@@ -97,7 +102,7 @@ html.js-enabled
 }
 
 .header-actions {
-  width: min(12.5rem, calc(100vw - 3rem));
+  width: var(--a11y-mobile-width);
   margin-inline: auto;
 }
 
@@ -113,7 +118,7 @@ html.js-enabled
 .vision-toggle-text,
 .theme-toggle-text {
   min-width: auto;
-  text-align: left;
+  text-align: center;
 }
 
 main {
@@ -149,6 +154,30 @@ main > section:first-of-type {
   width: min(28rem, calc(100% - 1.25rem));
 }
 
+@media (max-width: 22rem) {
+  :root {
+    --a11y-mobile-width: min(11.25rem, calc(100vw - 2rem));
+  }
+
+  header,
+  main,
+  footer,
+  aside {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  header h1 {
+    letter-spacing: 0.08em;
+  }
+
+  .a11y-menu-close,
+  .a11y-toggle,
+  .theme-toggle {
+    font-size: 0.9rem;
+  }
+}
+
 /* sm: >= 640px */
 @media (min-width: 40rem) {
   header {
@@ -162,6 +191,10 @@ main > section:first-of-type {
     flex-direction: row;
     align-items: center;
     width: auto;
+  }
+
+  aside ul {
+    justify-content: flex-start;
   }
 
   .a11y-menu-toggle,
