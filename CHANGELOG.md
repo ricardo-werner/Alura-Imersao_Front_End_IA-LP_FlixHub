@@ -2,6 +2,14 @@
 
 Este arquivo registra a evolução do projeto para consulta futura.
 
+## [2026-04-01]
+
+### Changed
+
+- Reorganizada a estrutura de estilos, movendo `styles/` para `src/styles/` para consolidar os artefatos front-end dentro de `src`.
+- Atualizadas as referências de CSS no `index.html` para os novos caminhos (`./src/styles/style.css` e `./src/styles/responsive.css`).
+- Alinhada a árvore de pastas no `README.md` principal com a nova organização de diretórios.
+
 ## [2026-03-27]
 
 ### Changed
