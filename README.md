@@ -59,11 +59,11 @@ FlixHub/
 ├── src/
 │   ├── assets/
 │   │   └── images/
-│   └── scripts/
-│       └── script.js
-├── styles/
-│   ├── style.css
-│   └── responsive.css
+│   ├── scripts/
+│   │   └── script.js
+│   └── styles/
+│       ├── style.css
+│       └── responsive.css
 └── teste/
   ├── index.html
   ├── style.css
@@ -71,28 +71,6 @@ FlixHub/
   ├── script.js
   └── QA_CHECKLIST_RESPONSIVIDADE.md
 ```
-### 🖼️ Prévia da interface
-
-<table align="center">
-  <tr>
-    <td align="center"><img width="360" src="./src/to_readme/ClipMaker_light.png" alt="Tela inicial clara do ClipMaker AI" /></td>
-    <td align="center"><img width="360" src="./src/to_readme/ClipMaker_dark.png" alt="Tela inicial escura do ClipMaker AI" /></td>
-  </tr>
-  <tr>
-    <td align="center"><img width="300" src="./src/to_readme/ClipMaker_dislexia.png" alt="Seção de inclusão dislexia" /></td>
-    <td align="center"><img width="300" src="./src/to_readme/ClipMaker_110.png" alt="Seção de escala de fonte 110%" /></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/ClipMaker_125.png" alt="Seção de escala de fonte 125%" /></td>
-  </tr>
-</table>
-
-| 🎬 Demonstração 1                                                                                                                                                                                                                | 🎬 Demonstração 2                                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Ver vídeo 1](https://img.shields.io/badge/%E2%96%B6%EF%B8%8F%20Ver%20v%C3%ADdeo%201-111827?style=for-the-badge&logo=github&logoColor=white)](https://github.com/user-attachments/assets/5a84416f-872a-46ed-acde-1bec100c7c23) | [![Ver vídeo 2](https://img.shields.io/badge/%E2%96%B6%EF%B8%8F%20Ver%20v%C3%ADdeo%202-1f2937?style=for-the-badge&logo=github&logoColor=white)](https://github.com/user-attachments/assets/c7ba816e-fdda-4b20-802a-3994d413f5e3) |
-| Fluxo principal                                                                                                                                                                                                                  | Fluxo complementar                                                                                                                                                                                                               |
-
----
 
 ### Decisões técnicas relevantes
 
