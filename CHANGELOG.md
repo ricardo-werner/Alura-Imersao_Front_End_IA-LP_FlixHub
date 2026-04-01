@@ -9,6 +9,16 @@ Este arquivo registra a evolução do projeto para consulta futura.
 - Reorganizada a estrutura de estilos, movendo `styles/` para `src/styles/` para consolidar os artefatos front-end dentro de `src`.
 - Atualizadas as referências de CSS no `index.html` para os novos caminhos (`./src/styles/style.css` e `./src/styles/responsive.css`).
 - Alinhada a árvore de pastas no `README.md` principal com a nova organização de diretórios.
+- Atualizados os caminhos das imagens de perfil para versões otimizadas (WebP) no `index.html`.
+- Aplicado `decoding="async"` nas imagens de perfil para melhorar o comportamento de carregamento.
+
+### Added
+
+- Novos assets otimizados de perfil em `src/assets/images/` (`.webp` e `.jpg`) para reduzir payload em comparação aos arquivos anteriores.
+
+### Removed
+
+- Removidos arquivos antigos de imagem de perfil não utilizados após a migração de formato.
 
 ## [2026-03-27]
 

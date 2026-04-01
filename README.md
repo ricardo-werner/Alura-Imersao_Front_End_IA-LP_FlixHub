@@ -77,6 +77,7 @@ FlixHub/
 - Layout principal com **CSS Grid** e componentes semânticos (`header`, `aside`, `main`, `footer`)
 - Sistema visual baseado em **CSS Custom Properties** (temas e tokens)
 - Responsividade em estratégia **mobile-first** (`sm 640`, `md 768`, `lg 1024`, `xl 1280`, `2xl 1536`)
+- Perfis com imagens otimizadas em **WebP** e `decoding="async"` no HTML para reduzir custo de carregamento e melhorar renderização
 - Persistência de estado em `localStorage`:
   - `flixhub-theme`
   - `flixhub-reading-mode`
@@ -137,13 +138,12 @@ Implementações de acessibilidade aplicadas no projeto:
 
 ## 📦 Última entrega relevante
 
-### 2026-03-27 — Consolidação de perfil e minha lista com foco em acessibilidade
+### 2026-04-01 — Otimização de imagens para performance (Lighthouse)
 
-- seleção de perfil ativo com persistência;
-- renderização dinâmica da seção **Minha lista** por perfil;
-- ações de adicionar/remover títulos nos cards de catálogo;
-- substituição de alerta por `dialog` acessível;
-- ajustes de responsividade e estabilidade dos ícones.
+- migração das imagens de perfil para formatos otimizados (WebP/JPG);
+- atualização dos `src` das imagens no `index.html`;
+- aplicação de `decoding="async"` nas imagens de perfil para melhorar o comportamento de carregamento;
+- limpeza de arquivos antigos de imagem não utilizados.
 
 > Histórico técnico completo em `CHANGELOG.md`.
 
