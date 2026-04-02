@@ -208,6 +208,13 @@ Para cada cenário, anotar:
 
 ## 📦 Última entrega relevante
 
+### 2026-04-02 — Conexão final UI ↔ jornadas semânticas (render + A11Y)
+
+- render da **Minha Jornada** alinhado ao arquétipo ativo em `flixhub_jornadas`, com mensagem de vazio contextual por persona (ex.: `O Observador ainda não iniciou sua jornada...`);
+- estado dos botões de catálogo refinado para `Adicionar à jornada`/`Remover da jornada` com decisão por `includes()` restrita à lista do arquétipo ativo;
+- interceptação explícita de clique sem `activeProfileId`: abre o modal acessível de seleção de arquétipo e evita qualquer persistência indevida;
+- melhoria de acessibilidade nos controles com `aria-pressed` sincronizado e `aria-label` dinâmico por título/ação/arquétipo.
+
 ### 2026-04-02 — Migração automática de storage legado
 
 - implementada migração automática de jornadas antigas (`minhaListaPorPerfil`) para a chave única atual `flixhub_jornadas`;
