@@ -15,6 +15,7 @@
   --text-muted: #a8b0b8;
   --accent: #e8a75d;
   --accent-soft: rgba(232, 167, 93, 0.22);
+  --accent-shadow: rgba(232, 167, 93, 0.35);
   --metal-blue: #e8a75d;
   --metal-blue-soft: rgba(232, 167, 93, 0.3);
   --header-bg: rgba(11, 15, 20, 0.8);
@@ -41,10 +42,24 @@ html[data-theme='light'] {
   --line: rgba(64, 88, 125, 0.22);
   --text: #121a27;
   --text-muted: #4f607e;
-  --accent: #ff8a4a;
-  --accent-soft: rgba(255, 138, 74, 0.22);
-  --metal-blue: #5e87b5;
-  --metal-blue-soft: rgba(94, 135, 181, 0.2);
+  --accent: #7a3f10;
+  --accent-soft: rgba(122, 63, 16, 0.16);
+  --accent-shadow: rgba(122, 63, 16, 0.24);
+  --metal-blue: #7a3f10;
+  --metal-blue-soft: rgba(122, 63, 16, 0.14);
+  --header-bg: rgba(238, 244, 255, 0.86);
+  --panel-overlay: rgba(248, 251, 255, 0.94);
+  --surface-soft: rgba(18, 26, 39, 0.035);
+  --surface-soft-2: rgba(18, 26, 39, 0.028);
+  --surface-interactive: rgba(18, 26, 39, 0.04);
+  --surface-interactive-hover: rgba(18, 26, 39, 0.08);
+  --focus-surface: rgba(122, 63, 16, 0.16);
+  --section-gradient-start: rgba(18, 26, 39, 0.045);
+  --section-gradient-end: rgba(18, 26, 39, 0.018);
+  --aside-gradient-start: rgba(18, 26, 39, 0.04);
+  --aside-gradient-end: rgba(18, 26, 39, 0);
+  --media-frame: rgba(18, 26, 39, 0.14);
+  --dialog-backdrop: rgba(17, 22, 29, 0.45);
   --shadow: 0 1rem 2.2rem rgba(21, 33, 57, 0.14);
 }
 
@@ -226,7 +241,7 @@ header h1 {
   font-size: clamp(1.6rem, 2.5vw, 2rem);
   letter-spacing: 0.11em;
   color: var(--accent);
-  text-shadow: 0 0 1.125rem rgba(232, 167, 93, 0.35);
+  text-shadow: 0 0 1.125rem var(--accent-shadow);
 }
 
 .header-actions {
@@ -366,15 +381,15 @@ html[data-reading='dyslexia'] .a11y-toggle {
 }
 
 html[data-theme='light'] .theme-toggle {
-  color: #1e2d46;
-  background: rgba(255, 255, 255, 0.78);
-  border-color: rgba(64, 88, 125, 0.35);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.82);
+  border-color: var(--line);
 }
 
 html[data-theme='light'] .theme-toggle:hover {
-  color: #0f1b2f;
+  color: var(--text);
   background: #ffffff;
-  border-color: rgba(64, 88, 125, 0.45);
+  border-color: var(--metal-blue);
 }
 
 .theme-toggle:active {
