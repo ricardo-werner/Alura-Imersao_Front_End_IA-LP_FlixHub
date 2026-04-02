@@ -45,6 +45,8 @@
   const yearFooter = document.getElementById('year-footer');
   const profilesHeading =
     document.getElementById('perfis-titulo');
+  const profilesSection =
+    profilesHeading?.closest('section') || null;
   const profileStatus = document.getElementById(
     'perfil-ativo-status'
   );
@@ -253,9 +255,9 @@
   };
 
   const jumpToProfilesSection = () => {
-    if (!profilesHeading) return;
+    if (!profilesHeading || !profilesSection) return;
 
-    profilesHeading.scrollIntoView({
+    profilesSection.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
@@ -922,7 +924,7 @@
       clearActiveProfile();
       intentToScrollMinhaLista = false;
 
-      profilesHeading?.scrollIntoView({
+      profilesSection?.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });

@@ -44,6 +44,7 @@
   --profile-name-size: 0.98rem;
   --media-card-min-height: 4.15rem;
   --media-action-min-height: 2rem;
+  --sticky-header-offset: clamp(6.5rem, 9vw, 7.5rem);
   --radius: 1.125rem;
   --shadow: 0 1.125rem 2.5rem rgba(0, 0, 0, 0.45);
 }
@@ -516,6 +517,10 @@ main > section {
     background-color 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
+}
+
+main > section:first-of-type {
+  scroll-margin-top: var(--sticky-header-offset);
 }
 
 main h2 {
