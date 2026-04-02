@@ -525,6 +525,56 @@ main h2 {
   letter-spacing: 0.02em;
 }
 
+.minha-lista-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.minha-lista-header h2 {
+  margin: 0;
+}
+
+.switch-profile-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0.0625rem solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft-2);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.44rem 0.82rem;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.switch-profile-button:hover {
+  border-color: var(--metal-blue);
+  color: var(--text);
+  background: var(--focus-surface);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.switch-profile-button:focus-visible {
+  outline: 0.125rem solid var(--metal-blue);
+  outline-offset: 0.125rem;
+  color: var(--text);
+}
+
+.switch-profile-button svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
 main > section:first-of-type {
   display: grid;
   grid-template-columns: repeat(3, minmax(9.0625rem, 1fr));
@@ -842,6 +892,72 @@ article p {
   border-color: var(--metal-blue);
   color: var(--text);
   background: var(--focus-surface);
+}
+
+.switch-profile-modal-overlay[hidden] {
+  display: none;
+}
+
+.switch-profile-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: var(--dialog-backdrop);
+}
+
+.switch-profile-dialog {
+  width: min(30rem, calc(100% - 2rem));
+  border: 0.0625rem solid var(--line);
+  border-radius: 1rem;
+  background: var(--bg-elev);
+  color: var(--text);
+  padding: 1.1rem 1.15rem;
+  box-shadow: var(--shadow);
+}
+
+.switch-profile-dialog h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.switch-profile-dialog p {
+  margin: 0.65rem 0 0;
+  color: var(--text-muted);
+}
+
+.switch-profile-dialog-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.switch-profile-dialog-actions button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.45rem 0.88rem;
+  border: 0.0625rem solid var(--line);
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.switch-profile-dialog-actions button:hover {
+  border-color: var(--metal-blue);
+  color: var(--text);
+}
+
+.switch-profile-dialog-actions button:focus-visible {
+  outline: 0.125rem solid var(--metal-blue);
+  outline-offset: 0.125rem;
 }
 
 footer {

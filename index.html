@@ -465,7 +465,22 @@
         class="media-section"
         aria-labelledby="minha-lista-titulo"
       >
-        <h2 id="minha-lista-titulo">Minha Jornada</h2>
+        <div class="minha-lista-header">
+          <h2 id="minha-lista-titulo">Minha Jornada</h2>
+          <button
+            type="button"
+            id="switch-profile-trigger"
+            class="switch-profile-button"
+            aria-haspopup="dialog"
+            aria-controls="switch-profile-dialog"
+          >
+            <i
+              data-lucide="refresh-cw"
+              aria-hidden="true"
+            ></i>
+            <span>Trocar Arquétipo</span>
+          </button>
+        </div>
         <ul>
           <li class="empty-list-state">
             Selecione um arquétipo para começar sua jornada.
@@ -535,6 +550,46 @@
         </button>
       </div>
     </dialog>
+
+    <div
+      id="switch-profile-modal-overlay"
+      class="switch-profile-modal-overlay"
+      hidden
+    >
+      <div
+        id="switch-profile-dialog"
+        class="switch-profile-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="switch-profile-dialog-title"
+        aria-describedby="switch-profile-dialog-description"
+        tabindex="-1"
+      >
+        <h2 id="switch-profile-dialog-title">
+          Trocar arquétipo
+        </h2>
+        <p id="switch-profile-dialog-description">
+          Deseja trocar de arquétipo? Sua jornada atual será
+          preservada.
+        </p>
+        <div class="switch-profile-dialog-actions">
+          <button
+            type="button"
+            id="switch-profile-confirm"
+            class="dialog-primary-action"
+          >
+            Confirmar
+          </button>
+          <button
+            type="button"
+            id="switch-profile-cancel"
+            class="dialog-secondary-action"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <script src="./src/scripts/script.js"></script>

@@ -69,6 +69,20 @@
   const profileDialogCloseButton = document.getElementById(
     'profile-dialog-close'
   );
+  const switchProfileTrigger = document.getElementById(
+    'switch-profile-trigger'
+  );
+  const switchProfileModalOverlay = document.getElementById(
+    'switch-profile-modal-overlay'
+  );
+  const switchProfileDialog = document.getElementById(
+    'switch-profile-dialog'
+  );
+  const switchProfileConfirmButton =
+    document.getElementById('switch-profile-confirm');
+  const switchProfileCancelButton = document.getElementById(
+    'switch-profile-cancel'
+  );
 
   const profileLabels = profileButtons.reduce(
     (labels, button) => {
@@ -85,6 +99,7 @@
   );
 
   let focusBeforeDialog = null;
+  let focusBeforeSwitchProfileModal = null;
 
   if (yearFooter) {
     yearFooter.textContent = String(
@@ -241,6 +256,104 @@
     }
 
     profilesHeading.focus({ preventScroll: true });
+  };
+
+  const getFocusableElements = (container) => {
+    if (!container) return [];
+
+    return Array.from(
+      container.querySelectorAll(
+        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter(
+      (element) =>
+        element instanceof HTMLElement &&
+        !element.hasAttribute('disabled') &&
+        element.getAttribute('aria-hidden') !== 'true'
+    );
+  };
+
+  const isSwitchProfileModalOpen = () =>
+    Boolean(
+      switchProfileModalOverlay &&
+      !switchProfileModalOverlay.hidden
+    );
+
+  const openSwitchProfileModal = (invoker) => {
+    if (
+      !switchProfileModalOverlay ||
+      !switchProfileDialog
+    ) {
+      return;
+    }
+
+    focusBeforeSwitchProfileModal =
+      invoker instanceof HTMLElement ? invoker : null;
+    switchProfileModalOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+
+    const focusables = getFocusableElements(
+      switchProfileDialog
+    );
+
+    (focusables[0] || switchProfileDialog).focus();
+  };
+
+  const closeSwitchProfileModal = ({
+    restoreFocus = true,
+  } = {}) => {
+    if (!switchProfileModalOverlay) return;
+
+    switchProfileModalOverlay.hidden = true;
+    document.body.style.overflow = '';
+
+    if (restoreFocus) {
+      focusBeforeSwitchProfileModal?.focus();
+    }
+
+    focusBeforeSwitchProfileModal = null;
+  };
+
+  const trapSwitchProfileModalFocus = (event) => {
+    if (
+      !isSwitchProfileModalOpen() ||
+      !switchProfileDialog
+    ) {
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeSwitchProfileModal();
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    const focusables = getFocusableElements(
+      switchProfileDialog
+    );
+
+    if (!focusables.length) {
+      event.preventDefault();
+      switchProfileDialog.focus();
+      return;
+    }
+
+    const firstElement = focusables[0];
+    const lastElement = focusables[focusables.length - 1];
+    const activeElement = document.activeElement;
+
+    if (event.shiftKey && activeElement === firstElement) {
+      event.preventDefault();
+      lastElement.focus();
+      return;
+    }
+
+    if (!event.shiftKey && activeElement === lastElement) {
+      event.preventDefault();
+      firstElement.focus();
+    }
   };
 
   const focusMinhaListaTitleWhenVisible = () => {
@@ -766,6 +879,40 @@
     intentToScrollMinhaLista = false;
     closeProfileDialog();
   });
+
+  switchProfileTrigger?.addEventListener('click', () => {
+    openSwitchProfileModal(switchProfileTrigger);
+  });
+
+  switchProfileCancelButton?.addEventListener(
+    'click',
+    () => {
+      closeSwitchProfileModal();
+    }
+  );
+
+  switchProfileConfirmButton?.addEventListener(
+    'click',
+    () => {
+      closeSwitchProfileModal();
+    }
+  );
+
+  switchProfileModalOverlay?.addEventListener(
+    'click',
+    (event) => {
+      if (event.target !== switchProfileModalOverlay) {
+        return;
+      }
+
+      closeSwitchProfileModal();
+    }
+  );
+
+  document.addEventListener(
+    'keydown',
+    trapSwitchProfileModalFocus
+  );
 
   const sidebarMenuLinks = Array.from(
     document.querySelectorAll('aside nav a[href^="#"]')
