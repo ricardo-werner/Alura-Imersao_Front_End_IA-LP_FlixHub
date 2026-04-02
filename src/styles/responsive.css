@@ -11,6 +11,11 @@
 /* Base (mobile, sem prefixo) */
 :root {
   --a11y-mobile-width: min(12.5rem, calc(100vw - 3rem));
+  --profile-card-padding: 0.78rem;
+  --profile-name-size: 0.95rem;
+  --glass-blur-profile: 0.38rem;
+  --glass-blur-media: 0.32rem;
+  --media-card-min-height: 4rem;
 }
 
 body {
@@ -128,6 +133,7 @@ main {
 
 main > section:first-of-type {
   grid-template-columns: 1fr;
+  gap: 0.85rem;
 }
 
 #series ul,
@@ -143,11 +149,17 @@ main > section:first-of-type {
 #minha-lista li {
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+  gap: 0.55rem;
 }
 
 .media-card-action {
   width: 100%;
   text-align: center;
+}
+
+.profile-name {
+  font-size: var(--profile-name-size);
 }
 
 .profile-dialog {
@@ -157,6 +169,10 @@ main > section:first-of-type {
 @media (max-width: 22rem) {
   :root {
     --a11y-mobile-width: min(11.25rem, calc(100vw - 2rem));
+    --profile-card-padding: 0.72rem;
+    --profile-name-size: 0.92rem;
+    --glass-blur-profile: 0.34rem;
+    --glass-blur-media: 0.3rem;
   }
 
   header,
@@ -180,6 +196,14 @@ main > section:first-of-type {
 
 /* sm: >= 640px */
 @media (min-width: 40rem) {
+  :root {
+    --profile-card-padding: 0.8rem;
+    --profile-name-size: 0.97rem;
+    --glass-blur-profile: 0.42rem;
+    --glass-blur-media: 0.34rem;
+    --media-card-min-height: 4.1rem;
+  }
+
   aside ul {
     justify-content: flex-start;
   }
@@ -198,6 +222,14 @@ main > section:first-of-type {
 
 /* md: >= 768px */
 @media (min-width: 768px) {
+  :root {
+    --profile-card-padding: 0.82rem;
+    --profile-name-size: 0.98rem;
+    --glass-blur-profile: 0.45rem;
+    --glass-blur-media: 0.38rem;
+    --media-card-min-height: 4.15rem;
+  }
+
   header {
     flex-direction: row;
     align-items: center;

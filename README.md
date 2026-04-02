@@ -154,6 +154,12 @@ Implementações de acessibilidade aplicadas no projeto:
 - manutenção da semântica acessível com botões (`aria-pressed`) e status dinâmico;
 - aplicação de efeito visual **glass suave** nos cards de arquétipo e nas listas de mídia.
 
+### 2026-04-02 — Micro-polimento responsivo do visual glass
+
+- refinamento de consistência visual entre mobile, tablet e desktop;
+- ajuste progressivo de `blur`, `padding` e tipografia dos cards por breakpoint;
+- padronização de altura mínima dos cards de mídia para manter ritmo visual estável em qualquer dispositivo.
+
 ---
 
 ## 🗺️ Próximos passos sugeridos
