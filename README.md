@@ -183,6 +183,12 @@ Implementações de acessibilidade aplicadas no projeto:
 - adição de highlight interno e borda de suporte para leitura visual mais nítida;
 - estados `hover` e `selecionado` com destaque mais preciso, mantendo elegância do glass.
 
+### 2026-04-02 — Hover com glow âmbar + respeito a reduced motion
+
+- implementação de efeito de `hover` com `scale(1.05)` e glow âmbar em cards de arquétipos e filmes;
+- animações condicionadas a `@media (prefers-reduced-motion: no-preference)`;
+- desativação de zoom/transições em `@media (prefers-reduced-motion: reduce)` para atender boas práticas de A11Y.
+
 ---
 
 ## 🗺️ Próximos passos sugeridos
