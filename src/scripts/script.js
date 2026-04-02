@@ -243,6 +243,62 @@
     profilesHeading.focus({ preventScroll: true });
   };
 
+  const focusMinhaListaTitleWhenVisible = () => {
+    if (!minhaListaTitle) return;
+
+    const focusTitle = () => {
+      if (!minhaListaTitle.hasAttribute('tabindex')) {
+        minhaListaTitle.setAttribute('tabindex', '-1');
+      }
+
+      minhaListaTitle.focus({ preventScroll: true });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+
+          if (!entry?.isIntersecting) return;
+
+          focusTitle();
+          observer.disconnect();
+        },
+        {
+          threshold: 0.6,
+        }
+      );
+
+      observer.observe(minhaListaTitle);
+      return;
+    }
+
+    const isTitleInViewport = () => {
+      const rect = minhaListaTitle.getBoundingClientRect();
+
+      return (
+        rect.top >= 0 &&
+        rect.bottom <=
+          (window.innerHeight ||
+            document.documentElement.clientHeight)
+      );
+    };
+
+    const checkAndFocus = () => {
+      if (!isTitleInViewport()) return;
+
+      window.removeEventListener('scroll', checkAndFocus);
+      window.removeEventListener('resize', checkAndFocus);
+      focusTitle();
+    };
+
+    window.addEventListener('scroll', checkAndFocus, {
+      passive: true,
+    });
+    window.addEventListener('resize', checkAndFocus);
+    checkAndFocus();
+  };
+
   const getCardTitle = (card) =>
     card?.dataset.title ||
     card
@@ -640,15 +696,7 @@
           block: 'start',
         });
 
-        window.setTimeout(() => {
-          if (!minhaListaTitle) return;
-
-          if (!minhaListaTitle.hasAttribute('tabindex')) {
-            minhaListaTitle.setAttribute('tabindex', '-1');
-          }
-
-          minhaListaTitle.focus({ preventScroll: true });
-        }, 450);
+        focusMinhaListaTitleWhenVisible();
 
         intentToScrollMinhaLista = false;
       }
