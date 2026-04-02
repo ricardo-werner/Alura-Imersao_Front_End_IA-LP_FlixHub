@@ -12,8 +12,8 @@ O FlixHub simula uma home de streaming com jornada completa de navegação:
 
 - seleção de arquétipo ativo;
 - catálogo por categorias (`Séries`, `Filmes`, `Bombando`);
-- ações de **Adicionar/Remover da minha lista**;
-- seção **Minha lista** renderizada dinamicamente por perfil;
+- ações de **Adicionar/Remover da minha jornada**;
+- seção **Minha Jornada** renderizada dinamicamente por perfil;
 - controles de acessibilidade e tema com persistência local.
 
 Toda a implementação é estática (sem build e sem framework), priorizando domínio de fundamentos e arquitetura limpa em HTML/CSS/JS.
@@ -39,7 +39,7 @@ Além do padrão de referência, este README foi estruturado para ser mais forte
 - **Escala de fonte** para baixa visão (`100% → 110% → 125%`)
 - **Menu de acessibilidade mobile** (hambúrguer + fechamento por botão/`Esc`)
 - **Seleção de arquétipo ativo** com status textual em tempo real
-- **Minha Lista por perfil** com estado isolado por usuário
+- **Minha Jornada por perfil** com estado isolado por usuário
 - **Fluxo guiado por `dialog` acessível** quando não há perfil selecionado
 - **Navegação por teclado nos cards** (`↑ ↓ ← →`, `Home`, `End`)
 - Atalho por **`Enter`/`Espaço` no menu lateral** para entrar na seção
@@ -159,6 +159,11 @@ Implementações de acessibilidade aplicadas no projeto:
 - refinamento de consistência visual entre mobile, tablet e desktop;
 - ajuste progressivo de `blur`, `padding` e tipografia dos cards por breakpoint;
 - padronização de altura mínima dos cards de mídia para manter ritmo visual estável em qualquer dispositivo.
+
+### 2026-04-02 — Alinhamento de nomenclatura para Minha Jornada
+
+- atualização dos textos de UI e ações para substituir "Minha lista" por "Minha Jornada";
+- consistência entre conteúdo estático (HTML), dinâmico (JavaScript) e documentação principal.
 
 ---
 
