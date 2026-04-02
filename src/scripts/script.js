@@ -207,6 +207,15 @@
     renderMinhaLista();
   };
 
+  const clearActiveProfile = () => {
+    activeProfileId = null;
+    localStorage.removeItem(ACTIVE_PROFILE_KEY);
+    updateProfileButtonsState();
+    updateActiveProfileStatus();
+    renderCatalogActions();
+    renderMinhaLista();
+  };
+
   const openProfileDialog = (invoker) => {
     if (!profileDialog) return;
 
@@ -356,15 +365,18 @@
     }
   };
 
-  const focusMinhaListaTitleWhenVisible = () => {
-    if (!minhaListaTitle) return;
+  const focusElementWhenVisible = (
+    element,
+    { threshold = 0.6 } = {}
+  ) => {
+    if (!element) return;
 
-    const focusTitle = () => {
-      if (!minhaListaTitle.hasAttribute('tabindex')) {
-        minhaListaTitle.setAttribute('tabindex', '-1');
+    const focusTarget = () => {
+      if (!element.hasAttribute('tabindex')) {
+        element.setAttribute('tabindex', '-1');
       }
 
-      minhaListaTitle.focus({ preventScroll: true });
+      element.focus({ preventScroll: true });
     };
 
     if ('IntersectionObserver' in window) {
@@ -374,20 +386,20 @@
 
           if (!entry?.isIntersecting) return;
 
-          focusTitle();
+          focusTarget();
           observer.disconnect();
         },
         {
-          threshold: 0.6,
+          threshold,
         }
       );
 
-      observer.observe(minhaListaTitle);
+      observer.observe(element);
       return;
     }
 
-    const isTitleInViewport = () => {
-      const rect = minhaListaTitle.getBoundingClientRect();
+    const isElementInViewport = () => {
+      const rect = element.getBoundingClientRect();
 
       return (
         rect.top >= 0 &&
@@ -398,11 +410,11 @@
     };
 
     const checkAndFocus = () => {
-      if (!isTitleInViewport()) return;
+      if (!isElementInViewport()) return;
 
       window.removeEventListener('scroll', checkAndFocus);
       window.removeEventListener('resize', checkAndFocus);
-      focusTitle();
+      focusTarget();
     };
 
     window.addEventListener('scroll', checkAndFocus, {
@@ -410,6 +422,18 @@
     });
     window.addEventListener('resize', checkAndFocus);
     checkAndFocus();
+  };
+
+  const focusMinhaListaTitleWhenVisible = () => {
+    focusElementWhenVisible(minhaListaTitle, {
+      threshold: 0.6,
+    });
+  };
+
+  const focusProfilesHeadingWhenVisible = () => {
+    focusElementWhenVisible(profilesHeading, {
+      threshold: 0.6,
+    });
   };
 
   const getCardTitle = (card) =>
@@ -894,7 +918,16 @@
   switchProfileConfirmButton?.addEventListener(
     'click',
     () => {
-      closeSwitchProfileModal();
+      closeSwitchProfileModal({ restoreFocus: false });
+      clearActiveProfile();
+      intentToScrollMinhaLista = false;
+
+      profilesHeading?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+
+      focusProfilesHeadingWhenVisible();
     }
   );
 
