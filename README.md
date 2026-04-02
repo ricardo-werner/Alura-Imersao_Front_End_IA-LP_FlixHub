@@ -177,6 +177,12 @@ Implementações de acessibilidade aplicadas no projeto:
 - refinamento de borda e sombras para destacar melhor os cards sobre fundos claros;
 - balanceamento de `blur` e `saturate` para evitar visual lavado e preservar contraste.
 
+### 2026-04-02 — Acabamento pixel-perfect das bordas (tema claro)
+
+- reforço de micro-contraste nas bordas dos cards para maior definição em telas IPS;
+- adição de highlight interno e borda de suporte para leitura visual mais nítida;
+- estados `hover` e `selecionado` com destaque mais preciso, mantendo elegância do glass.
+
 ---
 
 ## 🗺️ Próximos passos sugeridos
