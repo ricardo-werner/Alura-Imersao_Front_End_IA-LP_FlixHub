@@ -171,6 +171,12 @@ Implementações de acessibilidade aplicadas no projeto:
 - ajuste de borda translúcida, sombras e nível de blur para melhor leitura visual;
 - aplicação de calibração por breakpoint para manter percepção consistente em mobile, tablet e desktop.
 
+### 2026-04-02 — Calibração do glass no tema claro
+
+- ajuste fino dos tokens visuais do tema claro para manter o mesmo impacto do glass percebido no tema escuro;
+- refinamento de borda e sombras para destacar melhor os cards sobre fundos claros;
+- balanceamento de `blur` e `saturate` para evitar visual lavado e preservar contraste.
+
 ---
 
 ## 🗺️ Próximos passos sugeridos
