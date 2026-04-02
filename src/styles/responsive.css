@@ -89,7 +89,7 @@ html.js-enabled
   padding: 0.42rem;
   border: 0.0625rem solid var(--line);
   border-radius: 0.9rem;
-  background: rgba(9, 11, 18, 0.92);
+  background: var(--panel-overlay);
   box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.45);
   margin-inline: auto;
 }
