@@ -208,6 +208,13 @@ Para cada cenário, anotar:
 
 ## 📦 Última entrega relevante
 
+### 2026-04-02 — Estrutura acessível de Troca de Arquétipo (fase modal)
+
+- adição do botão **Trocar Arquétipo** na seção `#minha-lista`, ao lado do título da jornada, com ícone Lucide;
+- criação do modal de confirmação com semântica A11Y (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`, `aria-describedby`);
+- implementação de gerenciamento de foco no modal (foco inicial, fechamento com `Esc`, clique no backdrop e trap de `Tab`/`Shift+Tab`);
+- fluxo de confirmação preparado para a próxima etapa (retorno com scroll suave à seção de arquétipos).
+
 ### 2026-04-02 — Correção de fluxo para Minha Jornada (intent flag + A11Y)
 
 - implementação de flag de intenção (`intentToScrollMinhaLista`) para preservar o objetivo original do clique no menu lateral;
