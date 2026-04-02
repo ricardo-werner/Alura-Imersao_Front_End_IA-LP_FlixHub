@@ -143,6 +143,7 @@ Implementações de acessibilidade aplicadas no projeto:
 - implementação de flag de intenção (`intentToScrollMinhaLista`) para preservar o objetivo original do clique no menu lateral;
 - após selecionar o Arquétipo, aplicação de rolagem suave para a seção `#minha-lista` com `scrollIntoView`;
 - foco programático no título da seção (`#minha-lista-titulo`) com `tabindex="-1"` para garantir leitura por teclado/tecnologias assistivas;
+- remoção da sincronização por `setTimeout` e adoção de observação real de visibilidade (`IntersectionObserver`, com fallback sem timer) antes de disparar foco;
 - limpeza defensiva da flag ao concluir o fluxo e nos cenários de fechamento/cancelamento do diálogo.
 
 ### 2026-04-01 — Otimização de imagens para performance (Lighthouse)
