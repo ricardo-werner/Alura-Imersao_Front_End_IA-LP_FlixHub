@@ -138,6 +138,13 @@ Implementações de acessibilidade aplicadas no projeto:
 
 ## 📦 Última entrega relevante
 
+### 2026-04-02 — Correção de fluxo para Minha Jornada (intent flag + A11Y)
+
+- implementação de flag de intenção (`intentToScrollMinhaLista`) para preservar o objetivo original do clique no menu lateral;
+- após selecionar o Arquétipo, aplicação de rolagem suave para a seção `#minha-lista` com `scrollIntoView`;
+- foco programático no título da seção (`#minha-lista-titulo`) com `tabindex="-1"` para garantir leitura por teclado/tecnologias assistivas;
+- limpeza defensiva da flag ao concluir o fluxo e nos cenários de fechamento/cancelamento do diálogo.
+
 ### 2026-04-01 — Otimização de imagens para performance (Lighthouse)
 
 - migração das imagens de perfil para formatos otimizados (WebP/JPG);
