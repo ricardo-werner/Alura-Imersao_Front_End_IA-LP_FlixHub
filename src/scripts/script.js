@@ -6,6 +6,7 @@
   const SCALE_KEY = 'flixhub-font-scale';
   const ACTIVE_PROFILE_KEY = 'perfilAtivo';
   const PROFILE_LISTS_KEY = 'flixhub_jornadas';
+  const LEGACY_PROFILE_LISTS_KEY = 'minhaListaPorPerfil';
   const THEME_DARK = 'dark';
   const THEME_LIGHT = 'light';
   const READING_DEFAULT = 'default';
@@ -20,6 +21,11 @@
     observador: 'O Observador',
     explorador: 'O Explorador',
     guardiao: 'O Guardião',
+  };
+  const LEGACY_PROFILE_ID_MAP = {
+    'perfil-1': 'observador',
+    'perfil-2': 'explorador',
+    'perfil-3': 'guardiao',
   };
 
   const root = document.documentElement;
@@ -160,23 +166,92 @@
       return lists;
     }, createEmptyProfileLists());
 
+  const mapProfileIdToSemanticId = (profileId) =>
+    LEGACY_PROFILE_ID_MAP[profileId] || profileId;
+
+  const mergeProfileListSources = (...sources) => {
+    const mergedLists = createEmptyProfileLists();
+
+    sources.forEach((source) => {
+      if (!source || typeof source !== 'object') return;
+
+      Object.entries(source).forEach(
+        ([profileId, items]) => {
+          const semanticProfileId =
+            mapProfileIdToSemanticId(profileId);
+
+          if (
+            !PROFILE_IDS.includes(semanticProfileId) ||
+            !Array.isArray(items)
+          ) {
+            return;
+          }
+
+          mergedLists[semanticProfileId] = [
+            ...mergedLists[semanticProfileId],
+            ...items,
+          ];
+        }
+      );
+    });
+
+    return normalizeProfileLists(mergedLists);
+  };
+
   const getStoredActiveProfile = () => {
     const storedValue = localStorage.getItem(
       ACTIVE_PROFILE_KEY
     );
 
-    return PROFILE_IDS.includes(storedValue)
-      ? storedValue
-      : null;
+    if (PROFILE_IDS.includes(storedValue)) {
+      return storedValue;
+    }
+
+    const semanticProfileId =
+      mapProfileIdToSemanticId(storedValue);
+
+    if (!PROFILE_IDS.includes(semanticProfileId)) {
+      return null;
+    }
+
+    localStorage.setItem(
+      ACTIVE_PROFILE_KEY,
+      semanticProfileId
+    );
+
+    return semanticProfileId;
   };
 
   const getStoredProfileLists = () => {
     const storedLists = parseJSON(
       localStorage.getItem(PROFILE_LISTS_KEY),
-      {}
+      null
+    );
+    const legacyStoredLists = parseJSON(
+      localStorage.getItem(LEGACY_PROFILE_LISTS_KEY),
+      null
     );
 
-    return normalizeProfileLists(storedLists);
+    const normalizedLists = mergeProfileListSources(
+      storedLists,
+      legacyStoredLists
+    );
+
+    const mustPersistNormalizedLists =
+      !storedLists || Boolean(legacyStoredLists);
+
+    if (mustPersistNormalizedLists) {
+      localStorage.setItem(
+        PROFILE_LISTS_KEY,
+        JSON.stringify(normalizedLists)
+      );
+    }
+
+    if (legacyStoredLists) {
+      localStorage.removeItem(LEGACY_PROFILE_LISTS_KEY);
+    }
+
+    return normalizedLists;
   };
 
   const saveProfileLists = (lists) => {

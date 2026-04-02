@@ -208,6 +208,12 @@ Para cada cenário, anotar:
 
 ## 📦 Última entrega relevante
 
+### 2026-04-02 — Migração automática de storage legado
+
+- implementada migração automática de jornadas antigas (`minhaListaPorPerfil`) para a chave única atual `flixhub_jornadas`;
+- adicionado mapeamento transparente de IDs legados (`perfil-1`, `perfil-2`, `perfil-3`) para IDs semânticos (`observador`, `explorador`, `guardiao`);
+- migração de `perfilAtivo` antigo para o novo padrão semântico no primeiro carregamento, preservando continuidade de uso.
+
 ### 2026-04-02 — Robustez da renderização por Arquétipo
 
 - adicionada camada defensiva de render para normalizar `flixhub_jornadas` antes de pintar catálogo e Minha Jornada;
