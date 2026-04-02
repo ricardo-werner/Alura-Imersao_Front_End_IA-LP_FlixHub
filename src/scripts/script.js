@@ -16,6 +16,11 @@
     'explorador',
     'guardiao',
   ];
+  const DEFAULT_PROFILE_LABELS = {
+    observador: 'O Observador',
+    explorador: 'O Explorador',
+    guardiao: 'O Guardião',
+  };
 
   const root = document.documentElement;
   const toggleButton =
@@ -101,7 +106,7 @@
 
       return labels;
     },
-    {}
+    { ...DEFAULT_PROFILE_LABELS }
   );
 
   let focusBeforeDialog = null;
@@ -175,9 +180,11 @@
   };
 
   const saveProfileLists = (lists) => {
+    const normalizedLists = normalizeProfileLists(lists);
+
     localStorage.setItem(
       PROFILE_LISTS_KEY,
-      JSON.stringify(lists)
+      JSON.stringify(normalizedLists)
     );
   };
 
@@ -187,6 +194,11 @@
 
   const getProfileName = (profileId) =>
     profileLabels[profileId] || profileId;
+
+  const getNormalizedProfileLists = () => {
+    profileLists = normalizeProfileLists(profileLists);
+    return profileLists;
+  };
 
   const updateActiveProfileStatus = () => {
     if (!profileStatus) return;
@@ -455,7 +467,9 @@
   const isInActiveProfileList = (title) => {
     if (!activeProfileId) return false;
 
-    return profileLists[activeProfileId]?.includes(title);
+    const lists = getNormalizedProfileLists();
+
+    return lists[activeProfileId]?.includes(title);
   };
 
   const updateCatalogActionButton = ({ button, title }) => {
@@ -533,7 +547,8 @@
 
     const activeProfileName =
       getProfileName(activeProfileId);
-    const items = profileLists[activeProfileId] || [];
+    const lists = getNormalizedProfileLists();
+    const items = lists[activeProfileId] || [];
 
     minhaListaTitle.textContent = `Minha Jornada — ${activeProfileName}`;
 

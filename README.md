@@ -208,6 +208,12 @@ Para cada cenário, anotar:
 
 ## 📦 Última entrega relevante
 
+### 2026-04-02 — Robustez da renderização por Arquétipo
+
+- adicionada camada defensiva de render para normalizar `flixhub_jornadas` antes de pintar catálogo e Minha Jornada;
+- fallback explícito de labels dos arquétipos no JavaScript (`O Observador`, `O Explorador`, `O Guardião`) para evitar regressão visual caso `data-profile-name` não esteja disponível;
+- persistência com sanitização no `saveProfileLists`, garantindo que somente a estrutura semântica válida seja gravada em `localStorage`.
+
 ### 2026-04-02 — Confirmação de troca de Arquétipo (estado + navegação + A11Y)
 
 - ação do botão **Confirmar** concluída: fechamento do modal acessível sem retorno indevido de foco;
