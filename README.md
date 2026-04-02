@@ -215,6 +215,8 @@ Para cada cenário, anotar:
 - manutenção da jornada por perfil (listas preservadas por `minhaListaPorPerfil`);
 - navegação com `scrollIntoView` para a seção de arquétipos;
 - foco robusto no título **Escolha sua jornada** com observação de visibilidade (IntersectionObserver + fallback sem timer).
+- compensação de header fixo no retorno para arquétipos usando `scroll-margin-top` no container da seção de perfis, evitando corte visual do título.
+- ajuste de alvo do scroll no JavaScript para a `section` de perfis (em vez de mirar apenas no `h2`), garantindo alinhamento mais estável.
 
 ### 2026-04-02 — Estrutura acessível de Troca de Arquétipo (fase modal)
 
