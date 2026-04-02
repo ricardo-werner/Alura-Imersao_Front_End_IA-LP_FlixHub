@@ -108,6 +108,76 @@ Implementações de acessibilidade aplicadas no projeto:
 
 ---
 
+## 🧭 Guia de QA manual (épico Minha Jornada)
+
+> Objetivo: validar o fluxo completo **menu → modal → seleção de arquétipo → scroll suave → foco no título**.
+
+### Pré-condições
+
+- Limpar estado local (opcional recomendado): `localStorage` do projeto sem `perfilAtivo`.
+- Garantir que nenhum arquétipo esteja ativo no carregamento inicial.
+- Testar em:
+  - **Desktop:** viewport `≥ 1024px`.
+  - **Mobile:** viewport `≤ 768px` (Device Toolbar do navegador).
+
+### Cenário 1 — Desktop | Fluxo principal por clique
+
+**Passos**
+
+1. Abrir a aplicação em desktop sem arquétipo ativo.
+2. Clicar no item de menu lateral **Minha Jornada**.
+3. Confirmar abertura do modal de orientação.
+4. Clicar em um card de arquétipo na seção de perfis.
+
+**Resultado esperado (critério de aprovação)**
+
+- A seção `#minha-lista` é alcançada com rolagem suave.
+- O foco é movido para o título `#minha-lista-titulo`.
+- O título atualizado da jornada é anunciado corretamente por tecnologia assistiva.
+- Não há necessidade de rolagem manual para encontrar a seção.
+
+### Cenário 2 — Desktop | Robustez da flag de intenção
+
+**Passos**
+
+1. Clicar em **Minha Jornada** sem arquétipo ativo (modal abre).
+2. Fechar o modal pelo botão de fechar.
+3. Reabrir o modal por **Minha Jornada** e cancelar com `Esc`.
+4. Selecionar um arquétipo **sem** partir novamente de clique em **Minha Jornada**.
+
+**Resultado esperado (critério de aprovação)**
+
+- Não ocorre scroll automático inesperado para `#minha-lista`.
+- O foco permanece coerente com o fluxo atual da interface.
+- O comportamento comprova limpeza defensiva da intenção após fechamento/cancelamento.
+
+### Cenário 3 — Mobile | Fluxo completo + A11Y
+
+**Passos**
+
+1. Alternar para viewport mobile (ex.: `390x844`).
+2. Sem arquétipo ativo, tocar em **Minha Jornada** no menu.
+3. No modal, seguir para seleção e tocar em um arquétipo.
+4. Observar transição para a seção da jornada.
+
+**Resultado esperado (critério de aprovação)**
+
+- Scroll suave ocorre sem “salto” visual abrupto.
+- `#minha-lista-titulo` recebe foco programático (com `tabindex="-1"` quando necessário).
+- A ordem de navegação por Tab não fica poluída pelo título (foco apenas programático).
+- Fluxo permanece estável mesmo em dispositivo/CPU mais lento.
+
+### Registro sugerido da execução (estudos futuros)
+
+Para cada cenário, anotar:
+
+- Ambiente (desktop/mobile + navegador + resolução);
+- Resultado (`Aprovado`/`Reprovado`);
+- Evidência (gif/screenshot);
+- Observações (latência, comportamento de foco, eventuais regressões).
+
+---
+
 ## 🛠️ Stack
 
 - **HTML5** semântico
