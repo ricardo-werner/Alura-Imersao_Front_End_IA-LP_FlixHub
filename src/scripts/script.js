@@ -259,7 +259,7 @@
     if (!button) return;
 
     if (!activeProfileId) {
-      button.textContent = 'Adicionar à minha lista';
+      button.textContent = 'Adicionar à minha jornada';
       button.setAttribute('aria-pressed', 'false');
       return;
     }
@@ -267,8 +267,8 @@
     const isAdded = isInActiveProfileList(title);
 
     button.textContent = isAdded
-      ? 'Remover da minha lista'
-      : 'Adicionar à minha lista';
+      ? 'Remover da minha jornada'
+      : 'Adicionar à minha jornada';
     button.setAttribute('aria-pressed', String(isAdded));
   };
 
@@ -304,7 +304,7 @@
       'media-card-action is-remove-action';
     removeButton.setAttribute('data-remove-from-list', '');
     removeButton.setAttribute('aria-pressed', 'true');
-    removeButton.textContent = 'Remover da minha lista';
+    removeButton.textContent = 'Remover da minha jornada';
 
     listItem.append(titleElement, removeButton);
 
