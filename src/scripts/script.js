@@ -317,7 +317,7 @@
     minhaListaList.innerHTML = '';
 
     if (!activeProfileId) {
-      minhaListaTitle.textContent = 'Minha lista';
+      minhaListaTitle.textContent = 'Minha Jornada';
 
       const emptyState = document.createElement('li');
       emptyState.className = 'empty-list-state';
@@ -332,7 +332,7 @@
       getProfileName(activeProfileId);
     const items = profileLists[activeProfileId] || [];
 
-    minhaListaTitle.textContent = `Minha lista — ${activeProfileName}`;
+    minhaListaTitle.textContent = `Minha Jornada — ${activeProfileName}`;
 
     if (!items.length) {
       const emptyState = document.createElement('li');
