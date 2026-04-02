@@ -208,6 +208,14 @@ Para cada cenário, anotar:
 
 ## 📦 Última entrega relevante
 
+### 2026-04-02 — Confirmação de troca de Arquétipo (estado + navegação + A11Y)
+
+- ação do botão **Confirmar** concluída: fechamento do modal acessível sem retorno indevido de foco;
+- limpeza do estado de perfil ativo (`perfilAtivo`), com atualização visual dos cards de arquétipo e status em tempo real;
+- manutenção da jornada por perfil (listas preservadas por `minhaListaPorPerfil`);
+- navegação com `scrollIntoView` para a seção de arquétipos;
+- foco robusto no título **Escolha sua jornada** com observação de visibilidade (IntersectionObserver + fallback sem timer).
+
 ### 2026-04-02 — Estrutura acessível de Troca de Arquétipo (fase modal)
 
 - adição do botão **Trocar Arquétipo** na seção `#minha-lista`, ao lado do título da jornada, com ícone Lucide;
