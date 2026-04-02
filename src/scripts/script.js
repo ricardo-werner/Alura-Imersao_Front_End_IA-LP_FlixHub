@@ -167,8 +167,8 @@
     if (!profileStatus) return;
 
     profileStatus.textContent = activeProfileId
-      ? `Perfil ativo: ${getProfileName(activeProfileId)}`
-      : 'Perfil ativo: nenhum selecionado';
+      ? `Arquétipo ativo: ${getProfileName(activeProfileId)}`
+      : 'Arquétipo ativo: nenhum selecionado';
   };
 
   const updateProfileButtonsState = () => {
@@ -322,7 +322,7 @@
       const emptyState = document.createElement('li');
       emptyState.className = 'empty-list-state';
       emptyState.textContent =
-        'Selecione um perfil para começar a montar sua lista.';
+        'Selecione um arquétipo para começar a montar sua lista.';
       minhaListaList.append(emptyState);
       bindMediaCardKeyboardNavigation();
       return;

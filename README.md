@@ -10,7 +10,7 @@ Aplicação front-end inspirada em plataformas de streaming, com foco em **exper
 
 O FlixHub simula uma home de streaming com jornada completa de navegação:
 
-- seleção de perfil ativo;
+- seleção de arquétipo ativo;
 - catálogo por categorias (`Séries`, `Filmes`, `Bombando`);
 - ações de **Adicionar/Remover da minha lista**;
 - seção **Minha lista** renderizada dinamicamente por perfil;
@@ -38,7 +38,7 @@ Além do padrão de referência, este README foi estruturado para ser mais forte
 - **Modo dislexia** com fonte Lexend e estado persistido
 - **Escala de fonte** para baixa visão (`100% → 110% → 125%`)
 - **Menu de acessibilidade mobile** (hambúrguer + fechamento por botão/`Esc`)
-- **Seleção de perfil ativo** com status textual em tempo real
+- **Seleção de arquétipo ativo** com status textual em tempo real
 - **Minha Lista por perfil** com estado isolado por usuário
 - **Fluxo guiado por `dialog` acessível** quando não há perfil selecionado
 - **Navegação por teclado nos cards** (`↑ ↓ ← →`, `Home`, `End`)
@@ -82,7 +82,7 @@ FlixHub/
   - `flixhub-theme`
   - `flixhub-reading-mode`
   - `flixhub-font-scale`
-  - `perfilAtivo`
+  - `perfilAtivo` (arquétipo ativo)
   - `minhaListaPorPerfil`
 - Inicialização resiliente do Lucide Icons (com tentativa de re-render)
 
@@ -146,6 +146,13 @@ Implementações de acessibilidade aplicadas no projeto:
 - limpeza de arquivos antigos de imagem não utilizados.
 
 > Histórico técnico completo em `CHANGELOG.md`.
+
+### 2026-04-02 — Refatoração da Seleção de Perfil para Arquétipos
+
+- atualização da narrativa da área inicial para **Escolha sua jornada**;
+- renomeação dos três cards para **O Observador**, **O Explorador** e **O Guardião**;
+- manutenção da semântica acessível com botões (`aria-pressed`) e status dinâmico;
+- aplicação de efeito visual **glass suave** nos cards de arquétipo e nas listas de mídia.
 
 ---
 
