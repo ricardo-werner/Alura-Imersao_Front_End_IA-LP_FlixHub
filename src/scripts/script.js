@@ -547,21 +547,55 @@
     return lists[activeProfileId]?.includes(title);
   };
 
+  const getCatalogActionAriaLabel = ({
+    title,
+    profileId,
+    isAdded,
+  }) => {
+    const safeTitle = title || 'este título';
+
+    if (!profileId) {
+      return `Selecione um arquétipo para adicionar ${safeTitle} à jornada`;
+    }
+
+    const profileName = getProfileName(profileId);
+
+    return isAdded
+      ? `Remover ${safeTitle} da jornada de ${profileName}`
+      : `Adicionar ${safeTitle} à jornada de ${profileName}`;
+  };
+
   const updateCatalogActionButton = ({ button, title }) => {
     if (!button) return;
 
     if (!activeProfileId) {
-      button.textContent = 'Adicionar à minha jornada';
+      button.textContent = 'Adicionar à jornada';
       button.setAttribute('aria-pressed', 'false');
+      button.setAttribute(
+        'aria-label',
+        getCatalogActionAriaLabel({
+          title,
+          profileId: activeProfileId,
+          isAdded: false,
+        })
+      );
       return;
     }
 
     const isAdded = isInActiveProfileList(title);
 
     button.textContent = isAdded
-      ? 'Remover da minha jornada'
-      : 'Adicionar à minha jornada';
+      ? 'Remover da jornada'
+      : 'Adicionar à jornada';
     button.setAttribute('aria-pressed', String(isAdded));
+    button.setAttribute(
+      'aria-label',
+      getCatalogActionAriaLabel({
+        title,
+        profileId: activeProfileId,
+        isAdded,
+      })
+    );
   };
 
   function renderCatalogActions() {
@@ -596,7 +630,11 @@
       'media-card-action is-remove-action';
     removeButton.setAttribute('data-remove-from-list', '');
     removeButton.setAttribute('aria-pressed', 'true');
-    removeButton.textContent = 'Remover da minha jornada';
+    removeButton.setAttribute(
+      'aria-label',
+      `Remover ${title} da jornada`
+    );
+    removeButton.textContent = 'Remover da jornada';
 
     listItem.append(titleElement, removeButton);
 
@@ -630,7 +668,7 @@
     if (!items.length) {
       const emptyState = document.createElement('li');
       emptyState.className = 'empty-list-state';
-      emptyState.textContent = `${activeProfileName} ainda não adicionou títulos.`;
+      emptyState.textContent = `${activeProfileName} ainda não iniciou sua jornada...`;
       minhaListaList.append(emptyState);
       bindMediaCardKeyboardNavigation();
       return;
@@ -670,6 +708,22 @@
     saveProfileLists(updatedLists);
     renderCatalogActions();
     renderMinhaLista();
+  };
+
+  const handleCatalogActionClick = (event) => {
+    const actionButton = event.currentTarget;
+    const card = actionButton.closest('.media-card');
+    const title = getCardTitle(card);
+
+    if (!title) return;
+
+    if (!activeProfileId) {
+      event.preventDefault();
+      openProfileDialog(actionButton);
+      return;
+    }
+
+    toggleTitleInActiveProfile(title, actionButton);
   };
 
   const removeTitleFromActiveProfile = (title) => {
@@ -959,18 +1013,10 @@
       '#series [data-list-action], #filmes [data-list-action], #bombando [data-list-action]'
     )
     .forEach((button) => {
-      button.addEventListener('click', (event) => {
-        const card =
-          event.currentTarget.closest('.media-card');
-        const title = getCardTitle(card);
-
-        if (!title) return;
-
-        toggleTitleInActiveProfile(
-          title,
-          event.currentTarget
-        );
-      });
+      button.addEventListener(
+        'click',
+        handleCatalogActionClick
+      );
     });
 
   minhaListaList?.addEventListener('click', (event) => {
