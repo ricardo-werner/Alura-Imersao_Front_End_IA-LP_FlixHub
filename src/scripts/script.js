@@ -5,13 +5,17 @@
   const READING_KEY = 'flixhub-reading-mode';
   const SCALE_KEY = 'flixhub-font-scale';
   const ACTIVE_PROFILE_KEY = 'perfilAtivo';
-  const PROFILE_LISTS_KEY = 'minhaListaPorPerfil';
+  const PROFILE_LISTS_KEY = 'flixhub_jornadas';
   const THEME_DARK = 'dark';
   const THEME_LIGHT = 'light';
   const READING_DEFAULT = 'default';
   const READING_DYSLEXIA = 'dyslexia';
   const SCALE_OPTIONS = ['100', '110', '125'];
-  const PROFILE_IDS = ['perfil-1', 'perfil-2', 'perfil-3'];
+  const PROFILE_IDS = [
+    'observador',
+    'explorador',
+    'guardiao',
+  ];
 
   const root = document.documentElement;
   const toggleButton =
@@ -132,6 +136,25 @@
       return lists;
     }, {});
 
+  const normalizeProfileLists = (sourceLists = {}) =>
+    PROFILE_IDS.reduce((lists, profileId) => {
+      const rawItems = Array.isArray(sourceLists[profileId])
+        ? sourceLists[profileId]
+        : [];
+      const uniqueItems = Array.from(
+        new Set(
+          rawItems.filter(
+            (item) =>
+              typeof item === 'string' && item.trim()
+          )
+        )
+      );
+
+      lists[profileId] = uniqueItems;
+
+      return lists;
+    }, createEmptyProfileLists());
+
   const getStoredActiveProfile = () => {
     const storedValue = localStorage.getItem(
       ACTIVE_PROFILE_KEY
@@ -148,23 +171,7 @@
       {}
     );
 
-    return PROFILE_IDS.reduce((lists, profileId) => {
-      const rawItems = Array.isArray(storedLists[profileId])
-        ? storedLists[profileId]
-        : [];
-      const uniqueItems = Array.from(
-        new Set(
-          rawItems.filter(
-            (item) =>
-              typeof item === 'string' && item.trim()
-          )
-        )
-      );
-
-      lists[profileId] = uniqueItems;
-
-      return lists;
-    }, createEmptyProfileLists());
+    return normalizeProfileLists(storedLists);
   };
 
   const saveProfileLists = (lists) => {
@@ -555,14 +562,22 @@
       return;
     }
 
-    const currentList = profileLists[activeProfileId] || [];
+    const normalizedLists =
+      normalizeProfileLists(profileLists);
+    const currentList =
+      normalizedLists[activeProfileId] || [];
     const alreadyAdded = currentList.includes(title);
 
-    profileLists[activeProfileId] = alreadyAdded
-      ? currentList.filter((item) => item !== title)
-      : [...currentList, title];
+    const updatedLists = {
+      ...normalizedLists,
+      [activeProfileId]: alreadyAdded
+        ? currentList.filter((item) => item !== title)
+        : [...currentList, title],
+    };
 
-    saveProfileLists(profileLists);
+    profileLists = updatedLists;
+
+    saveProfileLists(updatedLists);
     renderCatalogActions();
     renderMinhaLista();
   };
@@ -570,12 +585,19 @@
   const removeTitleFromActiveProfile = (title) => {
     if (!activeProfileId) return;
 
-    const currentList = profileLists[activeProfileId] || [];
-    profileLists[activeProfileId] = currentList.filter(
-      (item) => item !== title
-    );
+    const normalizedLists =
+      normalizeProfileLists(profileLists);
+    const currentList =
+      normalizedLists[activeProfileId] || [];
+    const updatedLists = {
+      ...normalizedLists,
+      [activeProfileId]: currentList.filter(
+        (item) => item !== title
+      ),
+    };
 
-    saveProfileLists(profileLists);
+    profileLists = updatedLists;
+    saveProfileLists(updatedLists);
     renderCatalogActions();
     renderMinhaLista();
   };

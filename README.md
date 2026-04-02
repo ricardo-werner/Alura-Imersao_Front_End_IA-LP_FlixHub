@@ -83,7 +83,7 @@ FlixHub/
   - `flixhub-reading-mode`
   - `flixhub-font-scale`
   - `perfilAtivo` (arquétipo ativo)
-  - `minhaListaPorPerfil`
+  - `flixhub_jornadas`
 - Inicialização resiliente do Lucide Icons (com tentativa de re-render)
 
 ---
@@ -212,7 +212,7 @@ Para cada cenário, anotar:
 
 - ação do botão **Confirmar** concluída: fechamento do modal acessível sem retorno indevido de foco;
 - limpeza do estado de perfil ativo (`perfilAtivo`), com atualização visual dos cards de arquétipo e status em tempo real;
-- manutenção da jornada por perfil (listas preservadas por `minhaListaPorPerfil`);
+- manutenção da jornada por perfil (listas preservadas por `flixhub_jornadas`);
 - navegação com `scrollIntoView` para a seção de arquétipos;
 - foco robusto no título **Escolha sua jornada** com observação de visibilidade (IntersectionObserver + fallback sem timer).
 - compensação de header fixo no retorno para arquétipos usando `scroll-margin-top` no container da seção de perfis, evitando corte visual do título.
