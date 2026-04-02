@@ -12,9 +12,23 @@ Este arquivo registra a evolução do projeto para consulta futura.
 
 ### Changed
 
-- Fluxo de confirmação de troca passou a limpar apenas o perfil ativo (`perfilAtivo`) preservando jornadas por perfil (`minhaListaPorPerfil`).
+- Implementada migração automática de jornadas legadas (`minhaListaPorPerfil`) para `flixhub_jornadas`, com preservação de dados no primeiro carregamento.
+- Adicionado mapeamento de IDs legados (`perfil-1`, `perfil-2`, `perfil-3`) para IDs semânticos (`observador`, `explorador`, `guardiao`) incluindo migração automática de `perfilAtivo`.
+- Reforçada a camada de renderização para normalizar `flixhub_jornadas` antes de atualizar catálogo e seção **Minha Jornada**.
+- Incluído fallback explícito de labels de arquétipos no JavaScript (`O Observador`, `O Explorador`, `O Guardião`) para evitar regressões quando `data-profile-name` não estiver disponível.
+- Atualizada a persistência para salvar jornadas sempre sanitizadas/normalizadas no `localStorage`.
+- Refatorada a persistência da seção **Minha Jornada** para arquitetura por arquétipos semânticos em chave única `flixhub_jornadas` (`observador`, `explorador`, `guardiao`).
+- Atualizados os identificadores dos cards de arquétipo no HTML para IDs semânticos diretos (`id` e `data-profile-id`) sem composição por sufixos numéricos.
+- Fortalecida a lógica de estado para normalização de dados ao ler/salvar jornadas, garantindo estrutura consistente por arquétipo mesmo com `localStorage` vazio ou inválido.
+- Fluxo de confirmação de troca passou a limpar apenas o perfil ativo (`perfilAtivo`) preservando jornadas por perfil (`flixhub_jornadas`).
 - Navegação de retorno para arquétipos com `scrollIntoView` e foco robusto no título **Escolha sua jornada** via observação de visibilidade (IntersectionObserver + fallback sem timer).
 - Alvo de rolagem para arquétipos atualizado no JavaScript para o container da `section` (em vez de mirar só no `h2`).
+- Refatoração da seleção de perfis para arquétipos com atualização textual para **Escolha sua jornada** e nomenclaturas **O Observador**, **O Explorador** e **O Guardião**.
+- Alinhamento de nomenclatura de interface e ações de lista para **Minha Jornada** (substituindo ocorrências de "Minha lista").
+- Reforço visual do efeito glass em cards (arquétipos e mídia), com calibração por breakpoint para percepção consistente em mobile, tablet e desktop.
+- Calibração específica do efeito glass no tema claro (bordas, sombras, blur e saturação) para manter contraste e legibilidade.
+- Micro-polimento responsivo e acabamento pixel-perfect de bordas para maior nitidez visual em telas IPS.
+- Implementado hover com glow âmbar e `scale(1.05)` condicionado a `prefers-reduced-motion`, com redução de animações quando `reduce` está ativo.
 
 ### Fixed
 
