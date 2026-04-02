@@ -165,6 +165,12 @@ Implementações de acessibilidade aplicadas no projeto:
 - atualização dos textos de UI e ações para substituir "Minha lista" por "Minha Jornada";
 - consistência entre conteúdo estático (HTML), dinâmico (JavaScript) e documentação principal.
 
+### 2026-04-02 — Reforço do glass para percepção em qualquer dispositivo
+
+- aumento da intensidade do efeito glass nos cards de arquétipo e mídia;
+- ajuste de borda translúcida, sombras e nível de blur para melhor leitura visual;
+- aplicação de calibração por breakpoint para manter percepção consistente em mobile, tablet e desktop.
+
 ---
 
 ## 🗺️ Próximos passos sugeridos

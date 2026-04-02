@@ -13,8 +13,8 @@
   --a11y-mobile-width: min(12.5rem, calc(100vw - 3rem));
   --profile-card-padding: 0.78rem;
   --profile-name-size: 0.95rem;
-  --glass-blur-profile: 0.38rem;
-  --glass-blur-media: 0.32rem;
+  --glass-blur-profile: 0.56rem;
+  --glass-blur-media: 0.46rem;
   --media-card-min-height: 4rem;
 }
 
@@ -171,8 +171,8 @@ main > section:first-of-type {
     --a11y-mobile-width: min(11.25rem, calc(100vw - 2rem));
     --profile-card-padding: 0.72rem;
     --profile-name-size: 0.92rem;
-    --glass-blur-profile: 0.34rem;
-    --glass-blur-media: 0.3rem;
+    --glass-blur-profile: 0.48rem;
+    --glass-blur-media: 0.4rem;
   }
 
   header,
@@ -199,8 +199,8 @@ main > section:first-of-type {
   :root {
     --profile-card-padding: 0.8rem;
     --profile-name-size: 0.97rem;
-    --glass-blur-profile: 0.42rem;
-    --glass-blur-media: 0.34rem;
+    --glass-blur-profile: 0.62rem;
+    --glass-blur-media: 0.5rem;
     --media-card-min-height: 4.1rem;
   }
 
@@ -225,8 +225,8 @@ main > section:first-of-type {
   :root {
     --profile-card-padding: 0.82rem;
     --profile-name-size: 0.98rem;
-    --glass-blur-profile: 0.45rem;
-    --glass-blur-media: 0.38rem;
+    --glass-blur-profile: 0.72rem;
+    --glass-blur-media: 0.58rem;
     --media-card-min-height: 4.15rem;
   }
 
