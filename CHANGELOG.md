@@ -2,6 +2,24 @@
 
 Este arquivo registra a evolução do projeto para consulta futura.
 
+## [2026-04-02]
+
+### Added
+
+- Botão **Trocar Arquétipo** na seção `#minha-lista`, com ícone Lucide e gatilho para confirmação.
+- Modal de confirmação acessível para troca de arquétipo com semântica (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`, `aria-describedby`).
+- Gerenciamento de foco no modal de troca (foco inicial, trap com `Tab`/`Shift+Tab`, fechamento por `Esc` e clique em backdrop).
+
+### Changed
+
+- Fluxo de confirmação de troca passou a limpar apenas o perfil ativo (`perfilAtivo`) preservando jornadas por perfil (`minhaListaPorPerfil`).
+- Navegação de retorno para arquétipos com `scrollIntoView` e foco robusto no título **Escolha sua jornada** via observação de visibilidade (IntersectionObserver + fallback sem timer).
+- Alvo de rolagem para arquétipos atualizado no JavaScript para o container da `section` (em vez de mirar só no `h2`).
+
+### Fixed
+
+- Corrigido corte visual do título de arquétipos causado por header sticky com compensação via `scroll-margin-top` no container da seção de perfis.
+
 ## [2026-04-01]
 
 ### Changed
