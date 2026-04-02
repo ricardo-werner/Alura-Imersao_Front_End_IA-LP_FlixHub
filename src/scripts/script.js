@@ -159,6 +159,7 @@
 
   let activeProfileId = getStoredActiveProfile();
   let profileLists = getStoredProfileLists();
+  let intentToScrollMinhaLista = false;
 
   const getProfileName = (profileId) =>
     profileLabels[profileId] || profileId;
@@ -629,6 +630,28 @@
       if (!profileId) return;
 
       setActiveProfile(profileId);
+
+      if (intentToScrollMinhaLista) {
+        const minhaListaSection =
+          document.getElementById('minha-lista');
+
+        minhaListaSection?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+
+        window.setTimeout(() => {
+          if (!minhaListaTitle) return;
+
+          if (!minhaListaTitle.hasAttribute('tabindex')) {
+            minhaListaTitle.setAttribute('tabindex', '-1');
+          }
+
+          minhaListaTitle.focus({ preventScroll: true });
+        }, 450);
+
+        intentToScrollMinhaLista = false;
+      }
     });
   });
 
@@ -670,6 +693,7 @@
     if (activeProfileId) return;
 
     event.preventDefault();
+    intentToScrollMinhaLista = true;
     openProfileDialog(menuMinhaListaLink);
   });
 
@@ -684,12 +708,14 @@
   profileDialogCloseButton?.addEventListener(
     'click',
     () => {
+      intentToScrollMinhaLista = false;
       closeProfileDialog();
     }
   );
 
   profileDialog?.addEventListener('cancel', (event) => {
     event.preventDefault();
+    intentToScrollMinhaLista = false;
     closeProfileDialog();
   });
 
