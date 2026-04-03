@@ -503,24 +503,26 @@
       </section>
     </main>
 
-    <footer class="main-footer">
-      <p class="copyright">
-        &copy; Copyright <span id="year-footer"></span> -
-        Ricardo Werner <br />
-        <small
-          >Desenvolvedor Front-End com foco em
-          Acessibilidade (A11Y/WCAG) | Desenvolvido para
-          Inclusão Digital</small
-        >
-      </p>
+    <footer
+      class="site-footer"
+      role="contentinfo"
+      aria-labelledby="footer-heading"
+    >
+      <div class="footer-container">
+        <p id="footer-heading" class="visually-hidden">
+          Rodapé principal do site
+        </p>
 
-      <nav aria-label="Links do rodapé">
-        <ul>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Privacidade</a></li>
-          <li><a href="#">Ajuda</a></li>
-        </ul>
-      </nav>
+        <p class="footer-copyright">
+          &copy; <span id="year-footer"></span> Ricardo
+          Werner. Todos os direitos reservados.
+        </p>
+
+        <p class="footer-focus">
+          Desenvolvedor Front-end com foco em
+          Acessibilidade, UX e Inclusão Digital.
+        </p>
+      </div>
     </footer>
 
     <dialog

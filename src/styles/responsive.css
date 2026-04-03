@@ -393,3 +393,15 @@ main > section:first-of-type {
     gap: 1.6rem;
   }
 }
+
+@media (min-width: 768px) {
+  .site-footer {
+    text-align: left;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

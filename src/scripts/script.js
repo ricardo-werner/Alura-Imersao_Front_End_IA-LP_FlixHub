@@ -118,6 +118,13 @@
   let focusBeforeDialog = null;
   let focusBeforeSwitchProfileModal = null;
 
+  const setFooterYear = () => {
+    const yearSpan = document.getElementById('year-footer');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  };
+
   if (yearFooter) {
     yearFooter.textContent = String(
       new Date().getFullYear()
@@ -860,6 +867,7 @@
   applyTheme(initialTheme);
   applyReadingMode(initialReadingMode);
   applyFontScale(initialScale);
+  setFooterYear();
   syncA11yMenuByViewport();
   saveProfileLists(profileLists);
   updateProfileButtonsState();
