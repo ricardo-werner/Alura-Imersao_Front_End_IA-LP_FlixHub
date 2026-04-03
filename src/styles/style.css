@@ -995,6 +995,19 @@ article p {
   gap: 1rem;
 }
 
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .footer-copyright {
   margin: 0;
   font-weight: 500;
