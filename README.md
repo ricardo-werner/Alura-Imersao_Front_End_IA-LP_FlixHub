@@ -1,102 +1,94 @@
 # FlixHub
 
-Aplicação front-end inspirada em plataformas de streaming, com foco em **experiência acessível**, **responsividade mobile-first** e **personalização por perfil**.
-
-> Projeto ideal para portfólio de Front-end por combinar UI moderna, semântica HTML, JavaScript puro e práticas reais de A11Y/WCAG.
+Aplicação front-end inspirada em plataformas de streaming, com foco em **acessibilidade (A11Y/WCAG)**, **responsividade mobile-first** e **experiência de navegação por perfil**.
 
 ---
 
 ## 🚀 Visão geral
 
-O FlixHub simula uma home de streaming com jornada completa de navegação:
+O **FlixHub** simula uma home de streaming moderna com interação real de produto:
 
-- seleção de arquétipo ativo;
-- catálogo por categorias (`Séries`, `Filmes`, `Bombando`);
-- ações de **Adicionar/Remover da minha jornada**;
-- seção **Minha Jornada** renderizada dinamicamente por perfil;
-- controles de acessibilidade e tema com persistência local.
+1. seleção de arquétipo ativo;
+2. catálogo por categorias;
+3. ações de adicionar/remover itens da jornada;
+4. renderização dinâmica da seção **Minha Jornada**;
+5. controles de acessibilidade e tema com persistência local.
 
-Toda a implementação é estática (sem build e sem framework), priorizando domínio de fundamentos e arquitetura limpa em HTML/CSS/JS.
-
----
-
-## ✨ Diferenciais deste README (proposta de especialista)
-
-Além do padrão de referência, este README foi estruturado para ser mais forte para **mercado tech (recrutador)** e também claro para **usuário final**:
-
-- foco em **valor entregue** (não apenas lista de arquivos);
-- seção de **Status atual do projeto** baseada no código real;
-- separação entre **funcionalidades do produto** e **decisões técnicas**;
-- leitura escaneável para avaliação rápida em processos seletivos;
-- linguagem objetiva com contexto de acessibilidade e UX.
+Projeto construído em HTML/CSS/JavaScript puro, ideal para portfólio por demonstrar domínio de fundamentos, semântica e UX inclusiva.
 
 ---
 
-## 🧩 Funcionalidades principais
+## ✨ Principais funcionalidades
 
-- **Tema claro/escuro** com persistência (`localStorage`)
-- **Modo dislexia** com fonte Lexend e estado persistido
-- **Escala de fonte** para baixa visão (`100% → 110% → 125%`)
-- **Menu de acessibilidade mobile** (hambúrguer + fechamento por botão/`Esc`)
-- **Seleção de arquétipo ativo** com status textual em tempo real
-- **Minha Jornada por perfil** com estado isolado por usuário
-- **Fluxo guiado por `dialog` acessível** quando não há perfil selecionado
-- **Navegação por teclado nos cards** (`↑ ↓ ← →`, `Home`, `End`)
-- Atalho por **`Enter`/`Espaço` no menu lateral** para entrar na seção
-- Botão **Voltar ao menu** com fluxo de foco previsível
+- **Tema claro/escuro** com persistência em `localStorage`
+- **Modo dislexia** com fonte legível e estado persistido
+- **Escala tipográfica** (`100% → 110% → 125%`) para baixa visão
+- **Menu de acessibilidade responsivo** (mobile + desktop)
+- **Seleção de arquétipo** com status textual em tempo real
+- **Minha Jornada por perfil** com estado isolado por arquétipo
+- **Fluxo orientado com `dialog` acessível** quando não há perfil ativo
+- **Navegação por teclado** no menu, cards e ações (`Enter`, `Espaço`, setas, `Home`, `End`)
 - **Skip links** para conteúdo principal e controles de acessibilidade
 
 ---
 
-## 🏗️ Arquitetura atual
+## 🏗️ Arquitetura (atual)
 
 ### Estrutura de pastas
 
-```text
-FlixHub/
-├── index.html
-├── README.md
-├── src/
-│   ├── assets/
-│   │   └── images/
-│   ├── scripts/
-│   │   └── script.js
-│   └── styles/
-│       ├── style.css
-│       └── responsive.css
-└── teste/
-  ├── index.html
-  ├── style.css
-  ├── responsive.css
-  ├── script.js
-  └── QA_CHECKLIST_RESPONSIVIDADE.md
-```
+- `index.html` — estrutura principal da aplicação
+- `src/scripts/script.js` — estado global, eventos, renderização e acessibilidade
+- `src/styles/style.css` — estilos base e componentes visuais
+- `src/styles/responsive.css` — ajustes por breakpoint
+- `src/assets/images/` — assets da interface (perfis e mídias)
+- `teste/` — laboratório local de validações e QA manual
 
 ### Decisões técnicas relevantes
 
-- Layout principal com **CSS Grid** e componentes semânticos (`header`, `aside`, `main`, `footer`)
-- Sistema visual baseado em **CSS Custom Properties** (temas e tokens)
-- Responsividade em estratégia **mobile-first** (`sm 640`, `md 768`, `lg 1024`, `xl 1280`, `2xl 1536`)
-- Perfis com imagens otimizadas em **WebP** e `decoding="async"` no HTML para reduzir custo de carregamento e melhorar renderização
-- Persistência de estado em `localStorage`:
-  - `flixhub-theme`
-  - `flixhub-reading-mode`
-  - `flixhub-font-scale`
-  - `perfilAtivo` (arquétipo ativo)
-  - `flixhub_jornadas`
-- Inicialização resiliente do Lucide Icons (com tentativa de re-render)
+- **Layout semântico** com `header`, `aside`, `main` e `footer`
+- **Design tokens** via CSS Custom Properties
+- **Responsividade mobile-first** (`640`, `768`, `1024`, `1280`, `1536`)
+- **Persistência local** para preferências e jornada por arquétipo
+- **Renderização resiliente** com tratamento de estado legado
 
 ---
 
-## ♿ Acessibilidade (A11Y/WCAG)
+## ♿ Acessibilidade (A11Y / WCAG)
 
-Implementações de acessibilidade aplicadas no projeto:
+Implementações aplicadas no projeto:
 
-- `aria-label`, `aria-labelledby`, `aria-pressed`, `aria-live`
-- foco visível em controles críticos (`:focus-visible`)
-- navegação por teclado em menu, cards e ações
-- skip links para reduzir fricção de navegação
-- diálogo nativo acessível para fluxo orientado
+- atributos dinâmicos (`aria-label`, `aria-pressed`, `aria-live`)
+- foco visível com `:focus-visible` em controles críticos
+- fluxo de teclado consistente entre menu, catálogo e botões de ação
+- diálogo nativo acessível para cenários sem perfil selecionado
+- suporte a preferência de movimento reduzido (`prefers-reduced-motion`)
+
+> Para histórico técnico completo da evolução do projeto, consulte `CHANGELOG.md` (uso interno do repositório).
+
+---
+
+## 🖼️ Prévia da interface
+
+> Estrutura de mídia mantida no padrão solicitado. As imagens finais devem ser adicionadas em `src/to_readme/`.
+
+<table align="center">
+  <tr>
+    <td align="center"><img width="360" src="./src/to_readme/flixhub_home_light.png" alt="Tela inicial clara do FlixHub" /></td>
+    <td align="center"><img width="360" src="./src/to_readme/flixhub_home_dark.png" alt="Tela inicial escura do FlixHub" /></td>
+  </tr>
+  <tr>
+    <td align="center"><img width="300" src="./src/to_readme/flixhub_a11y_menu.png" alt="Menu de acessibilidade no FlixHub" /></td>
+    <td align="center"><img width="300" src="./src/to_readme/flixhub_minha_jornada.png" alt="Seção Minha Jornada por arquétipo" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/flixhub_mobile.png" alt="Versão mobile do FlixHub" /></td>
+  </tr>
+</table>
+
+| 🎬 Demonstração 1                                                                                                                                                                                            | 🎬 Demonstração 2                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [![Ver vídeo 1](https://img.shields.io/badge/%E2%96%B6%EF%B8%8F%20Ver%20v%C3%ADdeo%201-111827?style=for-the-badge&logo=github&logoColor=white)](https://github.com/user-attachments/assets/SEU-LINK-VIDEO-1) | [![Ver vídeo 2](https://img.shields.io/badge/%E2%96%B6%EF%B8%8F%20Ver%20v%C3%ADdeo%202-1f2937?style=for-the-badge&logo=github&logoColor=white)](https://github.com/user-attachments/assets/SEU-LINK-VIDEO-2) |
+| Fluxo principal de navegação e acessibilidade                                                                                                                                                                | Fluxo de seleção de arquétipo e jornada dinâmica                                                                                                                                                             |
 
 ---
 
@@ -104,212 +96,36 @@ Implementações de acessibilidade aplicadas no projeto:
 
 1. Clone o repositório.
 2. Abra a pasta no VS Code.
-3. Rode com Live Server **ou** abra `index.html` no navegador.
-
----
-
-## 🧭 Guia de QA manual (épico Minha Jornada)
-
-> Objetivo: validar o fluxo completo **menu → modal → seleção de arquétipo → scroll suave → foco no título**.
-
-### Pré-condições
-
-- Limpar estado local (opcional recomendado): `localStorage` do projeto sem `perfilAtivo`.
-- Garantir que nenhum arquétipo esteja ativo no carregamento inicial.
-- Testar em:
-  - **Desktop:** viewport `≥ 1024px`.
-  - **Mobile:** viewport `≤ 768px` (Device Toolbar do navegador).
-
-### Cenário 1 — Desktop | Fluxo principal por clique
-
-**Passos**
-
-1. Abrir a aplicação em desktop sem arquétipo ativo.
-2. Clicar no item de menu lateral **Minha Jornada**.
-3. Confirmar abertura do modal de orientação.
-4. Clicar em um card de arquétipo na seção de perfis.
-
-**Resultado esperado (critério de aprovação)**
-
-- A seção `#minha-lista` é alcançada com rolagem suave.
-- O foco é movido para o título `#minha-lista-titulo`.
-- O título atualizado da jornada é anunciado corretamente por tecnologia assistiva.
-- Não há necessidade de rolagem manual para encontrar a seção.
-
-### Cenário 2 — Desktop | Robustez da flag de intenção
-
-**Passos**
-
-1. Clicar em **Minha Jornada** sem arquétipo ativo (modal abre).
-2. Fechar o modal pelo botão de fechar.
-3. Reabrir o modal por **Minha Jornada** e cancelar com `Esc`.
-4. Selecionar um arquétipo **sem** partir novamente de clique em **Minha Jornada**.
-
-**Resultado esperado (critério de aprovação)**
-
-- Não ocorre scroll automático inesperado para `#minha-lista`.
-- O foco permanece coerente com o fluxo atual da interface.
-- O comportamento comprova limpeza defensiva da intenção após fechamento/cancelamento.
-
-### Cenário 3 — Mobile | Fluxo completo + A11Y
-
-**Passos**
-
-1. Alternar para viewport mobile (ex.: `390x844`).
-2. Sem arquétipo ativo, tocar em **Minha Jornada** no menu.
-3. No modal, seguir para seleção e tocar em um arquétipo.
-4. Observar transição para a seção da jornada.
-
-**Resultado esperado (critério de aprovação)**
-
-- Scroll suave ocorre sem “salto” visual abrupto.
-- `#minha-lista-titulo` recebe foco programático (com `tabindex="-1"` quando necessário).
-- A ordem de navegação por Tab não fica poluída pelo título (foco apenas programático).
-- Fluxo permanece estável mesmo em dispositivo/CPU mais lento.
-
-### Registro sugerido da execução (estudos futuros)
-
-Para cada cenário, anotar:
-
-- Ambiente (desktop/mobile + navegador + resolução);
-- Resultado (`Aprovado`/`Reprovado`);
-- Evidência (gif/screenshot);
-- Observações (latência, comportamento de foco, eventuais regressões).
+3. Execute com Live Server (recomendado) **ou** abra `index.html` no navegador.
 
 ---
 
 ## 🛠️ Stack
 
 - **HTML5** semântico
-- **CSS3** (tokens, grid, responsividade)
-- **JavaScript (Vanilla)** para estado, interações e acessibilidade
+- **CSS3** (tokens, grid e responsividade)
+- **JavaScript (Vanilla)** para estado, interações e A11Y
 - **Lucide Icons** via CDN
 
 ---
 
-## ✅ Status atual do projeto
+## 📌 Entrega mais recente
 
-**Estado geral:** funcional e estável para uso local.
+### 2026-04-03 — Refatoração profissional do README
 
-### O que já está pronto
-
-- interface completa com seções de catálogo e perfil;
-- experiência mobile refinada, incluindo menu de acessibilidade responsivo;
-- persistência de preferências e listas por perfil;
-- fluxo de teclado consistente entre menu lateral, cards e botões de retorno.
-
-### Em evolução
-
-- expansão de interações de catálogo (filtros/ordenação);
-- evolução da camada de testes e checklists de acessibilidade;
-- refinamento contínuo de UX para cenários de navegação assistiva.
+- reposicionamento do README para leitura de portfólio (foco em valor entregue);
+- consolidação da estrutura em formato escaneável para recrutadores e devs;
+- manutenção do padrão de seção de mídia (imagens em grade + dois botões de vídeo);
+- simplificação da seção de histórico para destacar a entrega atual com referência ao changelog interno.
 
 ---
 
-## 📦 Última entrega relevante
+## 🗺️ Roadmap
 
-### 2026-04-02 — Conexão final UI ↔ jornadas semânticas (render + A11Y)
-
-- render da **Minha Jornada** alinhado ao arquétipo ativo em `flixhub_jornadas`, com mensagem de vazio contextual por persona (ex.: `O Observador ainda não iniciou sua jornada...`);
-- estado dos botões de catálogo refinado para `Adicionar à jornada`/`Remover da jornada` com decisão por `includes()` restrita à lista do arquétipo ativo;
-- interceptação explícita de clique sem `activeProfileId`: abre o modal acessível de seleção de arquétipo e evita qualquer persistência indevida;
-- melhoria de acessibilidade nos controles com `aria-pressed` sincronizado e `aria-label` dinâmico por título/ação/arquétipo.
-
-### 2026-04-02 — Migração automática de storage legado
-
-- implementada migração automática de jornadas antigas (`minhaListaPorPerfil`) para a chave única atual `flixhub_jornadas`;
-- adicionado mapeamento transparente de IDs legados (`perfil-1`, `perfil-2`, `perfil-3`) para IDs semânticos (`observador`, `explorador`, `guardiao`);
-- migração de `perfilAtivo` antigo para o novo padrão semântico no primeiro carregamento, preservando continuidade de uso.
-
-### 2026-04-02 — Robustez da renderização por Arquétipo
-
-- adicionada camada defensiva de render para normalizar `flixhub_jornadas` antes de pintar catálogo e Minha Jornada;
-- fallback explícito de labels dos arquétipos no JavaScript (`O Observador`, `O Explorador`, `O Guardião`) para evitar regressão visual caso `data-profile-name` não esteja disponível;
-- persistência com sanitização no `saveProfileLists`, garantindo que somente a estrutura semântica válida seja gravada em `localStorage`.
-
-### 2026-04-02 — Confirmação de troca de Arquétipo (estado + navegação + A11Y)
-
-- ação do botão **Confirmar** concluída: fechamento do modal acessível sem retorno indevido de foco;
-- limpeza do estado de perfil ativo (`perfilAtivo`), com atualização visual dos cards de arquétipo e status em tempo real;
-- manutenção da jornada por perfil (listas preservadas por `flixhub_jornadas`);
-- navegação com `scrollIntoView` para a seção de arquétipos;
-- foco robusto no título **Escolha sua jornada** com observação de visibilidade (IntersectionObserver + fallback sem timer).
-- compensação de header fixo no retorno para arquétipos usando `scroll-margin-top` no container da seção de perfis, evitando corte visual do título.
-- ajuste de alvo do scroll no JavaScript para a `section` de perfis (em vez de mirar apenas no `h2`), garantindo alinhamento mais estável.
-
-### 2026-04-02 — Estrutura acessível de Troca de Arquétipo (fase modal)
-
-- adição do botão **Trocar Arquétipo** na seção `#minha-lista`, ao lado do título da jornada, com ícone Lucide;
-- criação do modal de confirmação com semântica A11Y (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`, `aria-describedby`);
-- implementação de gerenciamento de foco no modal (foco inicial, fechamento com `Esc`, clique no backdrop e trap de `Tab`/`Shift+Tab`);
-- fluxo de confirmação preparado para a próxima etapa (retorno com scroll suave à seção de arquétipos).
-
-### 2026-04-02 — Correção de fluxo para Minha Jornada (intent flag + A11Y)
-
-- implementação de flag de intenção (`intentToScrollMinhaLista`) para preservar o objetivo original do clique no menu lateral;
-- após selecionar o Arquétipo, aplicação de rolagem suave para a seção `#minha-lista` com `scrollIntoView`;
-- foco programático no título da seção (`#minha-lista-titulo`) com `tabindex="-1"` para garantir leitura por teclado/tecnologias assistivas;
-- remoção da sincronização por `setTimeout` e adoção de observação real de visibilidade (`IntersectionObserver`, com fallback sem timer) antes de disparar foco;
-- limpeza defensiva da flag ao concluir o fluxo e nos cenários de fechamento/cancelamento do diálogo.
-
-### 2026-04-01 — Otimização de imagens para performance (Lighthouse)
-
-- migração das imagens de perfil para formatos otimizados (WebP/JPG);
-- atualização dos `src` das imagens no `index.html`;
-- aplicação de `decoding="async"` nas imagens de perfil para melhorar o comportamento de carregamento;
-- limpeza de arquivos antigos de imagem não utilizados.
-
-> Histórico técnico completo em `CHANGELOG.md`.
-
-### 2026-04-02 — Refatoração da Seleção de Perfil para Arquétipos
-
-- atualização da narrativa da área inicial para **Escolha sua jornada**;
-- renomeação dos três cards para **O Observador**, **O Explorador** e **O Guardião**;
-- manutenção da semântica acessível com botões (`aria-pressed`) e status dinâmico;
-- aplicação de efeito visual **glass suave** nos cards de arquétipo e nas listas de mídia.
-
-### 2026-04-02 — Micro-polimento responsivo do visual glass
-
-- refinamento de consistência visual entre mobile, tablet e desktop;
-- ajuste progressivo de `blur`, `padding` e tipografia dos cards por breakpoint;
-- padronização de altura mínima dos cards de mídia para manter ritmo visual estável em qualquer dispositivo.
-
-### 2026-04-02 — Alinhamento de nomenclatura para Minha Jornada
-
-- atualização dos textos de UI e ações para substituir "Minha lista" por "Minha Jornada";
-- consistência entre conteúdo estático (HTML), dinâmico (JavaScript) e documentação principal.
-
-### 2026-04-02 — Reforço do glass para percepção em qualquer dispositivo
-
-- aumento da intensidade do efeito glass nos cards de arquétipo e mídia;
-- ajuste de borda translúcida, sombras e nível de blur para melhor leitura visual;
-- aplicação de calibração por breakpoint para manter percepção consistente em mobile, tablet e desktop.
-
-### 2026-04-02 — Calibração do glass no tema claro
-
-- ajuste fino dos tokens visuais do tema claro para manter o mesmo impacto do glass percebido no tema escuro;
-- refinamento de borda e sombras para destacar melhor os cards sobre fundos claros;
-- balanceamento de `blur` e `saturate` para evitar visual lavado e preservar contraste.
-
-### 2026-04-02 — Acabamento pixel-perfect das bordas (tema claro)
-
-- reforço de micro-contraste nas bordas dos cards para maior definição em telas IPS;
-- adição de highlight interno e borda de suporte para leitura visual mais nítida;
-- estados `hover` e `selecionado` com destaque mais preciso, mantendo elegância do glass.
-
-### 2026-04-02 — Hover com glow âmbar + respeito a reduced motion
-
-- implementação de efeito de `hover` com `scale(1.05)` e glow âmbar em cards de arquétipos e filmes;
-- animações condicionadas a `@media (prefers-reduced-motion: no-preference)`;
-- desativação de zoom/transições em `@media (prefers-reduced-motion: reduce)` para atender boas práticas de A11Y.
-
----
-
-## 🗺️ Próximos passos sugeridos
-
-- adicionar filtros por categoria e estado ativo no menu;
-- evoluir cobertura de cenários A11Y por breakpoint;
-- transformar partes visuais em blocos mais reutilizáveis.
+- [ ] Adicionar filtros de catálogo por categoria e estado
+- [ ] Expandir cenários de QA de acessibilidade por breakpoint
+- [ ] Evoluir componentes para maior reutilização visual
+- [ ] Publicar capturas e vídeos finais em `src/to_readme/`
 
 ---
 
