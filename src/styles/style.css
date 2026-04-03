@@ -1002,10 +1002,10 @@ article p {
 }
 
 .footer-logo {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 7rem;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: contain;
 }
 
 .footer-copyright {

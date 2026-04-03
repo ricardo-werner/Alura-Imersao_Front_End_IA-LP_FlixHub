@@ -58,6 +58,7 @@
     '(min-width: 768px)'
   );
   const yearFooter = document.getElementById('year-footer');
+  const footerLogo = document.getElementById('footer-logo');
   const profilesHeading =
     document.getElementById('perfis-titulo');
   const profilesSection =
@@ -122,6 +123,15 @@
     const yearSpan = document.getElementById('year-footer');
     if (yearSpan) {
       yearSpan.textContent = new Date().getFullYear();
+    }
+  };
+
+  const updateFooterLogo = (theme) => {
+    if (footerLogo) {
+      footerLogo.src =
+        theme === THEME_LIGHT
+          ? './src/assets/images/torre_light.webp'
+          : './src/assets/images/torre_dark.webp';
     }
   };
 
@@ -758,21 +768,22 @@
 
     if (!toggleButton) return;
 
-    const isLight = theme === THEME_LIGHT;
+    const isDark = theme === THEME_DARK;
     toggleButton.setAttribute(
       'aria-pressed',
-      String(isLight)
+      String(isDark)
     );
     toggleButton.setAttribute(
       'title',
-      isLight ? 'Ativar tema escuro' : 'Ativar tema claro'
+      isDark ? 'Ativar tema escuro' : 'Ativar tema claro'
     );
 
     if (toggleText) {
-      toggleText.textContent = isLight
-        ? 'Tema: Claro'
-        : 'Tema: Escuro';
+      toggleText.textContent = `Tema: ${
+        isDark ? 'Escuro' : 'Claro'
+      }`;
     }
+    updateFooterLogo(theme);
   };
 
   const applyReadingMode = (mode) => {
@@ -865,6 +876,7 @@
     : '100';
 
   applyTheme(initialTheme);
+  updateFooterLogo(initialTheme);
   applyReadingMode(initialReadingMode);
   applyFontScale(initialScale);
   setFooterYear();
@@ -960,10 +972,15 @@
 
     applyTheme(nextTheme);
     localStorage.setItem(STORAGE_KEY, nextTheme);
-
-    window.setTimeout(() => {
-      toggleButton.classList.remove('is-switching');
-    }, 420);
+    root.setAttribute('data-theme', nextTheme);
+    toggleButton.setAttribute(
+      'aria-pressed',
+      String(isDark)
+    );
+    toggleText.textContent = `Tema: ${
+      isDark ? 'Escuro' : 'Claro'
+    }`;
+    updateFooterLogo(nextTheme);
   });
 
   dyslexiaButton?.addEventListener('click', () => {

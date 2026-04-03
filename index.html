@@ -509,26 +509,28 @@
       aria-labelledby="footer-heading"
     >
       <div class="footer-container">
-        <p id="footer-heading" class="visually-hidden">
-          Rodapé principal do site
-        </p>
-
-        <div class="footer-brand">
+        <div id="footer-brand" class="footer-brand">
           <img
-            src="./src/assets/images/torre.webp"
-            alt="Logo pessoal de Ricardo Werner"
+            id="footer-logo"
+            src="./src/assets/images/torre_dark.webp"
+            alt="Logotipo pessoal de Ricardo Werner"
             class="footer-logo"
+            loading="lazy"
           />
           <p class="footer-copyright">
-            &copy; <span id="year-footer"></span> Ricardo
-            Werner. Todos os direitos reservados.
+            &copy; <span id="year-footer"></span> | Ricardo
+            Werner | UX Designer & Front-end.
           </p>
         </div>
-
-        <p class="footer-focus">
-          Desenvolvedor Front-end com foco em
-          Acessibilidade, UX e Inclusão Digital.
-        </p>
+        <a href="#inicio" class="footer-focus">
+          <i
+            data-lucide="arrow-up-circle"
+            aria-hidden="true"
+          ></i>
+          <span class="visually-hidden"
+            >Voltar ao topo</span
+          >
+        </a>
       </div>
     </footer>
 
@@ -603,7 +605,7 @@
       </div>
     </div>
 
-    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./src/scripts/script.js"></script>
   </body>
 </html>
