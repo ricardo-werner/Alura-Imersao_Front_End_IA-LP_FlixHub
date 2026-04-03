@@ -130,8 +130,8 @@
     if (footerLogo) {
       footerLogo.src =
         theme === THEME_LIGHT
-          ? './src/assets/images/torre_light.webp'
-          : './src/assets/images/torre_dark.webp';
+          ? './src/assets/images/RicWerner-LogoDay.png'
+          : './src/assets/images/RicWerner-LogoNight.png';
     }
   };
 
