@@ -19,7 +19,7 @@
   ];
   const DEFAULT_PROFILE_LABELS = {
     observador: 'O Observador',
-    explorador: 'O Explorador',
+    explorador: 'A Exploradora',
     guardiao: 'O Guardião',
   };
   const LEGACY_PROFILE_ID_MAP = {
