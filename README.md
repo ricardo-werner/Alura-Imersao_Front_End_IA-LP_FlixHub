@@ -122,6 +122,14 @@ Implementações aplicadas no projeto:
 
 ## 📌 Entrega mais recente
 
+### 2026-04-04 — Labels dinâmicos e ciclo de navegação fechado
+
+- botão `#switch-profile-trigger` agora adapta o texto dinamicamente conforme estado de perfil ativo:
+  - **Escolher Arquétipo** (sem perfil ativo);
+  - **Trocar Arquétipo** (com perfil ativo).
+- fluxo do item de menu **Minha Jornada** reforçado para cenários sem perfil ativo: o clique é interceptado (`preventDefault`) e o modal `#profile-dialog` é aberto imediatamente para guiar a ação.
+- seção final `#minha-lista` atualizada para retornar ao topo estratégico da navegação lateral com `data-return-link="menu-inicio"`, melhorando reinício de ciclo e orientação de foco.
+
 ### 2026-04-04 — Ajuste de retorno ao menu na Home (Em destaque)
 
 - adicionado botão **Voltar ao menu** dentro da seção **Em destaque** (`#btn-voltar-destaque`), apontando para `#menu-inicio`.

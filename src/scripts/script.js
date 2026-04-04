@@ -312,6 +312,19 @@
     });
   };
 
+  const updateSwitchProfileTriggerLabel = () => {
+    if (!switchProfileTrigger) return;
+
+    const labelElement =
+      switchProfileTrigger.querySelector('span');
+
+    if (!labelElement) return;
+
+    labelElement.textContent = activeProfileId
+      ? 'Trocar Arquétipo'
+      : 'Escolher Arquétipo';
+  };
+
   const setActiveProfile = (profileId) => {
     if (!PROFILE_IDS.includes(profileId)) return;
 
@@ -319,6 +332,7 @@
     localStorage.setItem(ACTIVE_PROFILE_KEY, profileId);
     updateProfileButtonsState();
     updateActiveProfileStatus();
+    updateSwitchProfileTriggerLabel();
     renderCatalogActions();
     renderMinhaLista();
   };
@@ -328,6 +342,7 @@
     localStorage.removeItem(ACTIVE_PROFILE_KEY);
     updateProfileButtonsState();
     updateActiveProfileStatus();
+    updateSwitchProfileTriggerLabel();
     renderCatalogActions();
     renderMinhaLista();
   };
@@ -896,6 +911,7 @@
   saveProfileLists(profileLists);
   updateProfileButtonsState();
   updateActiveProfileStatus();
+  updateSwitchProfileTriggerLabel();
   renderMinhaLista();
   renderCatalogActions();
 
@@ -1080,7 +1096,7 @@
 
     event.preventDefault();
     intentToScrollMinhaLista = true;
-    openProfileDialog(menuMinhaListaLink);
+    openProfileDialog(event.currentTarget);
   });
 
   profileDialogChooseButton?.addEventListener(
