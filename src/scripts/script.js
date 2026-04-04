@@ -1121,14 +1121,12 @@
     () => {
       closeSwitchProfileModal({ restoreFocus: false });
       clearActiveProfile();
-      intentToScrollMinhaLista = false;
+      intentToScrollMinhaLista = true;
+      navigateToHomeSection();
 
-      profilesSection?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-
-      focusProfilesHeadingWhenVisible();
+      if (!menuInicioLink) {
+        focusProfilesHeadingWhenVisible();
+      }
     }
   );
 

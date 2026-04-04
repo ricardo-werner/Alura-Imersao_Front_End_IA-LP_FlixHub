@@ -122,9 +122,10 @@ Implementações aplicadas no projeto:
 
 ## 📌 Entrega mais recente
 
-### 2026-04-04 — Atualização de nomenclatura do arquétipo
+### 2026-04-04 — Fluxo SPA na troca de arquétipo
 
-- atualização de nomenclatura do arquétipo para **A Exploradora** (UI, fallback JS e metadados de acessibilidade), com migração automática de persistência (`perfilAtivo`/`flixhub_jornadas`) de `explorador` para `exploradora`.
+- correção do fluxo **Trocar Arquétipo** no modal de confirmação: ao confirmar, o app limpa o perfil ativo, mantém a intenção de retorno para **Minha Jornada** e navega para **Início** via SPA.
+- manutenção da experiência bate-e-volta: após escolher um novo arquétipo na Home, o usuário retorna automaticamente para `#minha-lista`.
 
 ---
 
