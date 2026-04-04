@@ -1029,13 +1029,17 @@
       setActiveProfile(profileId);
 
       if (intentToScrollMinhaLista) {
-        const minhaListaSection =
-          document.getElementById('minha-lista');
+        if (menuMinhaListaLink) {
+          menuMinhaListaLink.click();
+        } else {
+          const minhaListaSection =
+            document.getElementById('minha-lista');
 
-        minhaListaSection?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
+          minhaListaSection?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
 
         focusMinhaListaTitleWhenVisible();
 
