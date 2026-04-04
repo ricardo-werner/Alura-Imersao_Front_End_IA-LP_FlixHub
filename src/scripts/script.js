@@ -14,17 +14,18 @@
   const SCALE_OPTIONS = ['100', '110', '125'];
   const PROFILE_IDS = [
     'observador',
-    'explorador',
+    'exploradora',
     'guardiao',
   ];
   const DEFAULT_PROFILE_LABELS = {
     observador: 'O Observador',
-    explorador: 'A Exploradora',
+    exploradora: 'A Exploradora',
     guardiao: 'O Guardião',
   };
   const LEGACY_PROFILE_ID_MAP = {
     'perfil-1': 'observador',
-    'perfil-2': 'explorador',
+    'perfil-2': 'exploradora',
+    explorador: 'exploradora',
     'perfil-3': 'guardiao',
   };
 
