@@ -126,6 +126,7 @@ Implementações aplicadas no projeto:
 
 - ajuste do botão `Escolher arquétipo` (`#profile-dialog-choose`) para fechar o modal e acionar navegação SPA para `#inicio` via JavaScript;
 - remoção da dependência exclusiva de `scrollIntoView` nesse fluxo, evitando falha quando a Home está com seções ocultas por `.is-hidden`;
+- ajuste do clique dos arquétipos para, quando `intentToScrollMinhaLista` estiver ativo, acionar navegação SPA para `#minha-lista` via menu antes de resetar a flag;
 - preservação do estado `intentToScrollMinhaLista`, garantindo retorno automático para `#minha-lista` após seleção de arquétipo.
 
 ---
