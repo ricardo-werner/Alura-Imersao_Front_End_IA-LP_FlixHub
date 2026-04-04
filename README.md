@@ -122,6 +122,13 @@ Implementações aplicadas no projeto:
 
 ## 📌 Entrega mais recente
 
+### 2026-04-04 — Ajuste de retorno ao menu na Home (Em destaque)
+
+- adicionado botão **Voltar ao menu** dentro da seção **Em destaque** (`#btn-voltar-destaque`), apontando para `#menu-inicio`.
+- refinado o layout do bloco **Em destaque** para manter texto à esquerda e ação alinhada à direita em desktop.
+- definido comportamento responsivo no mobile: o botão quebra para baixo do texto e permanece alinhado à direita, preservando hierarquia visual e foco de teclado.
+- mantida a renderização dos ícones Lucide no fluxo atual (`ensureLucideIcons` + `createIcons`), sem necessidade de chamada manual adicional.
+
 ### 2026-04-04 — Fluxo SPA na troca de arquétipo
 
 - correção do fluxo **Trocar Arquétipo** no modal de confirmação: ao confirmar, o app limpa o perfil ativo, mantém a intenção de retorno para **Minha Jornada** e navega para **Início** via SPA.
