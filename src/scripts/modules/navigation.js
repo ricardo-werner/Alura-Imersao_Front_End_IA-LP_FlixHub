@@ -69,6 +69,29 @@ const focusVisibleHeading = (section) => {
   heading?.focus({ preventScroll: true });
 };
 
+const KEYBOARD_ACTIVATION_KEYS = ['Enter', ' ', 'Spacebar'];
+
+const isKeyboardActivationKey = (event) =>
+  KEYBOARD_ACTIVATION_KEYS.includes(event.key);
+
+const getFirstInteractiveElement = (container) => {
+  if (!container) return null;
+
+  const interactiveSelector =
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  const interactiveElements = Array.from(
+    container.querySelectorAll(interactiveSelector)
+  ).filter(
+    (element) =>
+      element instanceof HTMLElement &&
+      !element.hasAttribute('disabled') &&
+      element.getAttribute('aria-hidden') !== 'true'
+  );
+
+  return interactiveElements[0] || null;
+};
+
 export const initNavigation = ({
   mainSelector = '#main-content',
   menuSelector = 'aside nav a[href^="#"]',
@@ -160,6 +183,47 @@ export const initNavigation = ({
     }
   };
 
+  const focusFirstInteractiveByTarget = (targetId) => {
+    const normalizedId = normalizeTargetId(targetId);
+
+    const container =
+      normalizedId === 'inicio'
+        ? homeSections.find(
+            (section) =>
+              !section.classList.contains(HIDDEN_CLASS)
+          ) || homeSections[0]
+        : sectionById[normalizedId];
+
+    const firstInteractive =
+      getFirstInteractiveElement(container);
+
+    if (firstInteractive) {
+      firstInteractive.focus({ preventScroll: true });
+      return;
+    }
+
+    if (normalizedId === 'inicio') {
+      focusVisibleHeading(homeSections[0]);
+      return;
+    }
+
+    focusVisibleHeading(sectionById[normalizedId]);
+  };
+
+  const activateMenuNavigation = (
+    targetId,
+    { fromKeyboard = false } = {}
+  ) => {
+    showSection(targetId, {
+      shouldFocus: !fromKeyboard,
+      updateHash: true,
+    });
+
+    if (fromKeyboard) {
+      focusFirstInteractiveByTarget(targetId);
+    }
+  };
+
   menuLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetId = link
@@ -169,7 +233,22 @@ export const initNavigation = ({
       if (!targetId) return;
 
       event.preventDefault();
-      showSection(targetId);
+      activateMenuNavigation(targetId);
+    });
+
+    link.addEventListener('keydown', (event) => {
+      if (!isKeyboardActivationKey(event)) return;
+
+      const targetId = link
+        .getAttribute('href')
+        ?.replace('#', '');
+
+      if (!targetId) return;
+
+      event.preventDefault();
+      activateMenuNavigation(targetId, {
+        fromKeyboard: true,
+      });
     });
   });
 

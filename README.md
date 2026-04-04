@@ -126,6 +126,7 @@ Implementações aplicadas no projeto:
 
 - correção do fluxo **Trocar Arquétipo** no modal de confirmação: ao confirmar, o app limpa o perfil ativo, mantém a intenção de retorno para **Minha Jornada** e navega para **Início** via SPA.
 - manutenção da experiência bate-e-volta: após escolher um novo arquétipo na Home, o usuário retorna automaticamente para `#minha-lista`.
+- correção de acessibilidade no menu lateral: ativação por teclado (`Enter`/`Espaço`) agora executa a mesma navegação SPA do clique e move o foco para o primeiro elemento interativo da seção aberta.
 
 ---
 

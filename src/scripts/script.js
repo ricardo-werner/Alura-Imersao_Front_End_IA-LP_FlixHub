@@ -1146,52 +1146,6 @@
     trapSwitchProfileModalFocus
   );
 
-  const sidebarMenuLinks = Array.from(
-    document.querySelectorAll('aside nav a[href^="#"]')
-  );
-
-  const getTargetSection = (menuLink) => {
-    const targetId = menuLink
-      .getAttribute('href')
-      ?.replace('#', '');
-
-    if (!targetId) return null;
-
-    return document.getElementById(targetId);
-  };
-
-  const focusFirstCardInSection = (section) => {
-    const firstCard = section.querySelector('.media-card');
-
-    if (!firstCard) return;
-
-    section.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-    firstCard.focus();
-  };
-
-  const isSectionShortcutKey = (event) =>
-    event.key === ' ' ||
-    event.key === 'Spacebar' ||
-    event.key === 'Enter';
-
-  sidebarMenuLinks.forEach((menuLink) => {
-    menuLink.addEventListener('keydown', (event) => {
-      if (!isSectionShortcutKey(event)) return;
-
-      const section = getTargetSection(menuLink);
-
-      if (!section?.classList.contains('media-section')) {
-        return;
-      }
-
-      event.preventDefault();
-      focusFirstCardInSection(section);
-    });
-  });
-
   const backToMenuButtons = document.querySelectorAll(
     '.back-to-menu[data-return-link]'
   );
