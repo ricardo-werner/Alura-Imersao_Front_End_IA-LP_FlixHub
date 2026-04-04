@@ -124,7 +124,7 @@ Implementações aplicadas no projeto:
 
 ### 2026-04-04 — Atualização de nomenclatura do arquétipo
 
-- atualização de nomenclatura do arquétipo para **A Exploradora** (UI, fallback JS e metadados de acessibilidade), mantendo IDs semânticos existentes para compatibilidade de persistência.
+- atualização de nomenclatura do arquétipo para **A Exploradora** (UI, fallback JS e metadados de acessibilidade), com migração automática de persistência (`perfilAtivo`/`flixhub_jornadas`) de `explorador` para `exploradora`.
 
 ---
 
