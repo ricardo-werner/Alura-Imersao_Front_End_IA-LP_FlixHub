@@ -1,12 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap');
-
 :root {
   --font-base:
-    'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+    'Oswald', 'Roboto', sans-serif;
   --font-dyslexia:
-    'Lexend', 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue',
-    Arial, sans-serif;
+    'Lexend', 'Atkinson Hyperlegible', 'Open Sans', sans-serif;
   --bg: #0b0f14;
   --bg-elev: #11161d;
   --bg-card: #11161d;

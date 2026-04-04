@@ -21,7 +21,7 @@ Projeto construído em HTML/CSS/JavaScript puro, ideal para portfólio por demon
 ## ✨ Principais funcionalidades
 
 - **Tema claro/escuro** com persistência em `localStorage`
-- **Modo dislexia** com fonte legível e estado persistido
+- **Modo dislexia** com tipografia legível (`Lexend` + `Atkinson Hyperlegible`) e estado persistido
 - **Escala tipográfica** (`100% → 110% → 125%`) para baixa visão
 - **Menu de acessibilidade responsivo** (mobile + desktop)
 - **Seleção de arquétipo** com status textual em tempo real
