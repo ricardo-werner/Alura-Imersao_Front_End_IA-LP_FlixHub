@@ -72,6 +72,8 @@
   const menuMinhaListaLink = document.getElementById(
     'menu-minha-lista'
   );
+  const menuInicioLink =
+    document.getElementById('menu-inicio');
   const minhaListaTitle = document.getElementById(
     'minha-lista-titulo'
   );
@@ -378,6 +380,15 @@
     }
 
     profilesHeading.focus({ preventScroll: true });
+  };
+
+  const navigateToHomeSection = () => {
+    if (menuInicioLink) {
+      menuInicioLink.click();
+      return;
+    }
+
+    jumpToProfilesSection();
   };
 
   const getFocusableElements = (container) => {
@@ -1071,7 +1082,7 @@
     'click',
     () => {
       closeProfileDialog({ restoreFocus: false });
-      jumpToProfilesSection();
+      navigateToHomeSection();
     }
   );
 
