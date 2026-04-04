@@ -37,15 +37,26 @@ Projeto construído em HTML/CSS/JavaScript puro, ideal para portfólio por demon
 ### Estrutura de pastas
 
 - `index.html` — estrutura principal da aplicação
-- `src/scripts/script.js` — estado global, eventos, renderização e acessibilidade
+- `src/scripts/main.js` — entrypoint em ES Modules
+- `src/scripts/modules/navigation.js` — controle de telas (show/hide), foco e estado de navegação
+- `src/scripts/script.js` — módulo legado (ainda centraliza acessibilidade/perfis/jornada nesta fase iterativa)
 - `src/styles/style.css` — estilos base e componentes visuais
 - `src/styles/responsive.css` — ajustes por breakpoint
 - `src/assets/images/` — assets da interface (perfis e mídias)
 - `teste/` — laboratório local de validações e QA manual
 
+### Organização alvo (próximas iterações)
+
+- `src/scripts/modules/accessibility.js`
+- `src/scripts/modules/profileManager.js`
+- `src/scripts/modules/journeyList.js`
+- `src/scripts/modules/navigation.js`
+- `src/scripts/main.js`
+
 ### Decisões técnicas relevantes
 
 - **Layout semântico** com `header`, `aside`, `main` e `footer`
+- **Navegação por seções com classe utilitária `.is-hidden`** (uma tela principal visível por vez)
 - **Design tokens** via CSS Custom Properties
 - **Responsividade mobile-first** (`640`, `768`, `1024`, `1280`, `1536`)
 - **Persistência local** para preferências e jornada por arquétipo
@@ -111,12 +122,13 @@ Implementações aplicadas no projeto:
 
 ## 📌 Entrega mais recente
 
-### 2026-04-03 — Refatoração profissional do README
+### 2026-04-03 — Base de modularização com ES Modules e correção da navegação de telas
 
-- reposicionamento do README para leitura de portfólio (foco em valor entregue);
-- consolidação da estrutura em formato escaneável para recrutadores e devs;
-- manutenção do padrão de seção de mídia (imagens em grade + dois botões de vídeo);
-- simplificação da seção de histórico para destacar a entrega atual com referência ao changelog interno.
+- migração do carregamento JS no HTML para `type="module"` usando `src/scripts/main.js`;
+- criação do módulo `src/scripts/modules/navigation.js` com controle centralizado de exibição/ocultação de seções;
+- correção do bug de sobreposição/omissão de conteúdo ao navegar pelo menu lateral (incluindo preservação de títulos `<h2>`);
+- implementação da classe `.is-hidden { display: none !important; }` para ocultar seções inativas de forma consistente;
+- manutenção do foco acessível ao trocar de tela (foco no heading da seção ativa).
 
 ---
 

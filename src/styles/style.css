@@ -977,6 +977,10 @@ article p {
   border: 0;
 }
 
+.is-hidden {
+  display: none !important;
+}
+
 .site-footer {
   grid-area: footer;
   background-color: var(--footer-background, transparent);
