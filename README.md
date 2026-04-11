@@ -84,15 +84,24 @@ Implementações aplicadas no projeto:
 
 <table align="center">
   <tr>
-    <td align="center"><img width="360" src="./src/to_readme/flixhub_home_light.png" alt="Tela inicial clara do FlixHub" /></td>
-    <td align="center"><img width="360" src="./src/to_readme/flixhub_home_dark.png" alt="Tela inicial escura do FlixHub" /></td>
+    <td align="center"><img width="360" src="./src/to_readme/Flix_100.png" alt="Tela inicial clara do FlixHub" /></td>
   </tr>
   <tr>
-    <td align="center"><img width="300" src="./src/to_readme/flixhub_a11y_menu.png" alt="Menu de acessibilidade no FlixHub" /></td>
-    <td align="center"><img width="300" src="./src/to_readme/flixhub_minha_jornada.png" alt="Seção Minha Jornada por arquétipo" /></td>
+    <td align="center"><img width="360" src="./src/to_readme/Flix_Dislexia_100.png" alt="Tela inicial escura do FlixHub" /></td>
+    <td align="center"><img width="360" src="./src/to_readme/Flix_Dislexia_100_Light.png" alt="Tela inicial clara do FlixHub" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/flixhub_mobile.png" alt="Versão mobile do FlixHub" /></td>
+    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Contos.png" alt="Menu de acessibilidade no FlixHub" /></td>
+    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Ecos.png" alt="Seção Minha Jornada por arquétipo" /></td>
+    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Originais.png" alt="Seção Minha Jornada por arquétipo" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Modal.png" alt="Versão mobile do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Jornada.png" alt="Versão mobile do FlixHub" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_LocalStorage.png" alt="Versão mobile do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Lighthouse.png" alt="Versão mobile do FlixHub" /></td>
   </tr>
 </table>
 
