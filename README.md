@@ -84,24 +84,24 @@ Implementações aplicadas no projeto:
 
 <table align="center">
   <tr>
-    <td align="center"><img width="360" src="./src/to_readme/Flix_100.png" alt="Tela inicial clara do FlixHub" /></td>
+    <td align="center"><img width="360" src="./src/to_readme/Flix_100.png" alt="Tela inicial dark do FlixHub" /></td>
   </tr>
   <tr>
-    <td align="center"><img width="360" src="./src/to_readme/Flix_Dislexia_100.png" alt="Tela inicial escura do FlixHub" /></td>
-    <td align="center"><img width="360" src="./src/to_readme/Flix_Dislexia_100_Light.png" alt="Tela inicial clara do FlixHub" /></td>
+    <td align="center"><img width="360" src="./src/to_readme/Flix_Dislexia_100.png" alt="Tela inicial com tecla Dislexia ativada do FlixHub" /></td>
+    <td align="center"><img width="360" src="./src/to_readme/Flix_Dislexia_100_Light.png" alt="Tela inicial clara com tecla Dislexia ativada do FlixHub" /></td>
   </tr>
   <tr>
-    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Contos.png" alt="Menu de acessibilidade no FlixHub" /></td>
-    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Ecos.png" alt="Seção Minha Jornada por arquétipo" /></td>
-    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Originais.png" alt="Seção Minha Jornada por arquétipo" /></td>
+    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Contos.png" alt="Área com informações dos filmes da seção Crônicas do Véu do FlixHub" /></td>
+    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Originais.png" alt="Área com informações dos filmes da seção Lendas da Penumbra do FlixHub" /></td>
+    <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Ecos.png" alt="Área com informações dos filmes da seção Bombando do FlixHub" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Modal.png" alt="Versão mobile do FlixHub" /></td>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Jornada.png" alt="Versão mobile do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_DIslexia_Modal.png" alt="Versão mobile do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Dislexia_Jornada.png" alt="Versão mobile do FlixHub" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_LocalStorage.png" alt="Versão mobile do FlixHub" /></td>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Lighthouse.png" alt="Versão mobile do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_LocalStorage.png" alt="Área do LocalStorage com as informações das ações realizadas no aplicativo do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Lighthouse.png" alt="Área com informações de performance do projeto FlixHub" /></td>
   </tr>
 </table>
 
