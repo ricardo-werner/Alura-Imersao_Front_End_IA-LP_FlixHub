@@ -96,12 +96,12 @@ Implementações aplicadas no projeto:
     <td align="center"><img width="300" src="./src/to_readme/Flix_Dislexia_Ecos.png" alt="Área com informações dos filmes da seção Bombando do FlixHub" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_DIslexia_Modal.png" alt="Versão mobile do FlixHub" /></td>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Dislexia_Jornada.png" alt="Versão mobile do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/Flix_Dislexia_Modal.png" alt="Versão mobile do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/Flix_Dislexia_Jornada.png" alt="Versão mobile do FlixHub" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_LocalStorage.png" alt="Área do LocalStorage com as informações das ações realizadas no aplicativo do FlixHub" /></td>
-    <td colspan="2" align="center"><img width="180" src="./src/to_readme/FLix_Lighthouse.png" alt="Área com informações de performance do projeto FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/Flix_LocalStorage.PNG" alt="Área do LocalStorage com as informações das ações realizadas no aplicativo do FlixHub" /></td>
+    <td colspan="2" align="center"><img width="180" src="./src/to_readme/Flix_Lighthouse.PNG" alt="Área com informações de performance do projeto FlixHub" /></td>
   </tr>
 </table>
 
